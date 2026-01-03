@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -16,19 +17,29 @@
 
     <!-- Premium Page Loader -->
     <div class="loader-wrapper">
-        <div class="loader-content">
-            <div class="loader-logo-container">
-                <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="SBITM Logo"
-                    class="loader-logo">
-            </div>
-            <div class="loader-text">SBITM</div>
-            <div class="loader-bar-container">
-                <div class="loader-bar"></div>
+        <div class="cube-scene">
+            <div class="cube">
+                <div class="cube-face cube-face-front">
+                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="Logo">
+                </div>
+                <div class="cube-face cube-face-back">
+                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="Logo">
+                </div>
+                <div class="cube-face cube-face-right">
+                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="Logo">
+                </div>
+                <div class="cube-face cube-face-left">
+                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="Logo">
+                </div>
+                <div class="cube-face cube-face-top">
+                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="Logo">
+                </div>
+                <div class="cube-face cube-face-bottom">
+                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="Logo">
+                </div>
             </div>
         </div>
-        <!-- Decorative Elements for "Premium" Feel -->
-        <div class="loader-curtain left"></div>
-        <div class="loader-curtain right"></div>
+        <div class="loader-text" style="margin-top: 50px;">SBITM</div>
     </div>
 
     <!-- Navbar -->
@@ -156,6 +167,16 @@
             glare: true,
             "max-glare": 0.2,
             scale: 1.05
+        });
+    </script>
+
+    <!-- Loader Logic -->
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.loader-wrapper').classList.add('loaded');
+                document.body.classList.add('page-loaded');
+            }, 2500);
         });
     </script>
 

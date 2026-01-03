@@ -1,5 +1,5 @@
 /* =========================================
-   Premium Page Loader
+   Premium 3D Cube Loader
    ========================================= */
 .loader-wrapper {
     position: fixed;
@@ -7,43 +7,166 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #020617;
-    /* Deepest dark */
+    /* Transparent background to show the #bg-canvas behind */
+    background: rgba(2, 6, 23, 0.85);
+    /* Slight dark overlay to make cube pop */
+    backdrop-filter: blur(5px);
+    /* Premium blur effect */
     z-index: 99999;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: visibility 1.5s ease-in-out, opacity 1.5s ease-in-out;
+    perspective: 1200px;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
 .loader-wrapper.loaded {
-    visibility: hidden;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
 }
 
-.loader-content {
-    text-align: center;
+/* Scene Setup */
+.cube-scene {
+    width: 140px;
+    height: 140px;
     position: relative;
-    z-index: 100000;
-    transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1), opacity 1.2s ease;
+    transform-style: preserve-3d;
 }
 
-.loader-wrapper.loaded .loader-content {
-    transform: translateY(-50px) scale(0.9);
+/* The Cube */
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(-45deg);
+    animation: advancedSpin 4s infinite linear;
+}
+
+/* Cube Faces - Glassmorphism */
+.cube-face {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background: rgba(255, 255, 255, 0.03);
+    /* Subtle glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.15) inset,
+        /* Inner blue glow */
+        0 0 10px rgba(59, 130, 246, 0.3);
+    /* Outer border glow */
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: visible;
+}
+
+/* Specific Face Styling - Gradient Borders */
+.cube-face::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-top-color: var(--primary);
+    border-bottom-color: var(--accent);
+    opacity: 0.7;
+    border-radius: 2px;
+}
+
+/* Logo Styling */
+.cube-face img {
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateZ(0) scale(1);
+    }
+
+    50% {
+        transform: translateZ(10px) scale(1.05);
+    }
+}
+
+/* Positioning */
+.cube-face-front {
+    transform: rotateY(0deg) translateZ(70px);
+}
+
+.cube-face-back {
+    transform: rotateY(180deg) translateZ(70px);
+}
+
+.cube-face-right {
+    transform: rotateY(90deg) translateZ(70px);
+}
+
+.cube-face-left {
+    transform: rotateY(-90deg) translateZ(70px);
+}
+
+.cube-face-top {
+    transform: rotateX(90deg) translateZ(70px);
+}
+
+.cube-face-bottom {
+    transform: rotateX(-90deg) translateZ(70px);
+}
+
+/* Advanced Multi-Axis Spin */
+@keyframes advancedSpin {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+    }
+}
+
+/* Loading Text */
+.loader-text {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #fff, var(--primary), var(--accent));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 60px;
+    animation: shineText 3s linear infinite;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+@keyframes shineText {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Page Reveal Effect */
+main,
+nav,
+footer {
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.2s ease;
+    transform: scale(0.95);
+    /* Subtle scale */
     opacity: 0;
 }
 
-/* ... (middle content skipped) ... */
-
-/* Curtain Effect / Main Content Reveal */
-main {
-    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.5s ease;
-    transform: scale(0.92);
-    opacity: 0;
-}
-
-body.page-loaded main {
+body.page-loaded main,
+body.page-loaded nav,
+body.page-loaded footer {
     transform: scale(1);
     opacity: 1;
 }
