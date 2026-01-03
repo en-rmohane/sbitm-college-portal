@@ -1,0 +1,217 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container section-padding">
+    <div class="text-center animate-up">
+        <h1 class="section-title">Academics</h1>
+        <p style="margin-bottom: 60px; color: var(--text-dim); font-size: 1.2rem;">Fostering Excellence in Teaching,
+            Learning, and Research.</p>
+    </div>
+
+    <!-- Academic Calendar & Notices Grid -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-bottom: 60px;">
+        <!-- Left Column: Academic Calendar -->
+        <div class="class-card animate-up delay-100">
+            <div class="glass-card" style="padding: 30px;">
+                <h3 style="margin-bottom: 25px; color: var(--primary); display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-calendar-alt"></i> Academic Calendar (2024-25)
+                </h3>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; color: var(--text-dim);">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--glass-border); text-align: left;">
+                                <th style="padding: 15px; color: var(--text-light); width: 30%;">Event / Activity</th>
+                                <th style="padding: 15px; color: var(--text-light); width: 30%;">Date / Duration</th>
+                                <th style="padding: 15px; color: var(--text-light); width: 40%;">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 15px; color: var(--accent); font-weight: 500;">Odd Sem Session Start
+                                </td>
+                                <td style="padding: 15px;">July 15, 2024</td>
+                                <td style="padding: 15px;">Commencement of classes for III, V, VII Semesters.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 15px; color: var(--accent); font-weight: 500;">Orientation Program
+                                </td>
+                                <td style="padding: 15px;">Aug 01 - Aug 05, 2024</td>
+                                <td style="padding: 15px;">Welcome ceremony and induction for 1st Year students.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 15px; color: var(--accent); font-weight: 500;">Mid-Semester Exams
+                                    (MST-1)</td>
+                                <td style="padding: 15px;">Sept 20 - Sept 25, 2024</td>
+                                <td style="padding: 15px;">First internal assessment for all branches.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 15px; color: var(--accent); font-weight: 500;">Tech Fest (Aarohan)
+                                </td>
+                                <td style="padding: 15px;">Oct 15 - Oct 17, 2024</td>
+                                <td style="padding: 15px;">Annual technical symposium with coding, robotics, and
+                                    workshops.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 15px; color: var(--accent); font-weight: 500;">Mid-Semester Exams
+                                    (MST-2)</td>
+                                <td style="padding: 15px;">Nov 10 - Nov 15, 2024</td>
+                                <td style="padding: 15px;">Second internal assessment and lab evaluations.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 15px; color: var(--accent); font-weight: 500;">End Semester Exams
+                                </td>
+                                <td style="padding: 15px;">Dec 05 - Dec 24, 2024</td>
+                                <td style="padding: 15px;">RGPV University theory and practical examinations.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 20px; text-align: right;">
+                    <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 8px 20px;">
+                        <i class="fas fa-download"></i> Download Full Calendar PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Latest Notices -->
+        <div class="animate-up delay-200">
+            <div class="glass-card" style="height: 100%; padding: 30px;">
+                <h3 style="margin-bottom: 25px; color: var(--accent); display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-bell"></i> Notice Board
+                </h3>
+                <div style="max-height: 450px; overflow-y: auto; padding-right: 10px;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li
+                            style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                <span
+                                    style="font-size: 0.75rem; background: var(--primary); padding: 2px 8px; border-radius: 4px; color: white;">EXAM</span>
+                                <span style="font-size: 0.8rem; color: var(--text-dim);">Dec 28, 2024</span>
+                            </div>
+                            <p style="font-weight: 500; color: var(--text-light);">Exam form submission last date
+                                extended without late fee.</p>
+                        </li>
+                        <li
+                            style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                <span
+                                    style="font-size: 0.75rem; background: var(--accent); padding: 2px 8px; border-radius: 4px; color: black;">HOLIDAY</span>
+                                <span style="font-size: 0.8rem; color: var(--text-dim);">Dec 25, 2024</span>
+                            </div>
+                            <p style="font-weight: 500; color: var(--text-light);">College will remain closed on account
+                                of Christmas & New Year.</p>
+                        </li>
+                        <li
+                            style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                <span
+                                    style="font-size: 0.75rem; background: #10b981; padding: 2px 8px; border-radius: 4px; color: white;">PLACEMENT</span>
+                                <span style="font-size: 0.8rem; color: var(--text-dim);">Dec 20, 2024</span>
+                            </div>
+                            <p style="font-weight: 500; color: var(--text-light);">TCS NQT Registration Open. Final year
+                                students to apply.</p>
+                        </li>
+                        <li
+                            style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                <span
+                                    style="font-size: 0.75rem; background: var(--primary); padding: 2px 8px; border-radius: 4px; color: white;">SCHOLARSHIP</span>
+                                <span style="font-size: 0.8rem; color: var(--text-dim);">Dec 10, 2024</span>
+                            </div>
+                            <p style="font-weight: 500; color: var(--text-light);">Post-Matric Scholarship portal is now
+                                active.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Examination Cell -->
+    <div class="glass-card animate-up delay-300" style="padding: 40px; margin-bottom: 60px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 style="color: var(--text-light); margin-bottom: 20px;">Examination Cell</h2>
+                <p style="color: var(--text-dim); margin-bottom: 20px; line-height: 1.8;">
+                    The Examination Cell is responsible for the transparent and efficient conduct of Internal (Mid-Sem)
+                    and University (End-Sem) examinations. We adhere to the guidelines set by RGPV Bhopal.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div
+                        style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px; border: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--primary); margin-bottom: 5px;">Strict Proctoring</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">CCTV monitored exam halls.</p>
+                    </div>
+                    <div
+                        style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px; border: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--primary); margin-bottom: 5px;">Online Evaluation</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Faster result processing.</p>
+                    </div>
+                </div>
+                <a href="https://www.rgpv.ac.in/" target="_blank" class="btn btn-primary">Visit RGPV Portal</a>
+            </div>
+            <div style="flex: 1; min-width: 300px; text-align: center;">
+                <!-- Icon Visualization -->
+                <i class="fas fa-file-signature" style="font-size: 8rem; color: rgba(255,255,255,0.1);"></i>
+                <div style="margin-top: -4rem;">
+                    <h3 style="color: var(--accent); font-size: 2.5rem;">100%</h3>
+                    <p style="color: var(--text-light);">Fair Conduct</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Research & Library -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <!-- Digital Library -->
+        <div class="glass-card animate-up delay-200" style="padding: 30px;">
+            <h3 style="margin-bottom: 20px; color: var(--text-light);"><i class="fas fa-book-reader text-primary"
+                    style="margin-right: 10px;"></i> Start-of-the-Art Library</h3>
+            <p style="color: var(--text-dim); margin-bottom: 20px;">
+                Our library is a treasure house of knowledge with over 20,000+ books, 5000+ E-books, and subscriptions
+                to IEEE & Springer journals.
+            </p>
+            <ul style="list-style: none; margin-bottom: 25px;">
+                <li style="margin-bottom: 10px; color: var(--text-dim);"><i class="fas fa-check text-accent"
+                        style="margin-right: 10px;"></i> DELNET Membership</li>
+                <li style="margin-bottom: 10px; color: var(--text-dim);"><i class="fas fa-check text-accent"
+                        style="margin-right: 10px;"></i> Digital Reference Section</li>
+                <li style="margin-bottom: 10px; color: var(--text-dim);"><i class="fas fa-check text-accent"
+                        style="margin-right: 10px;"></i> 24x7 Reading Room</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="width: 100%; text-align: center;">Access OPAC Catalog</a>
+        </div>
+
+        <!-- Research -->
+        <div class="glass-card animate-up delay-200" style="padding: 30px;">
+            <h3 style="margin-bottom: 20px; color: var(--text-light);"><i class="fas fa-flask text-primary"
+                    style="margin-right: 10px;"></i> Research & Development</h3>
+            <p style="color: var(--text-dim); margin-bottom: 20px;">
+                Promoting a culture of research among students and faculty. We encourage publishing papers and patent
+                filing.
+            </p>
+            <div style="display: flex; gap: 20px; margin-bottom: 25px;">
+                <div style="text-align: center;">
+                    <h4 style="color: var(--accent); font-size: 1.8rem;">50+</h4>
+                    <span style="font-size: 0.85rem; color: var(--text-dim);">Papers Published</span>
+                </div>
+                <div style="text-align: center;">
+                    <h4 style="color: var(--accent); font-size: 1.8rem;">10+</h4>
+                    <span style="font-size: 0.85rem; color: var(--text-dim);">Patents FIled</span>
+                </div>
+                <div style="text-align: center;">
+                    <h4 style="color: var(--accent); font-size: 1.8rem;">5</h4>
+                    <span style="font-size: 0.85rem; color: var(--text-dim);">Research Labs</span>
+                </div>
+            </div>
+            <a href="#" class="btn btn-outline" style="width: 100%; text-align: center;">View Publications</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

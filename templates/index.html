@@ -1,0 +1,234 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content animate-up">
+        <h1 style="font-size: 4rem; letter-spacing: -1px; margin-bottom: 25px;">
+            Forge Your Destiny at <br> <span style="color: var(--accent);">SBITM</span>
+        </h1>
+        <p style="font-size: 1.4rem; color: #e2e8f0; font-weight: 300;">
+            Where <span style="color: var(--primary); font-weight: 600;">Innovation</span> meets <span
+                style="color: var(--accent); font-weight: 600;">Excellence</span>.
+            We don't just teach Engineering; we craft the Legends of Tomorrow.
+        </p>
+        <div style="margin-top: 40px;">
+            <a href="{{ url_for('admission') }}" class="btn btn-primary"
+                style="padding: 15px 40px; font-size: 1.1rem; border-radius: 30px;">
+                Start Your Journey
+            </a>
+            <a href="{{ url_for('about') }}" class="btn btn-outline"
+                style="margin-left: 20px; padding: 15px 40px; font-size: 1.1rem; border-radius: 30px;">
+                Discover More
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features / Highlights -->
+<section class="container" style="padding-bottom: 80px;">
+    <div class="feature-grid">
+        <div class="feature-card animate-up delay-100">
+            <i class="fas fa-microchip feature-icon"></i>
+            <h3>Modern Labs</h3>
+            <p>State-of-the-art computer labs and mechanical workshops properly equipped for practical learning.</p>
+        </div>
+        <div class="feature-card animate-up delay-200">
+            <i class="fas fa-user-graduate feature-icon"></i>
+            <h3>Expert Faculty</h3>
+            <p>Learn from experienced professors and industry experts dedicated to your academic success.</p>
+        </div>
+        <div class="feature-card animate-up delay-300">
+            <i class="fas fa-briefcase feature-icon"></i>
+            <h3>Top Placements</h3>
+            <p>Consistent placement record with top MNCs. We groom you for the corporate world.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About Brief -->
+<section class="section-padding" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+        <div class="glass-card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Welcome to SBITM</h2>
+                <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-dim);">
+                    SBITM (Shri Balaji Institute of Technology and Management) is a premier engineering institution
+                    dedicated to nurturing technical talent. With a focus on holistic development, we offer cutting-edge
+                    courses in Engineering and Management.
+                </p>
+                <ul style="list-style: none; margin-bottom: 30px;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"
+                            style="margin-right: 10px;"></i> AICTE Approved</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"
+                            style="margin-right: 10px;"></i> RGPV Affiliated</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"
+                            style="margin-right: 10px;"></i> Modern Campus Infrastructure</li>
+                </ul>
+                <a href="{{ url_for('about') }}" class="btn btn-primary">Read More</a>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <img src="{{ url_for('static', filename='images/college_building.jpg') }}" alt="SBITM Campus"
+                    style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Activity / Campus Happenings -->
+<section class="section-padding">
+    <div class="container animate-up delay-200">
+        <h2 class="section-title text-center">Campus Happenings</h2>
+        <div class="feature-grid" style="margin-top: 20px;">
+            <!-- Event 1 -->
+            <div class="glass-card" style="padding: 20px;">
+                <div
+                    style="height: 200px; background: #333; border-radius: 10px; margin-bottom: 15px; overflow: hidden;">
+                    <img src="https://via.placeholder.com/400x250" alt="Tech Fest"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                </div>
+                <span style="color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">DEC 28,
+                    2024</span>
+                <h3 style="margin: 10px 0; color: var(--text-light);">Annual Tech Fest</h3>
+                <p style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem;">
+                    Celebrating innovation with over 500 student participants showcasing their projects.
+                </p>
+                <a href="{{ url_for('gallery') }}" class="btn btn-outline"
+                    style="font-size: 0.8rem; padding: 8px 20px;">View Photos</a>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="glass-card" style="padding: 20px;">
+                <div
+                    style="height: 200px; background: #333; border-radius: 10px; margin-bottom: 15px; overflow: hidden;">
+                    <img src="https://via.placeholder.com/400x250" alt="Industrial Visit"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <span style="color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">NOV 15,
+                    2024</span>
+                <h3 style="margin: 10px 0; color: var(--text-light);">Industrial Visit</h3>
+                <p style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem;">
+                    Mechanical Engineering students visited the Eicher plant for practical exposure.
+                </p>
+                <a href="{{ url_for('gallery') }}" class="btn btn-outline"
+                    style="font-size: 0.8rem; padding: 8px 20px;">View Photos</a>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="glass-card" style="padding: 20px;">
+                <div
+                    style="height: 200px; background: #333; border-radius: 10px; margin-bottom: 15px; overflow: hidden;">
+                    <img src="https://via.placeholder.com/400x250" alt="Clean Drive"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <span style="color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">OCT 02,
+                    2024</span>
+                <h3 style="margin: 10px 0; color: var(--text-light);">Swachh Bharat</h3>
+                <p style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem;">
+                    Students participated in a campus cleaning drive contributing to a greener environment.
+                </p>
+                <a href="{{ url_for('gallery') }}" class="btn btn-outline"
+                    style="font-size: 0.8rem; padding: 8px 20px;">View Photos</a>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="{{ url_for('gallery') }}" class="btn btn-primary">View All Activities</a>
+        </div>
+    </div>
+</section>
+
+<!-- Student Testimonials -->
+<section class="section-padding" style="background: rgba(255,255,255,0.02);">
+    <div class="container animate-up delay-200">
+        <h2 class="section-title text-center">Student Voices</h2>
+        <div class="feature-grid" style="margin-top: 40px;">
+            <!-- Review 1 -->
+            <div class="glass-card" style="padding: 20px;">
+                <div
+                    style="height: 200px; background: #333; border-radius: 10px; margin-bottom: 15px; overflow: hidden; position: relative;">
+                    <img src="https://via.placeholder.com/350x200" alt="Rahul Sharma"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 10px; color: white;">
+                        <span
+                            style="font-size: 0.8rem; background: var(--primary); padding: 2px 8px; border-radius: 4px;">TCS</span>
+                    </div>
+                </div>
+                <div style="padding: 0 5px;">
+                    <h3 style="margin: 0 0 5px 0; color: var(--text-light); font-size: 1.2rem;">Rahul Sharma</h3>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 10px;">Computer Science</p>
+                    <p
+                        style="color: var(--text-dim); margin-bottom: 10px; font-size: 0.95rem; font-style: italic; line-height: 1.5;">
+                        "SBITM provided me with the perfect platform to launch my career. The faculty support was
+                        exceptional."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="glass-card" style="padding: 20px;">
+                <div
+                    style="height: 200px; background: #333; border-radius: 10px; margin-bottom: 15px; overflow: hidden; position: relative;">
+                    <img src="https://via.placeholder.com/350x200" alt="Priya Patel"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 10px; color: white;">
+                        <span
+                            style="font-size: 0.8rem; background: var(--accent); padding: 2px 8px; border-radius: 4px; color: #000;">Infosys</span>
+                    </div>
+                </div>
+                <div style="padding: 0 5px;">
+                    <h3 style="margin: 0 0 5px 0; color: var(--text-light); font-size: 1.2rem;">Priya Patel</h3>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 10px;">Information Technology
+                    </p>
+                    <p
+                        style="color: var(--text-dim); margin-bottom: 10px; font-size: 0.95rem; font-style: italic; line-height: 1.5;">
+                        "The lush green campus and modern labs made learning enjoyable. Proud to be an alumnus."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="glass-card" style="padding: 20px;">
+                <div
+                    style="height: 200px; background: #333; border-radius: 10px; margin-bottom: 15px; overflow: hidden; position: relative;">
+                    <img src="https://via.placeholder.com/350x200" alt="Amit Verma"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 10px; color: white;">
+                        <span
+                            style="font-size: 0.8rem; background: var(--primary); padding: 2px 8px; border-radius: 4px;">Wipro</span>
+                    </div>
+                </div>
+                <div style="padding: 0 5px;">
+                    <h3 style="margin: 0 0 5px 0; color: var(--text-light); font-size: 1.2rem;">Amit Verma</h3>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 10px;">Mechanical Engg.</p>
+                    <p
+                        style="color: var(--text-dim); margin-bottom: 10px; font-size: 0.95rem; font-style: italic; line-height: 1.5;">
+                        "From cultural fests to technical workshops, SBITM focuses on overall development."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Departments Preview -->
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Our Departments</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            {% for dept in ['CSE', 'AI & DS', 'Civil', 'Electrical', 'Mechanical'] %}
+            <div class="glass-card text-center">
+                <h3 style="margin-bottom: 10px; color: var(--primary);">{{ dept }}</h3>
+                <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-dim);">60 Seats Available</p>
+                <a href="{{ url_for('departments') }}"
+                    style="color: var(--accent); text-decoration: none; font-weight: 600;">View Details &rarr;</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

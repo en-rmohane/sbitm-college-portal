@@ -1,0 +1,218 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container section-padding">
+    <div class="text-center">
+        <h1 class="section-title">Our Esteemed Faculty</h1>
+        <p style="margin-bottom: 60px; color: var(--text-dim); font-size: 1.2rem; font-style: italic;">
+            "Teachers affect eternity; no one can tell where their influence stops."
+        </p>
+    </div>
+
+    <!-- CSE Department -->
+    <div style="margin-bottom: 80px;" id="cse">
+        <h2
+            style="margin-bottom: 30px; border-left: 5px solid var(--primary); padding-left: 20px; color: var(--text-light);">
+            Computer Science & Engineering
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <!-- HOD -->
+            <div class="glass-card faculty-card" style="border-top: 3px solid var(--primary);">
+                <div
+                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--primary); overflow: hidden;">
+                    <img src="https://via.placeholder.com/150" alt="HOD"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Pankaj S. Sisodiya
+                </h3>
+                <p style="text-align: center; color: var(--primary); font-weight: 600; margin-bottom: 15px;">Head of
+                    Department</p>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">
+                    20+ Years Experience. Expert in Cloud Computing & Network Security.
+                </p>
+            </div>
+            <!-- Faculty 1 -->
+            <div class="glass-card faculty-card">
+                <div
+                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-user-graduate" style="font-size: 2rem; color: #64748b;"></i>
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Neha Gupta</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Assistant
+                    Professor</p>
+                <div style="text-align: center;"> <span
+                        style="font-size: 0.8rem; background: rgba(59, 130, 246, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px;">Java
+                        Expert</span> </div>
+            </div>
+            <!-- Faculty 2 -->
+            <div class="glass-card faculty-card">
+                <div
+                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-code" style="font-size: 2rem; color: #64748b;"></i>
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Ravi Sharma</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Assistant
+                    Professor</p>
+                <div style="text-align: center;"> <span
+                        style="font-size: 0.8rem; background: rgba(59, 130, 246, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px;">Web
+                        Dev</span> </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI & DS Department (NEW) -->
+    <div style="margin-bottom: 80px;" id="aids">
+        <h2
+            style="margin-bottom: 30px; border-left: 5px solid var(--accent); padding-left: 20px; color: var(--text-light);">
+            AI & Data Science
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <!-- HOD -->
+            <div class="glass-card faculty-card" style="border-top: 3px solid var(--accent);">
+                <div
+                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--accent); overflow: hidden;">
+                    <img src="https://via.placeholder.com/150" alt="HOD"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Anjali Verma</h3>
+                <p style="text-align: center; color: var(--accent); font-weight: 600; margin-bottom: 15px;">Program
+                    Coordinator</p>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">
+                    Expert in Machine Learning, Deep Learning & Big Data Analytics.
+                </p>
+            </div>
+            <!-- Faculty 1 -->
+            <div class="glass-card faculty-card">
+                <div
+                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-brain" style="font-size: 2rem; color: #64748b;"></i>
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Vikram Singh</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Assistant
+                    Professor</p>
+                <div style="text-align: center;"> <span
+                        style="font-size: 0.8rem; background: rgba(245, 158, 11, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px;">NLP
+                        Specialist</span> </div>
+            </div>
+            <!-- Faculty 2 -->
+            <div class="glass-card faculty-card">
+                <div
+                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-chart-bar" style="font-size: 2rem; color: #64748b;"></i>
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Meera Reddy</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Senior
+                    Lecturer</p>
+                <div style="text-align: center;"> <span
+                        style="font-size: 0.8rem; background: rgba(245, 158, 11, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px;">Data
+                        Viz</span> </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mechanical Department -->
+    <div style="margin-bottom: 80px;" id="mech">
+        <h2 style="margin-bottom: 30px; border-left: 5px solid #ef4444; padding-left: 20px; color: var(--text-light);">
+            Mechanical Engineering
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="glass-card faculty-card" style="border-top: 3px solid #ef4444;">
+                <div
+                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #ef4444; overflow: hidden;">
+                    <img src="https://via.placeholder.com/150" alt="HOD"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Amit Kumar</h3>
+                <p style="text-align: center; color: #ef4444; font-weight: 600; margin-bottom: 15px;">Head of Department
+                </p>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">
+                    Specialist in Thermodynamics & Robotics.
+                </p>
+            </div>
+            <!-- Faculty 1 -->
+            <div class="glass-card faculty-card">
+                <div
+                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-cogs" style="font-size: 2rem; color: #64748b;"></i>
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Suresh Raina</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Workshop
+                    Supdt.</p>
+                <div style="text-align: center;"> <span
+                        style="font-size: 0.8rem; background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 4px 10px; border-radius: 20px;">Manufacturing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Civil Department -->
+    <div style="margin-bottom: 80px;" id="civil">
+        <h2 style="margin-bottom: 30px; border-left: 5px solid #22c55e; padding-left: 20px; color: var(--text-light);">
+            Civil Engineering
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="glass-card faculty-card" style="border-top: 3px solid #22c55e;">
+                <div
+                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #22c55e; overflow: hidden;">
+                    <img src="https://via.placeholder.com/150" alt="HOD"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. R.K. Gupta</h3>
+                <p style="text-align: center; color: #22c55e; font-weight: 600; margin-bottom: 15px;">Head of Department
+                </p>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">
+                    Expert in Structural Design & Concrete Technology.
+                </p>
+            </div>
+            <!-- Faculty 1 -->
+            <div class="glass-card faculty-card">
+                <div
+                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-building" style="font-size: 2rem; color: #64748b;"></i>
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Manoj Tiwary</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Assistant
+                    Professor</p>
+                <div style="text-align: center;"> <span
+                        style="font-size: 0.8rem; background: rgba(34, 197, 94, 0.1); color: #22c55e; padding: 4px 10px; border-radius: 20px;">Surveying</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Electrical Department -->
+    <div style="margin-bottom: 80px;" id="ee">
+        <h2 style="margin-bottom: 30px; border-left: 5px solid #a855f7; padding-left: 20px; color: var(--text-light);">
+            Electrical Engineering
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="glass-card faculty-card" style="border-top: 3px solid #a855f7;">
+                <div
+                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #a855f7; overflow: hidden;">
+                    <img src="https://via.placeholder.com/150" alt="HOD"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Suresh Patel</h3>
+                <p style="text-align: center; color: #a855f7; font-weight: 600; margin-bottom: 15px;">Head of Department
+                </p>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">
+                    Focus on Power Systems & Renewable Energy.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Section -->
+    <div class="glass-card text-center"
+        style="padding: 60px; border-color: var(--accent); position: relative; overflow: hidden;">
+        <div
+            style="position: absolute; top: -20px; left: 20px; font-size: 10rem; opacity: 0.05; font-family: sans-serif; color: var(--accent);">
+            "</div>
+        <h2 style="position: relative; z-index: 1;">Architects of the Future</h2>
+        <p style="max-width: 800px; margin: 20px auto; font-size: 1.1rem;">
+            Our faculty members are not just teachers; they are mentors, researchers, and guides who shape the raw
+            potential of students into refined engineering excellence.
+        </p>
+    </div>
+</div>
+{% endblock %}

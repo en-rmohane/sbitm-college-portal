@@ -1,0 +1,49 @@
+/* =========================================
+   Premium Page Loader
+   ========================================= */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #020617;
+    /* Deepest dark */
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: visibility 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.loader-wrapper.loaded {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-content {
+    text-align: center;
+    position: relative;
+    z-index: 100000;
+    transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1), opacity 1.2s ease;
+}
+
+.loader-wrapper.loaded .loader-content {
+    transform: translateY(-50px) scale(0.9);
+    opacity: 0;
+}
+
+/* ... (middle content skipped) ... */
+
+/* Curtain Effect / Main Content Reveal */
+main {
+    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.5s ease;
+    transform: scale(0.92);
+    opacity: 0;
+}
+
+body.page-loaded main {
+    transform: scale(1);
+    opacity: 1;
+}
