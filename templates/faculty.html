@@ -15,15 +15,16 @@
             style="margin-bottom: 30px; border-left: 5px solid var(--primary); padding-left: 20px; color: var(--text-light);">
             Computer Science & Engineering
         </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        </h2>
+        <div class="grid-strict-3">
             <!-- HOD -->
             <div class="glass-card faculty-card" style="border-top: 3px solid var(--primary);">
-                <div
-                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--primary); overflow: hidden;">
-                    <img src="https://via.placeholder.com/150" alt="HOD"
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/pankaj_singh_sisodiya.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Dr. Pankaj Singh Sisodiya"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Pankaj S. Sisodiya
+                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Dr. Pankaj Singh Sisodiya
                 </h3>
                 <p style="text-align: center; color: var(--primary); font-weight: 600; margin-bottom: 15px;">Head of
                     Department</p>
@@ -32,30 +33,44 @@
                 </p>
             </div>
             <!-- Faculty 1 -->
+            <!-- Faculty List: CSE -->
             <div class="glass-card faculty-card">
-                <div
-                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 2rem; color: #64748b;"></i>
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/satish_chadhokar.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Satish Chadhokar"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Neha Gupta</h4>
-                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Assistant
-                    Professor</p>
-                <div style="text-align: center;"> <span
-                        style="font-size: 0.8rem; background: rgba(59, 130, 246, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px;">Java
-                        Expert</span> </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Satish Chadhokar
+                </h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
             </div>
-            <!-- Faculty 2 -->
             <div class="glass-card faculty-card">
-                <div
-                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-code" style="font-size: 2rem; color: #64748b;"></i>
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/kanchan_narware.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Kanchan Narware"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Ravi Sharma</h4>
-                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Assistant
-                    Professor</p>
-                <div style="text-align: center;"> <span
-                        style="font-size: 0.8rem; background: rgba(59, 130, 246, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 20px;">Web
-                        Dev</span> </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Kanchan Narware</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
+            </div>
+            <div class="glass-card faculty-card">
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/pramila_gharjale.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Pramila Gharjale"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Pramila Gharjale
+                </h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
+            </div>
+            <div class="glass-card faculty-card">
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/deepika_malviya.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Deepika Malviya"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Deepika Malviya</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
             </div>
         </div>
     </div>
@@ -66,46 +81,69 @@
             style="margin-bottom: 30px; border-left: 5px solid var(--accent); padding-left: 20px; color: var(--text-light);">
             AI & Data Science
         </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="grid-strict-3">
             <!-- HOD -->
             <div class="glass-card faculty-card" style="border-top: 3px solid var(--accent);">
-                <div
-                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--accent); overflow: hidden;">
-                    <img src="https://via.placeholder.com/150" alt="HOD"
+                <div class="faculty-card-img-container" style="border-color: var(--accent);">
+                    <img src="{{ url_for('static', filename='images/faculty/pankaj_singh_sisodiya.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Dr. Pankaj Singh Sisodiya"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Anjali Verma</h3>
-                <p style="text-align: center; color: var(--accent); font-weight: 600; margin-bottom: 15px;">Program
-                    Coordinator</p>
-                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">
-                    Expert in Machine Learning, Deep Learning & Big Data Analytics.
-                </p>
+                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Dr. Pankaj Singh Sisodiya
+                </h3>
+                <p style="text-align: center; color: var(--accent); font-weight: 600; margin-bottom: 15px;">Head of
+                    Department</p>
             </div>
-            <!-- Faculty 1 -->
+            <!-- Faculty List: AI & DS -->
+            <!-- Sonali Rathore -->
             <div class="glass-card faculty-card">
-                <div
-                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-brain" style="font-size: 2rem; color: #64748b;"></i>
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/sonali_rathore.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Sonali Rathore"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Vikram Singh</h4>
-                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Assistant
-                    Professor</p>
-                <div style="text-align: center;"> <span
-                        style="font-size: 0.8rem; background: rgba(245, 158, 11, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px;">NLP
-                        Specialist</span> </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Sonali Rathore</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
             </div>
-            <!-- Faculty 2 -->
+            <!-- Nilesh Mishra -->
             <div class="glass-card faculty-card">
-                <div
-                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-chart-bar" style="font-size: 2rem; color: #64748b;"></i>
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/nilesh_mishra.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Nilesh Mishra"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Meera Reddy</h4>
-                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Senior
-                    Lecturer</p>
-                <div style="text-align: center;"> <span
-                        style="font-size: 0.8rem; background: rgba(245, 158, 11, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px;">Data
-                        Viz</span> </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Nilesh Mishra</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
+            </div>
+            <!-- Ashish Gawande -->
+            <div class="glass-card faculty-card">
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/ashish_gawande.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Ashish Gawande"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Ashish Gawande</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
+            </div>
+            <!-- Ravi Mohane -->
+            <div class="glass-card faculty-card">
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/ravi_mohane.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Ravi Mohane"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Ravi Mohane</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
+            </div>
+            <!-- Khusboo Parte -->
+            <div class="glass-card faculty-card">
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/khusboo_parte.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Khusboo Parte"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Khusboo Parte</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
             </div>
         </div>
     </div>
@@ -115,10 +153,9 @@
         <h2 style="margin-bottom: 30px; border-left: 5px solid #ef4444; padding-left: 20px; color: var(--text-light);">
             Mechanical Engineering
         </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="grid-strict-3">
             <div class="glass-card faculty-card" style="border-top: 3px solid #ef4444;">
-                <div
-                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #ef4444; overflow: hidden;">
+                <div class="faculty-card-img-container" style="border-color: #ef4444;">
                     <img src="https://via.placeholder.com/150" alt="HOD"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
@@ -131,15 +168,14 @@
             </div>
             <!-- Faculty 1 -->
             <div class="glass-card faculty-card">
-                <div
-                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <div class="faculty-card-icon-container">
                     <i class="fas fa-cogs" style="font-size: 2rem; color: #64748b;"></i>
                 </div>
                 <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Suresh Raina</h4>
                 <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Workshop
                     Supdt.</p>
-                <div style="text-align: center;"> <span
-                        style="font-size: 0.8rem; background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 4px 10px; border-radius: 20px;">Manufacturing</span>
+                <div style="text-align: center;"> <span class="badge-pill"
+                        style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">Manufacturing</span>
                 </div>
             </div>
         </div>
@@ -150,32 +186,47 @@
         <h2 style="margin-bottom: 30px; border-left: 5px solid #22c55e; padding-left: 20px; color: var(--text-light);">
             Civil Engineering
         </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="grid-strict-3">
             <div class="glass-card faculty-card" style="border-top: 3px solid #22c55e;">
-                <div
-                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #22c55e; overflow: hidden;">
-                    <img src="https://via.placeholder.com/150" alt="HOD"
+                <div class="faculty-card-img-container" style="border-color: #22c55e;">
+                    <img src="{{ url_for('static', filename='images/faculty/hemant_badode.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Hemant Badode"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. R.K. Gupta</h3>
+                <h3 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Hemant Badode</h3>
                 <p style="text-align: center; color: #22c55e; font-weight: 600; margin-bottom: 15px;">Head of Department
                 </p>
                 <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">
                     Expert in Structural Design & Concrete Technology.
                 </p>
             </div>
-            <!-- Faculty 1 -->
+            <!-- Faculty List: Civil -->
             <div class="glass-card faculty-card">
-                <div
-                    style="width: 90px; height: 90px; margin: 0 auto 20px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-building" style="font-size: 2rem; color: #64748b;"></i>
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/lalit_arya.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Lalit Arya"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Manoj Tiwary</h4>
-                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Assistant
-                    Professor</p>
-                <div style="text-align: center;"> <span
-                        style="font-size: 0.8rem; background: rgba(34, 197, 94, 0.1); color: #22c55e; padding: 4px 10px; border-radius: 20px;">Surveying</span>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Lalit Arya</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
+            </div>
+            <div class="glass-card faculty-card">
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/brajesh_pandey.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Brajesh Pandey"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Brajesh Pandey</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
+            </div>
+            <div class="glass-card faculty-card">
+                <div class="faculty-card-img-container">
+                    <img src="{{ url_for('static', filename='images/faculty/ankur_rathore.png') }}"
+                        onerror="this.src='https://via.placeholder.com/150'" alt="Prof. Ankur Rathore"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">Prof. Ankur Rathore</h4>
+                <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">Assistant Professor</p>
             </div>
         </div>
     </div>
@@ -185,10 +236,9 @@
         <h2 style="margin-bottom: 30px; border-left: 5px solid #a855f7; padding-left: 20px; color: var(--text-light);">
             Electrical Engineering
         </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="grid-strict-3">
             <div class="glass-card faculty-card" style="border-top: 3px solid #a855f7;">
-                <div
-                    style="width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #a855f7; overflow: hidden;">
+                <div class="faculty-card-img-container" style="border-color: #a855f7;">
                     <img src="https://via.placeholder.com/150" alt="HOD"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>

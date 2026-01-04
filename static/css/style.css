@@ -20,6 +20,22 @@
     scroll-behavior: smooth;
 }
 
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     font-family: 'Outfit', sans-serif;
     background-color: var(--bg-darker);
@@ -27,7 +43,6 @@ body {
         radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
     color: var(--text-light);
-    overflow-x: hidden;
     line-height: 1.6;
 }
 
@@ -112,7 +127,7 @@ body {
     padding: 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
-    transform-style: preserve-3d;
+    transition: var(--transition);
     position: relative;
     /* overflow: hidden; Removed to allow border to sit nicely if needed, but inset handles it. Keep overflow hidden if needed for internal rounded corners? 
        Actually, mask usually requires valid bounds. Let's keep overflow hidden for safety if content spills.
@@ -293,12 +308,48 @@ h3 {
     -webkit-text-fill-color: transparent;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    margin-right: 20px;
+    /* Ensure gap */
 }
 
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-short {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    display: none;
+    /* Hidden on desktop */
+    background: linear-gradient(to right, #fff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-full {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    display: block;
+    color: var(--text-light);
+    /* Solid color for readability or gradient */
+    max-width: 350px;
+    white-space: normal;
+}
+
+/* Navbar Links */
+/* Navbar Links */
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 15px;
+    /* Reduced from 30px to prevent overlap */
     list-style: none;
+    align-items: center;
 }
 
 /* Mobile Menu Toggle */
@@ -312,17 +363,12 @@ h3 {
     /* Ensure above everything */
 }
 
-.menu-toggle .bar {
-    width: 30px;
-    height: 3px;
-    background-color: var(--text-light);
-    /* Ensure white color */
-    border-radius: 3px;
-    transition: var(--transition);
-}
+/* ... existing logic ... */
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+
+    /* Increased breakpoint for earlier switch to mobile menu */
     .menu-toggle {
         display: flex;
         /* Show on mobile */
@@ -345,19 +391,7 @@ h3 {
         border-bottom: 1px solid var(--glass-border);
     }
 
-    .nav-links.active {
-        transform: translateY(0);
-        /* Show when active */
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+    /* ... */
 }
 
 .nav-links a {
@@ -366,9 +400,12 @@ h3 {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    /* Reduced from 0.95rem */
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
+    /* Prevent wrapping */
 }
 
 .nav-links a:hover,
@@ -417,7 +454,6 @@ h3 {
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(14, 165, 233, 0.6);
 }
 
@@ -564,6 +600,29 @@ footer {
     border-radius: 10px;
 }
 
+/* Strict Grid: Desktop 3, Tablet 2, Mobile 1 */
+.grid-strict-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile default */
+    gap: 30px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .grid-strict-3 {
+        grid-template-columns: repeat(2, 1fr);
+        /* Tablet */
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-strict-3 {
+        grid-template-columns: repeat(3, 1fr);
+        /* Desktop */
+    }
+}
+
 /* Animation Defs */
 @keyframes fadeInUp {
     from {
@@ -594,92 +653,151 @@ footer {
 }
 
 /* Marquee / Scrolling Ticker */
-.marquee-container {
+/* Marquee / Scrolling Ticker */
+.marquee-wrapper {
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
     position: relative;
     padding: 20px 0;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.marquee-content {
-    display: inline-block;
-    animation: scrollText 20s linear infinite;
+.marquee-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: scrollMarquee 30s linear infinite;
 }
 
-.marquee-content span {
-    display: inline-block;
-    font-size: 1.5rem;
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for Text Tags (Recruiters) */
+.marquee-tag {
+    font-size: 1.2rem;
     font-weight: 700;
-    margin: 0 20px;
-    padding: 15px 30px;
+    padding: 12px 30px;
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 12px;
+    border-radius: 50px;
     color: var(--text-light);
-    transition: var(--transition);
-    cursor: default;
+    border: 1px solid var(--glass-border);
+    white-space: nowrap;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    vertical-align: middle;
-    position: relative;
-    overflow: hidden;
-    border: none;
 }
 
-.marquee-content span::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px;
-    background: linear-gradient(60deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    background-size: 300% 300%;
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: rainbowBorder 4s linear infinite;
-    pointer-events: none;
+.marquee-tag:hover {
+    background: var(--primary);
+    color: white;
+}
 
-
-    .marquee-content span:hover {
-        transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
     }
 
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive Grid Helper */
+.grid-responsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+/* Specific Mobile Fixes */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    h1.section-title,
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .glass-card {
+        padding: 20px;
+    }
+
+    /* Ensure marquee glass cards fit */
     .marquee-content .glass-card {
-        display: inline-block;
-        width: 350px;
-        margin: 0 30px;
-        vertical-align: middle;
-        white-space: normal;
-        text-align: left;
-        position: relative;
-        background: rgba(15, 23, 42, 0.6);
-        /* Ensure background is set */
+        width: 80vw;
+        margin: 0 10px;
     }
 
-    @keyframes scrollText {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
+    /* Stack flex items on mobile by default if not strictly forced */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
+}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2.5rem;
-        }
+/* Faculty Card Image Container */
+.faculty-card-img-container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--primary);
+    overflow: hidden;
+    position: relative;
+    /* Context for children */
+}
 
-        .bg-logo-3d img {
-            width: 300px;
-        }
-    }
+.faculty-card-icon-container {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px;
+    background: #1e293b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Badges should fit nicely */
+.badge-pill {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}

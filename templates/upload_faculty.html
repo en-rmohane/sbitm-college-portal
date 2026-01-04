@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container section-padding">
+    <div class="glass-card animate-up" style="max-width: 600px; margin: 0 auto; padding: 40px;">
+        <h2 class="section-title text-center" style="margin-bottom: 30px;">Upload Faculty Image</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}"
+            style="padding: 15px; margin-bottom: 20px; border-radius: 8px; background: rgba(255,255,255,0.1); color: var(--text-light);">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form action="/upload_faculty" method="post" enctype="multipart/form-data">
+            <div style="margin-bottom: 20px;">
+                <label for="file" style="display: block; margin-bottom: 10px; color: var(--text-light);">Select
+                    Image</label>
+                <input type="file" name="file" id="file" class="form-control" required
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); color: var(--text-light); border-radius: 8px;">
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <label for="filename" style="display: block; margin-bottom: 10px; color: var(--text-light);">Save As
+                    (e.g., pankaj_singh_sisodiya.png)</label>
+                <input type="text" name="filename" id="filename" placeholder="pankaj_singh_sisodiya.png" required
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); color: var(--text-light); border-radius: 8px;">
+                <small style="color: var(--text-dim); display: block; margin-top: 5px;">Use lowercase with
+                    underscores.</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Upload Image</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

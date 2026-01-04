@@ -1,0 +1,30 @@
+/* Logo Styles Update */
+.logo-short {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    display: none;
+    /* Hidden by default on desktop */
+}
+
+.logo-full {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    display: block;
+    /* Show full name on desktop */
+    max-width: 400px;
+    white-space: normal;
+}
+
+@media (max-width: 900px) {
+    .logo-full {
+        display: none;
+        /* Hide full name on tablet/mobile */
+    }
+
+    .logo-short {
+        display: block;
+        /* Show short name */
+    }
+}

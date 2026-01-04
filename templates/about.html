@@ -48,8 +48,8 @@
     </div>
 
     <!-- History / Overview -->
-    <div class="glass-card" style="display: flex; gap: 40px; align-items: flex-start; padding: 40px;">
-        <div style="flex: 1;">
+    <div class="glass-card grid-strict-3" style="padding: 40px; align-items: flex-start;">
+        <div>
             <h2 style="margin-bottom: 20px; color: var(--text-light);">Our Legacy & Heritage</h2>
             <p style="margin-bottom: 20px; color: var(--text-dim); line-height: 1.8;">
                 Established in 2009, Shri Balaji Institute of Technology and Management (SBITM), Betul, has emerged as a
@@ -71,7 +71,7 @@
                 and affiliated to RGPV, Bhopal and DAVV, Indore.
             </p>
         </div>
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
             <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px;">
                 <h4 style="color: var(--primary);">Excellence</h4>
                 <p style="font-size: 0.9rem; color: var(--text-dim);">Consistently ranked among top engineering colleges
@@ -89,10 +89,10 @@
         <h2 class="section-title text-center" style="margin-bottom: 60px;">Leadership</h2>
 
         <!-- Chairman Message -->
-        <div class="glass-card"
-            style="display: flex; gap: 40px; align-items: center; padding: 40px; margin-bottom: 40px;">
+        <div class="glass-card grid-responsive"
+            style="padding: 40px; margin-bottom: 40px; align-items: center; grid-template-columns: auto 1fr;">
             <div
-                style="width: 200px; height: 200px; flex-shrink: 0; border-radius: 10px; overflow: hidden; border: 2px solid var(--primary);">
+                style="width: 200px; height: 200px; flex-shrink: 0; border-radius: 10px; overflow: hidden; border: 2px solid var(--primary); margin: 0 auto;">
                 <img src="https://via.placeholder.com/200" alt="Chairman"
                     style="width: 100%; height: 100%; object-fit: cover;">
             </div>
@@ -112,16 +112,10 @@
         </div>
 
         <!-- Principal Message -->
-        <div class="glass-card"
-            style="display: flex; gap: 40px; align-items: center; padding: 40px; flex-direction: row-reverse;">
-            <div
-                style="width: 200px; height: 200px; flex-shrink: 0; border-radius: 10px; overflow: hidden; border: 2px solid var(--accent);">
-                <img src="https://via.placeholder.com/200" alt="Principal"
-                    style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div style="text-align: right;">
+        <div class="glass-card grid-strict-3" style="padding: 40px; align-items: start;">
+            <div style="text-align: right; order: 1;">
                 <h3 style="color: var(--accent); margin-bottom: 5px;">Principal's Message</h3>
-                <h5 style="color: var(--text-light); margin-bottom: 20px; font-weight: 400;">Dr. [Principal Name]</h5>
+                <h5 style="color: var(--text-light); margin-bottom: 20px; font-weight: 400;">Dr. P.J. Shah</h5>
                 <p style="color: var(--text-dim); line-height: 1.8; font-style: italic;">
                     "Welcome to SBITM. We are dedicated to maintaining high academic standards and ensuring that our
                     students are well-prepared for the challenges of the professional world. Through a blend of rigorous
@@ -129,38 +123,69 @@
                     Join us in this journey of learning and discovery."
                 </p>
             </div>
+            <div
+                style="width: 200px; height: 200px; flex-shrink: 0; border-radius: 10px; overflow: hidden; border: 2px solid var(--accent); margin: 0 auto; order: 2;">
+                <img src="https://via.placeholder.com/200" alt="Principal"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
         </div>
     </div>
 
-    <!-- Core Values -->
-    <div style="margin-bottom: 60px;">
-        <h2 class="section-title text-center" style="margin-bottom: 40px;">Core Values</h2>
-        <div class="feature-grid">
-            <div class="glass-card text-center" style="padding: 30px;">
-                <i class="fas fa-lightbulb" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
-                <h4 style="margin-bottom: 10px;">Innovation</h4>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Encouraging creative thinking and novel solutions
-                    to real-world problems.</p>
+    <!-- Vice Principal & Dean (New Row) -->
+    <div class="grid-strict-3">
+        <!-- Vice Principal -->
+        <div class="glass-card" style="padding: 30px; text-align: center;">
+            <div
+                style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 2px solid var(--primary);">
+                <img src="https://via.placeholder.com/150" alt="Vice Principal"
+                    style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="glass-card text-center" style="padding: 30px;">
-                <i class="fas fa-handshake" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 20px;"></i>
-                <h4 style="margin-bottom: 10px;">Integrity</h4>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Upholding the highest standards of honesty and
-                    ethical conduct.</p>
+            <h4 style="color: var(--text-light); margin-bottom: 5px;">Prof. Shashank Mane</h4>
+            <p style="color: var(--primary); font-size: 0.9rem;">Vice Principal</p>
+        </div>
+
+        <!-- Academic Dean -->
+        <div class="glass-card" style="padding: 30px; text-align: center;">
+            <div
+                style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 2px solid var(--accent);">
+                <img src="https://via.placeholder.com/150" alt="Academic Dean"
+                    style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="glass-card text-center" style="padding: 30px;">
-                <i class="fas fa-award" style="font-size: 2.5rem; color: #10b981; margin-bottom: 20px;"></i>
-                <h4 style="margin-bottom: 10px;">Excellence</h4>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Striving for the best in academics, research, and
-                    all endeavors.</p>
-            </div>
-            <div class="glass-card text-center" style="padding: 30px;">
-                <i class="fas fa-users" style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 20px;"></i>
-                <h4 style="margin-bottom: 10px;">Inclusivity</h4>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Fostering a diverse community where everyone feels
-                    valued and respected.</p>
-            </div>
+            <h4 style="color: var(--text-light); margin-bottom: 5px;">Prof. Bhavesh Khasdev</h4>
+            <p style="color: var(--accent); font-size: 0.9rem;">Academic Dean</p>
         </div>
     </div>
+</div>
+
+<!-- Core Values -->
+<div style="margin-bottom: 60px;">
+    <h2 class="section-title text-center" style="margin-bottom: 40px;">Core Values</h2>
+    <div class="feature-grid">
+        <div class="glass-card text-center" style="padding: 30px;">
+            <i class="fas fa-lightbulb" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+            <h4 style="margin-bottom: 10px;">Innovation</h4>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Encouraging creative thinking and novel solutions
+                to real-world problems.</p>
+        </div>
+        <div class="glass-card text-center" style="padding: 30px;">
+            <i class="fas fa-handshake" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 20px;"></i>
+            <h4 style="margin-bottom: 10px;">Integrity</h4>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Upholding the highest standards of honesty and
+                ethical conduct.</p>
+        </div>
+        <div class="glass-card text-center" style="padding: 30px;">
+            <i class="fas fa-award" style="font-size: 2.5rem; color: #10b981; margin-bottom: 20px;"></i>
+            <h4 style="margin-bottom: 10px;">Excellence</h4>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Striving for the best in academics, research, and
+                all endeavors.</p>
+        </div>
+        <div class="glass-card text-center" style="padding: 30px;">
+            <i class="fas fa-users" style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 20px;"></i>
+            <h4 style="margin-bottom: 10px;">Inclusivity</h4>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Fostering a diverse community where everyone feels
+                valued and respected.</p>
+        </div>
+    </div>
+</div>
 </div>
 {% endblock %}
