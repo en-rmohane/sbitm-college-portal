@@ -1,0 +1,198 @@
+[
+    {
+        "id": "cse",
+        "name": "Computer Science & Engineering",
+        "icon": "fas fa-laptop-code",
+        "theme_color": "var(--primary)",
+        "text_class": "text-primary",
+        "tagline": "\"Innovating the Future with Code\"",
+        "intake": 60,
+        "description": "The Department of Computer Science & Engineering was established to meet the demand for well-qualified computer professionals. The department has highly qualified faculty and strictly adheres to the RGPV curriculum while supplementing it with courses on emerging technologies.",
+        "vision": "To be a center of excellence in providing globally standard education and research.",
+        "mission": "To create technologically competent and ethically responsible computer professionals.",
+        "labs": [
+            {
+                "name": "Python / AI Lab",
+                "icon": "fab fa-python",
+                "color": "#ffd43b",
+                "subtext": ""
+            },
+            {
+                "name": "DBMS Lab",
+                "icon": "fas fa-database",
+                "color": "#0ea5e9",
+                "subtext": ""
+            },
+            {
+                "name": "IoT & Networking",
+                "icon": "fas fa-network-wired",
+                "color": "#f43f5e",
+                "subtext": ""
+            }
+        ],
+        "hod": {
+            "name": "Dr. Pankaj Singh Sisodiya",
+            "role": "Head of Department",
+            "quote": "\"We strive to make our students not just engineers, but innovators who solve real-world problems.\"",
+            "image": "https://via.placeholder.com/150"
+        }
+    },
+    {
+        "id": "aids",
+        "name": "AI & Data Science",
+        "icon": "fas fa-brain",
+        "theme_color": "var(--accent)",
+        "text_class": "text-accent",
+        "tagline": "\"The Data Revolution\"",
+        "intake": 60,
+        "description": "This specialized branch is designed for students who want to master the world of data. From Machine Learning algorithms to Big Data Analytics, we cover the tech of tomorrow.",
+        "vision": "",
+        "mission": "",
+        "labs": [
+            {
+                "name": "Machine Learning",
+                "icon": "fas fa-robot",
+                "color": "var(--accent)",
+                "subtext": ""
+            },
+            {
+                "name": "Big Data",
+                "icon": "fas fa-chart-line",
+                "color": "var(--accent)",
+                "subtext": ""
+            },
+            {
+                "name": "NLP",
+                "icon": "fas fa-language",
+                "color": "var(--accent)",
+                "subtext": ""
+            }
+        ],
+        "hod": {
+            "name": "Dr. Pankaj Singh Sisodiya",
+            "role": "Program Coordinator",
+            "quote": "\"Data is the new oil, and AI is the engine. We teach you how to build that engine.\"",
+            "image": "https://via.placeholder.com/150"
+        }
+    },
+    {
+        "id": "mech",
+        "name": "Mechanical Engineering",
+        "icon": "fas fa-cogs",
+        "theme_color": "#ef4444",
+        "text_class": "",
+        "tagline": "\"The Royal Branch\"",
+        "intake": 60,
+        "description": "The Mechanical Engineering department focuses on power systems, control systems, and renewable energy sources. We prepare students for the heavy industries and power sector.",
+        "vision": "",
+        "mission": "",
+        "labs": [
+            {
+                "name": "Thermodynamics",
+                "icon": "fas fa-fire",
+                "color": "#ef4444",
+                "subtext": "Engines & Boilers"
+            },
+            {
+                "name": "CAD/CAM Lab",
+                "icon": "fas fa-drafting-compass",
+                "color": "#ef4444",
+                "subtext": "AutoCAD / SolidWorks"
+            },
+            {
+                "name": "Workshop",
+                "icon": "fas fa-wrench",
+                "color": "#ef4444",
+                "subtext": "Lathe, Welding"
+            },
+            {
+                "name": "Automobile Lab",
+                "icon": "fas fa-car",
+                "color": "#ef4444",
+                "subtext": "Vehicle Transmission"
+            }
+        ],
+        "hod": {
+            "name": "Prof. Amit Kumar",
+            "role": "Head of Department",
+            "quote": "",
+            "image": "https://via.placeholder.com/150"
+        }
+    },
+    {
+        "id": "civil",
+        "name": "Civil Engineering",
+        "icon": "fas fa-building",
+        "theme_color": "#22c55e",
+        "text_class": "",
+        "tagline": "\"Building the Nation\"",
+        "intake": 60,
+        "description": "Our Civil Engineering department is equipped with heavy machinery for material testing and advanced surveying equipment like Total Stations. We focus on sustainable development.",
+        "vision": "",
+        "mission": "",
+        "labs": [
+            {
+                "name": "Concrete Tech",
+                "icon": "fas fa-hard-hat",
+                "color": "#22c55e",
+                "subtext": "Material Testing"
+            },
+            {
+                "name": "Surveying Lab",
+                "icon": "fas fa-map-marked-alt",
+                "color": "#22c55e",
+                "subtext": "Total Station / GPS"
+            },
+            {
+                "name": "Fluid Mechanics",
+                "icon": "fas fa-water",
+                "color": "#22c55e",
+                "subtext": "Hydraulics"
+            },
+            {
+                "name": "Geology Lab",
+                "icon": "fas fa-mountain",
+                "color": "#22c55e",
+                "subtext": "Soil Testing"
+            }
+        ],
+        "hod": {
+            "name": "Prof. Hemant Badode",
+            "role": "Head of Department",
+            "quote": "\"Constructing a sustainable future for the next generation.\"",
+            "image": "https://via.placeholder.com/150"
+        }
+    },
+    {
+        "id": "ee",
+        "name": "Electrical Engineering",
+        "icon": "fas fa-bolt",
+        "theme_color": "#a855f7",
+        "text_class": "",
+        "tagline": "\"Powering the World\"",
+        "intake": 60,
+        "description": "The Electrical Engineering department focuses on power systems, control systems, and renewable energy sources. We prepare students for the heavy industries and power sector.",
+        "vision": "",
+        "mission": "",
+        "labs": [
+            {
+                "name": "Solar Energy",
+                "icon": "",
+                "color": "#a855f7",
+                "subtext": "Special focus on PV cells and renewable grids."
+            },
+            {
+                "name": "Automation",
+                "icon": "",
+                "color": "#a855f7",
+                "subtext": "PLC & SCADA based industrial automation training."
+            }
+        ],
+        "hod": {
+            "name": "Prof. Suresh Patel",
+            "role": "Head of Department",
+            "quote": "\"Energizing the future with sustainable power solutions.\"",
+            "image": "https://via.placeholder.com/150"
+        }
+    }
+]

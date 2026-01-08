@@ -1,0 +1,164 @@
+[
+  {
+    "id": "cse_hod_1",
+    "name": "Dr. Pankaj Singh Sisodiya",
+    "department": "Computer Science & Engineering",
+    "role": "HOD",
+    "designation": "Head of Department",
+    "image": "pankaj_singh_sisodiya.png",
+    "bio": "20+ Years Experience. Expert in Cloud Computing & Network Security."
+  },
+  {
+    "id": "cse_fac_1",
+    "name": "Prof. Satish Chadhokar",
+    "department": "Computer Science & Engineering",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "satish_chadhokar.png",
+    "bio": ""
+  },
+  {
+    "id": "cse_fac_2",
+    "name": "Prof. Kanchan Narware",
+    "department": "Computer Science & Engineering",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "kanchan_narware.png",
+    "bio": ""
+  },
+  {
+    "id": "cse_fac_3",
+    "name": "Prof. Pramila Gharjale",
+    "department": "Computer Science & Engineering",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "pramila_gharjale.png",
+    "bio": ""
+  },
+  {
+    "id": "cse_fac_4",
+    "name": "Prof. Deepika Malviya",
+    "department": "Computer Science & Engineering",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "deepika_malviya.png",
+    "bio": ""
+  },
+  {
+    "id": "aids_hod_1",
+    "name": "Dr. Pankaj Singh Sisodiya",
+    "department": "AI & Data Science",
+    "role": "HOD",
+    "designation": "Head of Department",
+    "image": "pankaj_singh_sisodiya.png",
+    "bio": ""
+  },
+  {
+    "id": "aids_fac_1",
+    "name": "Prof. Sonali Rathore",
+    "department": "AI & Data Science",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "sonali_rathore.png",
+    "bio": ""
+  },
+  {
+    "id": "aids_fac_2",
+    "name": "Prof. Nilesh Mishra",
+    "department": "AI & Data Science",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "nilesh_mishra.png",
+    "bio": ""
+  },
+    {
+    "id": "aids_fac_3",
+    "name": "Prof. Ashish Gawande",
+    "department": "AI & Data Science",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "ashish_gawande.png",
+    "bio": ""
+  },
+    {
+    "id": "aids_fac_4",
+    "name": "Prof. Ravi Mohane",
+    "department": "AI & Data Science",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "ravi_mohane.png",
+    "bio": ""
+  },
+    {
+    "id": "aids_fac_5",
+    "name": "Prof. Khusboo Parte",
+    "department": "AI & Data Science",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "khusboo_parte.png",
+    "bio": ""
+  },
+  {
+    "id": "mech_hod_1",
+    "name": "Prof. Amit Kumar",
+    "department": "Mechanical Engineering",
+    "role": "HOD",
+    "designation": "Head of Department",
+    "image": "",
+    "bio": "Specialist in Thermodynamics & Robotics."
+  },
+  {
+    "id": "mech_fac_1",
+    "name": "Prof. Suresh Raina",
+    "department": "Mechanical Engineering",
+    "role": "Faculty",
+    "designation": "Workshop Supdt.",
+    "image": "",
+    "bio": "Manufacturing Expert"
+  },
+  {
+    "id": "civil_hod_1",
+    "name": "Prof. Hemant Badode",
+    "department": "Civil Engineering",
+    "role": "HOD",
+    "designation": "Head of Department",
+    "image": "hemant_badode.png",
+    "bio": "Expert in Structural Design & Concrete Technology."
+  },
+    {
+    "id": "civil_fac_1",
+    "name": "Prof. Lalit Arya",
+    "department": "Civil Engineering",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "lalit_arya.png",
+    "bio": ""
+  },
+    {
+    "id": "civil_fac_2",
+    "name": "Prof. Brajesh Pandey",
+    "department": "Civil Engineering",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "brajesh_pandey.png",
+    "bio": ""
+  },
+    {
+    "id": "civil_fac_3",
+    "name": "Prof. Ankur Rathore",
+    "department": "Civil Engineering",
+    "role": "Faculty",
+    "designation": "Assistant Professor",
+    "image": "ankur_rathore.png",
+    "bio": ""
+  },
+    {
+    "id": "ee_hod_1",
+    "name": "Prof. Suresh Patel",
+    "department": "Electrical Engineering",
+    "role": "HOD",
+    "designation": "Head of Department",
+    "image": "",
+    "bio": "Focus on Power Systems & Renewable Energy."
+  }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "id": "gal_1",
+        "caption": "Event Caption 1",
+        "image": "https://via.placeholder.com/400x300"
+    },
+    {
+        "id": "gal_2",
+        "caption": "Event Caption 2",
+        "image": "https://via.placeholder.com/400x300"
+    },
+    {
+        "id": "gal_3",
+        "caption": "Event Caption 3",
+        "image": "https://via.placeholder.com/400x300"
+    },
+    {
+        "id": "gal_4",
+        "caption": "Event Caption 4",
+        "image": "https://via.placeholder.com/400x300"
+    },
+    {
+        "id": "gal_5",
+        "caption": "Event Caption 5",
+        "image": "https://via.placeholder.com/400x300"
+    },
+    {
+        "id": "gal_6",
+        "caption": "Event Caption 6",
+        "image": "https://via.placeholder.com/400x300"
+    },
+    {
+        "id": "gal_7",
+        "caption": "Event Caption 7",
+        "image": "https://via.placeholder.com/400x300"
+    },
+    {
+        "id": "gal_8",
+        "caption": "Event Caption 8",
+        "image": "https://via.placeholder.com/400x300"
+    },
+    {
+        "id": "gal_9",
+        "caption": "Event Caption 9",
+        "image": "https://via.placeholder.com/400x300"
+    }
+]

@@ -1,0 +1,64 @@
+{% extends "admin/layout_admin.html" %}
+
+{% block content %}
+<div class="admin-header">
+    <h1 style="color: var(--text-light);">Manage News</h1>
+</div>
+
+<div class="glass-card" style="padding: 30px; margin-bottom: 40px;">
+    <h3 style="margin-bottom: 20px; color: var(--accent);">Add News Event</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Title</label>
+                <input type="text" name="title" class="form-control" required
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+            </div>
+            <div>
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Date</label>
+                <input type="text" name="date" placeholder="e.g. DEC 28, 2024" class="form-control" required
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+            </div>
+            <div style="grid-column: span 2;">
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Description</label>
+                <textarea name="description" rows="3" class="form-control" required
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;"></textarea>
+            </div>
+            <div style="grid-column: span 2;">
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Upload Image</label>
+                <input type="file" name="image" class="form-control"
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary"
+            style="margin-top: 20px; background: var(--accent); border-color: var(--accent);">Add News</button>
+    </form>
+</div>
+
+<div class="glass-card" style="padding: 30px;">
+    <h3 style="margin-bottom: 20px; color: var(--text-light);">Latest News</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in news %}
+            <tr>
+                <td>{{ item.title }}</td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.description }}</td>
+                <td>
+                    <a href="{{ url_for('delete_news', id=item.id) }}" class="action-btn btn-delete"
+                        onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

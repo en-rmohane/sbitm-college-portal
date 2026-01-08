@@ -1,0 +1,36 @@
+{% extends "admin/layout_admin.html" %}
+
+{% block content %}
+<div class="admin-header">
+    <h1 style="color: var(--text-light);">Dashboard</h1>
+</div>
+
+<div class="grid-strict-3">
+    <div class="glass-card" style="padding: 30px;">
+        <h3 style="color: var(--primary); margin-bottom: 10px;">Faculty</h3>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">Manage department staff and HODs.</p>
+        <a href="{{ url_for('manage_faculty') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage Faculty
+            &rarr;</a>
+    </div>
+
+    <div class="glass-card" style="padding: 30px;">
+        <h3 style="color: var(--accent); margin-bottom: 10px;">News & Events</h3>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">Update homepage announcements.</p>
+        <a href="{{ url_for('manage_news') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage News &rarr;</a>
+    </div>
+
+    <div class="glass-card" style="padding: 30px;">
+        <h3 style="color: #10b981; margin-bottom: 10px;">Placements</h3>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">Update stats and success stories.</p>
+        <a href="{{ url_for('manage_placements') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage
+            Placements &rarr;</a>
+    </div>
+
+    <div class="glass-card" style="padding: 30px;">
+        <h3 style="color: #a855f7; margin-bottom: 10px;">Gallery</h3>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">Upload and manage institute photos.</p>
+        <a href="{{ url_for('manage_gallery') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage Gallery
+            &rarr;</a>
+    </div>
+</div>
+{% endblock %}

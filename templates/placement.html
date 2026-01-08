@@ -10,18 +10,19 @@
     <!-- Stats -->
     <div class="grid-strict-3">
         <div class="glass-card text-center">
-            <h2 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">85%</h2>
+            <h2 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">{{ data.stats.percentage }}</h2>
             <p>Placement Percentage</p>
             <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 5px;">Consistent track record in last 5
                 years.</p>
         </div>
         <div class="glass-card text-center">
-            <h2 style="font-size: 3rem; color: var(--accent); margin-bottom: 10px;">12 LPA</h2>
+            <h2 style="font-size: 3rem; color: var(--accent); margin-bottom: 10px;">{{ data.stats.highest_package }}
+            </h2>
             <p>Highest Package</p>
             <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 5px;">Offered by Multinational Corp.</p>
         </div>
         <div class="glass-card text-center">
-            <h2 style="font-size: 3rem; color: #10b981; margin-bottom: 10px;">50+</h2>
+            <h2 style="font-size: 3rem; color: #10b981; margin-bottom: 10px;">{{ data.stats.recruiters_count }}</h2>
             <p>Recruiters Visited</p>
             <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 5px;">Top Tech & Core Companies.</p>
         </div>
@@ -128,37 +129,11 @@
 
             <div class="marquee-wrapper">
                 <div class="marquee-track">
-                    <!-- Original Set -->
-                    <div class="marquee-item"><span class="marquee-tag">TCS</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Infosys</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Wipro</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">HCL</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Tech Mahindra</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Capgemini</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Accenture</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Eicher</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Adani Power</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">IBM</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Cognizant</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Jio</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Amazon</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">L&T</span></div>
-
-                    <!-- Duplicate Set for Seamless Scroll -->
-                    <div class="marquee-item"><span class="marquee-tag">TCS</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Infosys</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Wipro</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">HCL</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Tech Mahindra</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Capgemini</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Accenture</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Eicher</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Adani Power</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">IBM</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Cognizant</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Jio</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">Amazon</span></div>
-                    <div class="marquee-item"><span class="marquee-tag">L&T</span></div>
+                    {% for _ in range(2) %}
+                    {% for company in data.recruiters %}
+                    <div class="marquee-item"><span class="marquee-tag">{{ company }}</span></div>
+                    {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -207,112 +182,30 @@
 
             <div class="marquee-wrapper">
                 <div class="marquee-track">
-                    <!-- Original Set -->
+                    {% for _ in range(2) %}
+                    {% for story in data.stories %}
                     <div class="marquee-item">
                         <div class="glass-card text-center" style="padding: 40px; width: 350px;">
                             <div
                                 style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--accent);">
-                                <img src="https://via.placeholder.com/100" alt="Student"
+                                {% if story.image.startswith('http') %}
+                                <img src="{{ story.image }}" alt="{{ story.name }}"
                                     style="width: 100%; height: 100%; object-fit: cover;">
+                                {% else %}
+                                <img src="{{ url_for('static', filename='images/placements/' + story.image) }}"
+                                    alt="{{ story.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                {% endif %}
                             </div>
-                            <h3 style="color: var(--text-light); margin-bottom: 5px;">Neha Gupta</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Package: 12 LPA</p>
+                            <h3 style="color: var(--text-light); margin-bottom: 5px;">{{ story.name }}</h3>
+                            <p style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">{{ story.package }}
+                            </p>
                             <p style="color: var(--text-dim); font-style: italic;">
-                                "Bagging a package of 12 LPA at a top MNC was a dream come true. Thanks to the TPO cell
-                                for
-                                their constant guidance."
+                                "{{ story.quote }}"
                             </p>
                         </div>
                     </div>
-
-                    <div class="marquee-item">
-                        <div class="glass-card text-center" style="padding: 40px; width: 350px;">
-                            <div
-                                style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--accent);">
-                                <img src="https://via.placeholder.com/100" alt="Student"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h3 style="color: var(--text-light); margin-bottom: 5px;">Rohan Das</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Package: 8.5 LPA
-                            </p>
-                            <p style="color: var(--text-dim); font-style: italic;">
-                                "The mock interviews and aptitude training sessions were a game changer. I felt fully
-                                prepared
-                                during the actual recruitment process."
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="marquee-item">
-                        <div class="glass-card text-center" style="padding: 40px; width: 350px;">
-                            <div
-                                style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--accent);">
-                                <img src="https://via.placeholder.com/100" alt="Student"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h3 style="color: var(--text-light); margin-bottom: 5px;">Anjali Singh</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Package: 10 LPA</p>
-                            <p style="color: var(--text-dim); font-style: italic;">
-                                "SBITM gave me the wings to fly. The support from my department and the placement cell
-                                was
-                                phenomenal."
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="marquee-item">
-                        <div class="glass-card text-center" style="padding: 40px; width: 350px;">
-                            <div
-                                style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--accent);">
-                                <img src="https://via.placeholder.com/100" alt="Student"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h3 style="color: var(--text-light); margin-bottom: 5px;">Vikram Patel</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Package: 7.5 LPA
-                            </p>
-                            <p style="color: var(--text-dim); font-style: italic;">
-                                "The personal attention given by the faculty and T&P cell helped me crack the interview
-                                of a
-                                dream company."
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Duplicate Set for Seamless Loop -->
-                    <div class="marquee-item">
-                        <div class="glass-card text-center" style="padding: 40px; width: 350px;">
-                            <div
-                                style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--accent);">
-                                <img src="https://via.placeholder.com/100" alt="Student"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h3 style="color: var(--text-light); margin-bottom: 5px;">Neha Gupta</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Package: 12 LPA</p>
-                            <p style="color: var(--text-dim); font-style: italic;">
-                                "Bagging a package of 12 LPA at a top MNC was a dream come true. Thanks to the TPO cell
-                                for
-                                their constant guidance."
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="marquee-item">
-                        <div class="glass-card text-center" style="padding: 40px; width: 350px;">
-                            <div
-                                style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--accent);">
-                                <img src="https://via.placeholder.com/100" alt="Student"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <h3 style="color: var(--text-light); margin-bottom: 5px;">Rohan Das</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">Package: 8.5 LPA
-                            </p>
-                            <p style="color: var(--text-dim); font-style: italic;">
-                                "The mock interviews and aptitude training sessions were a game changer. I felt fully
-                                prepared
-                                during the actual recruitment process."
-                            </p>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
         </div>

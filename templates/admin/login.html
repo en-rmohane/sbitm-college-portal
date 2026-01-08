@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - SBITM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+
+    <div class="glass-card" style="width: 100%; max-width: 400px; padding: 40px;">
+        <h2 class="text-center" style="margin-bottom: 30px; color: var(--text-light);">Admin Login</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}"
+            style="margin-bottom: 20px; padding: 15px; border-radius: 8px; background: rgba(255,255,255,0.1); color: var(--text-light);">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Username</label>
+                <input type="text" name="username" class="form-control" required
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+            </div>
+            <div style="margin-bottom: 30px;">
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Password</label>
+                <input type="password" name="password" class="form-control" required
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

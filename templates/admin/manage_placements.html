@@ -1,0 +1,100 @@
+{% extends "admin/layout_admin.html" %}
+
+{% block content %}
+<div class="admin-header">
+    <h1 style="color: var(--text-light);">Manage Placements</h1>
+</div>
+
+<!-- Stats Section -->
+<div class="glass-card" style="padding: 30px; margin-bottom: 40px;">
+    <h3 style="margin-bottom: 20px; color: #10b981;">Placement Statistics</h3>
+    <form method="POST">
+        <input type="hidden" name="action" value="update_stats">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+            <div>
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Percentage</label>
+                <input type="text" name="percentage" value="{{ data.stats.percentage }}" class="form-control"
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+            </div>
+            <div>
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Highest Package</label>
+                <input type="text" name="highest_package" value="{{ data.stats.highest_package }}" class="form-control"
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+            </div>
+            <div>
+                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Recruiters Count</label>
+                <input type="text" name="recruiters_count" value="{{ data.stats.recruiters_count }}"
+                    class="form-control"
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary"
+            style="margin-top: 20px; background: #10b981; border-color: #10b981;">Update Stats</button>
+    </form>
+</div>
+
+<!-- Recruiters List -->
+<div class="glass-card" style="padding: 30px; margin-bottom: 40px;">
+    <h3 style="margin-bottom: 20px; color: var(--text-light);">Recruiters List</h3>
+    <form method="POST">
+        <input type="hidden" name="action" value="update_recruiters">
+        <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Comma Separated List of
+            Companies</label>
+        <textarea name="recruiters" rows="4" class="form-control"
+            style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">{{ data.recruiters | join(', ') }}</textarea>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Update List</button>
+    </form>
+</div>
+
+<!-- Success Stories -->
+<div class="glass-card" style="padding: 30px;">
+    <h3 style="margin-bottom: 20px; color: #f59e0b;">Success Stories</h3>
+
+    <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <h4 style="margin-bottom: 15px; color: var(--text-dim);">Add New Story</h4>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="add_story">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px;">
+                <input type="text" name="name" placeholder="Student Name" required class="form-control"
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+                <input type="text" name="company" placeholder="Company" required class="form-control"
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+                <input type="text" name="package" placeholder="Package (e.g. 10 LPA)" required class="form-control"
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+                <input type="file" name="image" class="form-control"
+                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+                <div style="grid-column: span 2;">
+                    <input type="text" name="quote" placeholder="Quote" required class="form-control"
+                        style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary"
+                style="background: #f59e0b; border-color: #f59e0b; color: black;">Add Story</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Package</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for story in data.stories %}
+            <tr>
+                <td>{{ story.name }}</td>
+                <td>{{ story.company }}</td>
+                <td>{{ story.package }}</td>
+                <td>
+                    <a href="{{ url_for('delete_story', id=story.id) }}" class="action-btn btn-delete"
+                        onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
