@@ -65,6 +65,10 @@
                 </div>
                 <h4 style="text-align: center; margin-bottom: 5px; color: var(--text-light);">{{ member.name }}</h4>
                 <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem;">{{ member.designation }}</p>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="{{ url_for('faculty_detail', id=member.id) }}" class="btn btn-sm btn-outline"
+                        style="border-radius: 20px; font-size: 0.8rem; padding: 5px 15px;">View Profile</a>
+                </div>
             </div>
             {% endfor %}
         </div>

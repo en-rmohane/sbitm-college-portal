@@ -362,6 +362,17 @@ def faculty():
     grouped_faculty = utils.get_faculty_by_dept(faculty_list)
     return render_template('faculty.html', grouped_faculty=grouped_faculty)
 
+@app.route('/faculty/<id>')
+def faculty_detail(id):
+    faculty_list = utils.load_json('faculty.json')
+    faculty_member = next((f for f in faculty_list if f['id'] == id), None)
+    
+    if not faculty_member:
+        flash('Faculty member not found.', 'danger')
+        return redirect(url_for('faculty'))
+        
+    return render_template('faculty_detail.html', faculty=faculty_member)
+
 @app.route('/placement')
 def placement():
     data = utils.load_json('placements.json')

@@ -106,7 +106,12 @@
                         "{{ dept.hod.quote }}"
                     </p>
                     {% endif %}
-                    <a href="#" class="btn btn-sm btn-outline">View Faculty Profile</a>
+                    {% if dept.hod.faculty_id %}
+                    <a href="{{ url_for('faculty_detail', id=dept.hod.faculty_id) }}"
+                        class="btn btn-sm btn-outline">View Faculty Profile</a>
+                    {% else %}
+                    <a href="#" class="btn btn-sm btn-outline disabled">Profile Unavailable</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
