@@ -84,6 +84,7 @@ def manage_faculty():
         experience = request.form.get('experience')
         email = request.form.get('email')
         qualification = request.form.get('qualification')
+        specialization = request.form.get('specialization')
         
         # Handle Image Upload
         image_filename = ""
@@ -104,7 +105,8 @@ def manage_faculty():
             "bio": bio,
             "experience": experience,
             "email": email,
-            "qualification": qualification
+            "qualification": qualification,
+            "specialization": specialization
         }
         
         faculty_list = utils.load_json('faculty.json')
@@ -135,6 +137,7 @@ def edit_faculty(id):
         faculty_member['experience'] = request.form.get('experience')
         faculty_member['email'] = request.form.get('email')
         faculty_member['qualification'] = request.form.get('qualification')
+        faculty_member['specialization'] = request.form.get('specialization')
         
         # Handle Image Upload - Only update if a new file is provided
         if 'image' in request.files:

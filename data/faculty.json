@@ -5,23 +5,11 @@
         "department": "Computer Science & Engineering",
         "role": "HOD",
         "designation": "Head of Department",
-        "image": "",
-        "bio": "",
-        "experience": "10+",
-        "email": "",
-        "qualification": "M.tech,PHD"
-    },
-    {
-        "id": "4c385c10-0e99-4175-a8dd-93608509bfa9",
-        "name": "DEEPIKA MALVIYA  ",
-        "department": "Computer Science & Engineering",
-        "role": "Faculty",
-        "designation": "Assistant Professor",
-        "image": "ChatGPT_Image_Jan_13_2026_08_17_37_PM.png",
-        "bio": "Assistant Professor \u2013 Computer Science\r\nAcademic & Teaching Experience\r\n\r\nI have over 10 years of teaching experience across higher education institutions and reputed schools, with strong expertise in Computer Science and Information Technology.\r\n\r\nMillennium Group of Institution, Bhopal\r\nLecturer \u2013 Computer Science\r\nSeptember 2011 \u2013 October 2014\r\n\r\nGovernment Polytechnic College, Betul\r\nLecturer \u2013 Computer Science\r\nJuly 2015 \u2013 May 2017\r\n\r\nMadhyanchal Podar Learn School, Sonaghati, Betul\r\nTGT \u2013 Computer / IT\r\n3 Years\r\n\r\nShree Vinayakam Children Academy, Betul\r\nComputer Teacher \u2013 1 Year\r\n\r\nSatpuda Valley Public School, Sonaghati, Betul\r\nComputer Teacher \u2013 1 Year\r\n\r\nProjects Undertaken\r\n\r\nE-Ticketing System (Major Project \u2013 .NET):\r\nDesigned and implemented an automated e-ticketing system enabling users to generate tickets based on validated user information.\r\n\r\nOnline Voting System (Minor Project \u2013 .NET):\r\nDeveloped a secure online voting application with automated user authentication and vote management.\r\n\r\nIndustrial Training\r\n\r\n45 Days Industrial Training in .NET\r\nNet Guru Solutions, Bhopal\r\n\r\nResearch & Publication\r\n\r\n\u201cRecent Trends in Cyber Criminology\u201d\r\nPublished in HBRP Publications\r\n\r\nAreas of Interest\r\n\r\nComputer Science, Information Technology, .NET Technologies, Cyber Security, Academic Research\r\n",
-        "experience": "10+ Year",
-        "email": "",
-        "qualification": ": BE, MTECH (CSE)"
+        "image": "Screenshot_2026-01-15-15-57-44-89_96b26121e545231a3c569311a54cda96.jpg",
+        "bio": "Dr. Pankaj Singh Sisodiya\r\n\r\nDr. Pankaj Singh Sisodiya is a distinguished academician and researcher in the field of Computer Science & Engineering, holding a Ph.D. in Computer Science Engineering with over 10 years of teaching experience at undergraduate and postgraduate levels. He has consistently demonstrated excellence in teaching, research, and academic leadership.\r\n\r\nHis core areas of specialization include Machine Learning, Data Structures & Algorithms, Compiler Design, and Operating Systems. Dr. Sisodiya is known for his strong conceptual teaching approach and his ability to bridge theoretical knowledge with practical applications, enabling students to develop both analytical and problem-solving skills.\r\n\r\nHe is the author of a Data Structures book, widely appreciated for its clarity and structured presentation. In addition to his authorship, he has published more than 25 research papers in reputed national and international journals and conferences, reflecting his active involvement in research and innovation.\r\n\r\nIn recognition of his outstanding academic contributions, Dr. Sisodiya has been honored with the prestigious Srijan Award of Excellence by Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV). His dedication to education, research, and student mentorship continues to make a significant impact in the academic community.\r\n",
+        "experience": "10+ Years",
+        "email": "Sisodiya.pankaj90@gmail.com",
+        "qualification": "PHD , Mtech"
     },
     {
         "id": "adcb20e0-a38c-4b3c-893a-6b8fa53ed548",
@@ -214,5 +202,17 @@
         "experience": "13 Years",
         "email": "",
         "qualification": "M. Tech"
+    },
+    {
+        "id": "poly_hod_1",
+        "name": "Prof. Nitesh Barde",
+        "department": "Polytechnic (Diploma)",
+        "role": "HOD",
+        "designation": "Head of Department",
+        "image": "",
+        "bio": "Prof. Nitesh Barde is the Head of Department for Polytechnic (Diploma). He has extensive experience in technical education and administration.",
+        "experience": "10+ Years",
+        "email": "",
+        "qualification": "M.Tech"
     }
 ]

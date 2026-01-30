@@ -11,6 +11,19 @@
         </p>
     </div>
 
+    <!-- Semester Update Banner -->
+    <div class="animate-on-scroll fade-down" style="margin-bottom: 40px;">
+        <div
+            style="background: linear-gradient(90deg, rgba(14, 165, 233, 0.2), rgba(245, 158, 11, 0.1)); border: 1px solid var(--primary); padding: 15px 20px; border-radius: 12px; display: flex; align-items: center; gap: 15px;">
+            <i class="fas fa-info-circle text-primary" style="font-size: 1.5rem;"></i>
+            <div>
+                <h4 style="margin: 0; color: var(--text-light);">New Semester Update</h4>
+                <p style="margin: 0; font-size: 0.9rem; color: var(--text-dim);">Registration for the upcoming semester
+                    is now open. Students are requested to complete their enrollment by Aug 15th.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Quick Nav -->
     <div class="glass-card animate-on-scroll fade-up"
         style="transition-delay: 0.1s; padding: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 80px; position: sticky; top: 90px; z-index: 100; backdrop-filter: blur(20px);">
@@ -50,20 +63,39 @@
                     </p>
 
                     {% if dept.vision or dept.mission %}
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                        {% if dept.vision %}
-                        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 10px;">
-                            <h4 style="color: {{ dept.theme_color }}; margin-bottom: 10px;">Vision</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-dim);">{{ dept.vision }}</p>
+                    <div style="margin-bottom: 30px;">
+                        <div
+                            style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 10px; border: 1px solid var(--glass-border);">
+                            <h4 style="color: {{ dept.theme_color }}; margin-bottom: 15px;"><i
+                                    class="fas fa-bullseye"></i> Vision & Mission</h4>
+
+                            <!-- Static for now, can be rolling if multiple items exist -->
+                            {% if dept.vision %}
+                            <div style="margin-bottom: 15px;">
+                                <strong
+                                    style="color: var(--text-light); display: block; margin-bottom: 5px;">Vision</strong>
+                                <p style="font-size: 0.9rem; color: var(--text-dim); font-style: italic;">"{{
+                                    dept.vision }}"</p>
+                            </div>
+                            {% endif %}
+                            {% if dept.mission %}
+                            <div>
+                                <strong
+                                    style="color: var(--text-light); display: block; margin-bottom: 5px;">Mission</strong>
+                                <p style="font-size: 0.9rem; color: var(--text-dim);">{{ dept.mission }}</p>
+                            </div>
+                            {% endif %}
+
+                            <!-- Future Vision Rolling Placeholder -->
+                            <div class="rolling-text-container" style="margin-top: 20px; height: 30px;">
+                                <div class="rolling-text-content">
+                                    <p style="color: {{ dept.theme_color }}; font-weight: 500;">Innovating for 2026...
+                                    </p>
+                                    <p style="color: {{ dept.theme_color }}; font-weight: 500;">Building Future
+                                        Leaders...</p>
+                                </div>
+                            </div>
                         </div>
-                        {% endif %}
-                        {% if dept.mission %}
-                        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 10px;">
-                            <h4 style="color: {{ dept.theme_color }}; margin-bottom: 10px;">Mission</h4>
-                            <p style="font-size: 0.9rem; color: var(--text-dim);">{{ dept.mission }}</p>
-                        </div>
-                        {% endif %}
                     </div>
                     {% endif %}
 
@@ -71,14 +103,21 @@
                     <h3 style="color: var(--text-light); margin-bottom: 20px;">Labs & Workshops</h3>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
                         {% for lab in dept.labs %}
-                        <div class="glass-card" style="padding: 15px; text-align: center;">
-                            {% if lab.icon %}
+                        <div class="glass-card"
+                            style="padding: 15px; text-align: center; position: relative; overflow: hidden;">
+                            {% if lab.image %}
+                            <img src="{{ url_for('static', filename='images/labs/' + lab.image) }}" alt="{{ lab.name }}"
+                                style="width: 100%; height: 100px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; opacity: 0.8;">
+                            {% endif %}
+
+                            {% if lab.icon and not lab.image %}
                             <i class="{{ lab.icon }}"
                                 style="font-size: 2rem; color: {{ lab.color }}; margin-bottom: 10px;"></i>
                             {% endif %}
-                            <h5 style="margin: 0;">{{ lab.name }}</h5>
+                            <h5 style="margin: 0; position: relative; z-index: 1;">{{ lab.name }}</h5>
                             {% if lab.subtext %}
-                            <span style="font-size: 0.8rem; color: var(--text-dim);">{{ lab.subtext }}</span>
+                            <span style="font-size: 0.8rem; color: var(--text-dim); position: relative; z-index: 1;">{{
+                                lab.subtext }}</span>
                             {% endif %}
                         </div>
                         {% endfor %}

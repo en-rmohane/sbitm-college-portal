@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container section-padding">
     <div class="text-center">
-        <h1 class="section-title">Admission 2024</h1>
+        <h1 class="section-title">Admission 2026-27</h1>
         <p style="margin-bottom: 60px; color: var(--text-dim);">Your journey to success begins here.</p>
     </div>
 
@@ -15,15 +15,15 @@
                     <div
                         style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 4px solid var(--primary); box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);">
                         <!-- Placeholder for Head Image -->
-                        <img src="https://via.placeholder.com/200" alt="Prof. Pankaj Singh Sisodiya"
-                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ url_for('static', filename='images/faculty/pankaj_sir_hod.jpg') }}"
+                            alt="Dr. Pankaj Singh Sisodiya" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
                 <div style="flex: 2 1 300px;">
                     <h3
                         style="color: var(--primary); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">
                         Admission Head</h3>
-                    <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Prof. Pankaj Singh Sisodiya</h2>
+                    <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Dr. Pankaj Singh Sisodiya</h2>
                     <h4 style="color: var(--accent); margin-bottom: 20px;">H.O.D - Computer Science & Engineering</h4>
                     <p style="color: var(--text-dim); margin-bottom: 25px; font-size: 1.05rem; line-height: 1.8;">
                         "We welcome you to SBITM, where we nurture talent and build future leaders. Our admission
@@ -33,10 +33,10 @@
                         your career path."
                     </p>
                     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <a href="tel:+919999999999" class="btn btn-primary">
+                        <a href="tel:8770072150" class="btn btn-primary">
                             <i class="fas fa-phone-alt" style="margin-right: 10px;"></i> Call Admission Cell
                         </a>
-                        <a href="mailto:admission@sbitm.in" class="btn btn-outline">
+                        <a href="mailto:Sisodiya.pankaj90@gmail.com" class="btn btn-outline">
                             <i class="fas fa-envelope" style="margin-right: 10px;"></i> Email Us
                         </a>
                     </div>
@@ -49,103 +49,174 @@
     <div class="container section-padding">
         <h2 class="section-title text-center animate-on-scroll zoom-in">Courses Offered</h2>
         <div class="grid-strict-3">
+            <!-- B.Tech -->
             <div class="glass-card text-center animate-on-scroll card-pop">
                 <i class="fas fa-laptop-code feature-icon"></i>
                 <h3>B.Tech (CSE)</h3>
-                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">60 Seats</p>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">90 Seats</p>
                 <p style="color: var(--text-dim);">Computer Science & Engineering</p>
             </div>
             <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.1s;">
                 <i class="fas fa-brain feature-icon"></i>
                 <h3>B.Tech (AI & DS)</h3>
                 <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">60 Seats</p>
-                <p style="color: var(--text-dim);">Artificial Intelligence & Data Science</p>
+                <p style="color: var(--text-dim);">CS-Artificial Intelligence & Data Science</p>
+            </div>
+            <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.1s;">
+                <i class="fas fa-bolt feature-icon"></i>
+                <h3>B.Tech (EX)</h3>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">60 Seats</p>
+                <p style="color: var(--text-dim);">Electrical & Electronics Engineering</p>
             </div>
             <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.2s;">
                 <i class="fas fa-cogs feature-icon"></i>
                 <h3>B.Tech (ME)</h3>
-                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">60 Seats</p>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">30 Seats</p>
                 <p style="color: var(--text-dim);">Mechanical Engineering</p>
             </div>
             <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.3s;">
                 <i class="fas fa-drafting-compass feature-icon"></i>
                 <h3>B.Tech (Civil)</h3>
-                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">60 Seats</p>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">30 Seats</p>
                 <p style="color: var(--text-dim);">Civil Engineering</p>
+            </div>
+
+            <!-- Polytechnic -->
+            <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.4s;">
+                <i class="fas fa-cogs feature-icon"></i>
+                <h3>Polytechnic (ME)</h3>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">60 Seats</p>
+                <p style="color: var(--text-dim);">Mechanical Engineering (Diploma)</p>
+            </div>
+            <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.4s;">
+                <i class="fas fa-bolt feature-icon"></i>
+                <h3>Polytechnic (EX)</h3>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">60 Seats</p>
+                <p style="color: var(--text-dim);">Electrical & Electronics (Diploma)</p>
+            </div>
+            <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.4s;">
+                <i class="fas fa-drafting-compass feature-icon"></i>
+                <h3>Polytechnic (Civil)</h3>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">30 Seats</p>
+                <p style="color: var(--text-dim);">Civil Engineering (Diploma)</p>
+            </div>
+
+            <!-- Working Professionals -->
+            <div class="glass-card text-center animate-on-scroll card-pop"
+                style="transition-delay: 0.5s; border-top: 4px solid var(--primary);">
+                <i class="fas fa-user-tie feature-icon"></i>
+                <h3>Working Prof. (Poly ME)</h3>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">30 Seats</p>
+                <p style="color: var(--text-dim);">Diploma Mechanical (Working)</p>
+            </div>
+            <div class="glass-card text-center animate-on-scroll card-pop"
+                style="transition-delay: 0.5s; border-top: 4px solid var(--primary);">
+                <i class="fas fa-user-tie feature-icon"></i>
+                <h3>Working Prof. (Poly CE)</h3>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">15 Seats</p>
+                <p style="color: var(--text-dim);">Diploma Civil (Working)</p>
+            </div>
+            <div class="glass-card text-center animate-on-scroll card-pop"
+                style="transition-delay: 0.5s; border-top: 4px solid var(--primary);">
+                <i class="fas fa-user-tie feature-icon"></i>
+                <h3>Working Prof. (B.Tech ME)</h3>
+                <p style="color: var(--accent); font-weight: 700; font-size: 1.5rem; margin: 10px 0;">15 Seats</p>
+                <p style="color: var(--text-dim);">B.Tech Mechanical (Working)</p>
             </div>
         </div>
     </div>
 
     <!-- Info & Form Grid -->
-    <div class="container grid-strict-3">
+    <div class="container section-padding">
+        <div class="grid-strict-2">
 
-        <!-- Details Column -->
-        <div class="animate-on-scroll fade-left">
-            <h3 style="margin-bottom: 30px; color: var(--primary);">Admission Checklist</h3>
+            <!-- Details Column -->
+            <div class="animate-on-scroll fade-left">
+                <h3 style="margin-bottom: 30px; color: var(--primary);">Admission Checklist</h3>
 
-            <div class="glass-card" style="margin-bottom: 30px; padding: 30px;">
-                <h4 style="margin-bottom: 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px;">
-                    Documents Required</h4>
-                <ul style="color: var(--text-dim); padding-left: 0; list-style: none;">
-                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
-                            class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> 10th & 12th
-                        Marksheets (Original)</li>
-                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
-                            class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Transfer
-                        Certificate (TC)</li>
-                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
-                            class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Migration
-                        Certificate</li>
-                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
-                            class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Aadhar Card Copy
-                    </li>
-                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
-                            class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Samagra ID Path
-                    </li>
-                    <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
-                            class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> 4 Passport Size
-                        Photos</li>
-                </ul>
+                <div class="glass-card" style="margin-bottom: 30px; padding: 30px;">
+                    <h4
+                        style="margin-bottom: 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px;">
+                        Documents Required</h4>
+                    <ul style="color: var(--text-dim); padding-left: 0; list-style: none;">
+                        <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
+                                class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> 10th &
+                            12th
+                            Marksheets</li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
+                                class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Transfer
+                            Certificate (TC)</li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
+                                class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Migration
+                            Certificate</li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
+                                class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Aadhar
+                            Card Copy
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
+                                class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Samagra ID
+                            Path
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
+                                class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> 4 Passport
+                            Size
+                            Photos</li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: center;"><i
+                                class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i> Cast &
+                            Domicile
+                            Certificate</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card" style="border-left: 4px solid var(--accent); padding: 20px;">
+                    <h4>Helpline Numbers</h4>
+                    <p style="margin-top: 15px; color: var(--text-dim); line-height: 2;">
+                        <i class="fas fa-phone-alt text-accent" style="width: 20px;"></i> 8770072150 (Pankaj
+                        Sir)<br>
+                        <i class="fas fa-phone-alt text-accent" style="width: 20px;"></i> +91 9730476090
+                        (Office)<br>
+                        <i class="fas fa-envelope text-accent" style="width: 20px;"></i> Sisodiya.pankaj90@gmail.com
+                    </p>
+                </div>
             </div>
 
-            <div class="glass-card" style="border-left: 4px solid var(--accent); padding: 20px;">
-                <h4>Helpline Numbers</h4>
-                <p style="margin-top: 15px; color: var(--text-dim); line-height: 2;">
-                    <i class="fas fa-phone-alt text-accent" style="width: 20px;"></i> +91 99999 88888 (Pankaj Sir)<br>
-                    <i class="fas fa-phone-alt text-accent" style="width: 20px;"></i> +91 88888 77777 (Office)<br>
-                    <i class="fas fa-envelope text-accent" style="width: 20px;"></i> admission@sbitm.in
-                </p>
-            </div>
-        </div>
+            <!-- Enquiry Form -->
+            <div class="glass-card animate-on-scroll fade-right">
+                <h3 style="margin-bottom: 25px; text-align: center;">Quick Enquiry</h3>
+                <form action="https://formsubmit.co/Sisodiya.pankaj90@gmail.com" method="POST">
 
-        <!-- Enquiry Form -->
-        <div class="glass-card animate-on-scroll fade-right">
-            <h3 style="margin-bottom: 25px; text-align: center;">Quick Enquiry</h3>
-            <form>
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; margin-bottom: 8px; color: var(--text-dim);">Full Name</label>
-                    <input type="text" placeholder="Enter your name"
-                        style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 6px; color: white;">
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; margin-bottom: 8px; color: var(--text-dim);">Phone Number</label>
-                    <input type="tel" placeholder="Enter your mobile number"
-                        style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 6px; color: white;">
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; margin-bottom: 8px; color: var(--text-dim);">Course</label>
-                    <select
-                        style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 6px; color: white;">
-                        <option value="" style="background: var(--bg-dark);">Select Course</option>
-                        <option value="CSE" style="background: var(--bg-dark);">B.Tech CSE</option>
-                        <option value="AIDS" style="background: var(--bg-dark);">B.Tech AI & DS</option>
-                        <option value="Mech" style="background: var(--bg-dark);">B.Tech Mechanical</option>
-                        <option value="Civil" style="background: var(--bg-dark);">B.Tech Civil</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enquiry</button>
-            </form>
+                    <!-- Hidden Configuration Fields -->
+                    <input type="hidden" name="_subject" value="New Admission Enquiry from SBITM Website">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: var(--text-dim);">Full Name</label>
+                        <input type="text" name="name" placeholder="Enter your name" required
+                            style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 6px; color: white;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: var(--text-dim);">Phone
+                            Number</label>
+                        <input type="tel" name="phone" placeholder="Enter your mobile number" required
+                            style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 6px; color: white;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: var(--text-dim);">Course</label>
+                        <select name="course" required
+                            style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 6px; color: white;">
+                            <option value="" style="background: var(--bg-dark);">Select Course</option>
+                            <option value="CSE" style="background: var(--bg-dark);">B.Tech CSE</option>
+                            <option value="AIDS" style="background: var(--bg-dark);">B.Tech AI & DS</option>
+                            <option value="Mech" style="background: var(--bg-dark);">B.Tech Mechanical</option>
+                            <option value="Civil" style="background: var(--bg-dark);">B.Tech Civil</option>
+                            <option value="Electrical & Electronic" style="background: var(--bg-dark);">B.Tech
+                                Electrical & Electronic</option>
+                            <option value="Diploma" style="background: var(--bg-dark);">Diploma</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enquiry</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}

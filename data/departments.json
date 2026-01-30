@@ -6,7 +6,7 @@
         "theme_color": "var(--primary)",
         "text_class": "text-primary",
         "tagline": "\"Innovating the Future with Code\"",
-        "intake": 60,
+        "intake": 90,
         "description": "The Department of Computer Science & Engineering was established to meet the demand for well-qualified computer professionals. The department has highly qualified faculty and strictly adheres to the RGPV curriculum while supplementing it with courses on emerging technologies.",
         "vision": "To be a center of excellence in providing globally standard education and research.",
         "mission": "To create technologically competent and ethically responsible computer professionals.",
@@ -34,7 +34,7 @@
             "name": "Dr. Pankaj Singh Sisodiya",
             "role": "Head of Department",
             "quote": "\"We strive to make our students not just engineers, but innovators who solve real-world problems.\"",
-            "image": "",
+            "image": "pankaj_sir_hod.jpg",
             "faculty_id": "cse_hod_1"
         }
     },
@@ -73,7 +73,7 @@
             "name": "Dr. Pankaj Singh Sisodiya",
             "role": "Program Coordinator",
             "quote": "\"Data is the new oil, and AI is the engine. We teach you how to build that engine.\"",
-            "image": "",
+            "image": "pankaj_sir_hod.jpg",
             "faculty_id": "aids_hod_1"
         }
     },
@@ -84,7 +84,7 @@
         "theme_color": "#ef4444",
         "text_class": "",
         "tagline": "\"The Royal Branch\"",
-        "intake": 60,
+        "intake": 30,
         "description": "The Mechanical Engineering department focuses on power systems, control systems, and renewable energy sources. We prepare students for the heavy industries and power sector.",
         "vision": "",
         "mission": "",
@@ -115,7 +115,7 @@
             }
         ],
         "hod": {
-            "name": "Prof. Amit Kumar",
+            "name": "Prof. Rajesh Barange",
             "role": "Head of Department",
             "quote": "",
             "image": "",
@@ -129,7 +129,7 @@
         "theme_color": "#22c55e",
         "text_class": "",
         "tagline": "\"Building the Nation\"",
-        "intake": 60,
+        "intake": 30,
         "description": "Our Civil Engineering department is equipped with heavy machinery for material testing and advanced surveying equipment like Total Stations. We focus on sustainable development.",
         "vision": "",
         "mission": "",
@@ -193,11 +193,31 @@
             }
         ],
         "hod": {
-            "name": "Prof. Suresh Patel",
+            "name": "Prof. Kapil Padlak",
             "role": "Head of Department",
             "quote": "\"Energizing the future with sustainable power solutions.\"",
             "image": "",
             "faculty_id": "ee_hod_1"
+        }
+    },
+    {
+        "id": "poly",
+        "name": "Polytechnic (Diploma)",
+        "icon": "fas fa-tools",
+        "theme_color": "#f97316",
+        "text_class": "text-warning",
+        "tagline": "\"Skill Based Learning\"",
+        "intake": 150,
+        "description": "The Polytechnic wing offers diploma courses in Mechanical, Electrical, and Civil Engineering, focusing on practical skills and industry readiness.",
+        "vision": "",
+        "mission": "",
+        "labs": [],
+        "hod": {
+            "name": "Prof. Nitesh Barde",
+            "role": "Head of Department",
+            "quote": "\"Empowering students with hands-on technical skills.\"",
+            "image": "",
+            "faculty_id": "poly_hod_1"
         }
     }
 ]
