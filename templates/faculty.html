@@ -2,10 +2,12 @@
 
 {% block content %}
 <div class="container section-padding">
-    <div class="text-center animate-on-scroll zoom-in">
-        <h1 class="section-title">Our Esteemed Faculty</h1>
-        <p style="margin-bottom: 60px; color: var(--text-dim); font-size: 1.2rem; font-style: italic;">
-            "Teachers affect eternity; no one can tell where their influence stops."
+
+    <!-- Header -->
+    <div class="text-center animate-on-scroll zoom-in" style="margin-bottom: 60px;">
+        <h1 class="section-title">Faculty Members</h1>
+        <p style="color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+            Our dedicated team of professors and lecturers committed to academic excellence.
         </p>
     </div>
 
@@ -18,96 +20,78 @@
     ('Polytechnic (Diploma)', '#f97316')
     ] %}
 
-    {% for dept_name, color in dept_order %}
-    {% if grouped_faculty[dept_name] %}
-    <div style="margin-bottom: 80px;" id="{{ dept_name | lower | replace(' ', '') | replace('&', '') }}">
+    <div class="fac-v3-container">
+        {% for dept_name, color in dept_order %}
+        {% if grouped_faculty[dept_name] %}
 
-        <!-- Dept Header -->
-        <div class="faculty-header" style="color: {{ color }};">
-            <h2 style="color: var(--text-light); margin: 0;">{{ dept_name }}</h2>
-            <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0;">Department Faculty</p>
+        <!-- Department Section -->
+        <div class="fac-v3-dept-section" style="border-left-color: {{ color }};">
+            <h2 class="fac-v3-dept-title">{{ dept_name }}</h2>
         </div>
 
-        <div class="faculty-grid">
-            <!-- HODs First -->
-            {% for member in grouped_faculty[dept_name] if member.role == 'HOD' %}
-            <div
-                class="glass-card faculty-card animate-on-scroll card-pop {% if member.role == 'HOD' %}hod-card{% endif %}">
-                <div class="faculty-img-wrapper">
-                    {% if member.image %}
-                    <img src="{{ url_for('static', filename='images/faculty/' + member.image) }}"
-                        onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/sbitm_logo.png') }}'"
-                        alt="{{ member.name }}" class="faculty-img" style="border-color: {{ color }};">
-                    {% else %}
-                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="{{ member.name }}"
-                        class="faculty-img" style="border-color: {{ color }}; opacity: 0.7;">
-                    {% endif %}
-                </div>
-                <div style="flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center;">
-                    <h3 class="faculty-name">{{ member.name }}</h3>
-                    <span
-                        style="background: {{ color }}; color: white; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">Head
-                        of Dept.</span>
-                    <p class="faculty-designation" style="color: {{ color }};">{{ member.designation }}</p>
-                    {% if member.specialization %}
-                    <p class="faculty-specialization">{{ member.specialization }}</p>
-                    {% else %}
-                    <p class="faculty-specialization" style="visibility: hidden;">No Spec</p>
-                    {% endif %}
-                </div>
-                <div class="faculty-actions">
-                    <a href="{{ url_for('faculty_detail', id=member.id) }}" class="btn btn-sm btn-outline"
-                        style="border-radius: 20px; font-size: 0.85rem; padding: 8px 25px; width: 100%; border-color: rgba(255,255,255,0.2);">View
-                        Profile</a>
-                </div>
-            </div>
-            {% endfor %}
+        <!-- 1. HOD Section (Top & Centered) -->
+        {% for member in grouped_faculty[dept_name] %}
+        {% if member.role == 'HOD' %}
+        <div class="fac-v3-hod-wrapper animate-on-scroll zoom-in">
+            <div class="fac-v3-card hod-card">
+                <div class="fac-v3-badge" style="background: {{ color }};">Head of Department</div>
 
-            <!-- Other Faculty -->
-            {% for member in grouped_faculty[dept_name] if member.role != 'HOD' %}
-            <div class="glass-card faculty-card animate-on-scroll card-pop">
-                <div class="faculty-img-wrapper">
+                <div class="fac-v3-img-box">
                     {% if member.image %}
                     <img src="{{ url_for('static', filename='images/faculty/' + member.image) }}"
-                        onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/sbitm_logo.png') }}'"
-                        alt="{{ member.name }}" class="faculty-img" style="border-color: {{ color }};">
+                        onerror="this.src='{{ url_for('static', filename='images/sbitm_logo.png') }}'"
+                        alt="{{ member.name }}" style="border-color: {{ color }};">
                     {% else %}
                     <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="{{ member.name }}"
-                        class="faculty-img" style="border-color: {{ color }}; opacity: 0.7;">
+                        style="border-color: {{ color }}; opacity: 0.8;">
                     {% endif %}
                 </div>
-                <div style="flex-grow: 1; width: 100%; display: flex; flex-direction: column; align-items: center;">
-                    <h3 class="faculty-name">{{ member.name }}</h3>
-                    <p class="faculty-designation" style="color: {{ color }};">{{ member.designation }}</p>
-                    {% if member.specialization %}
-                    <p class="faculty-specialization">{{ member.specialization }}</p>
-                    {% else %}
-                    <p class="faculty-specialization" style="visibility: hidden;">No Spec</p>
-                    {% endif %}
-                </div>
-                <div class="faculty-actions">
-                    <a href="{{ url_for('faculty_detail', id=member.id) }}" class="btn btn-sm btn-outline"
-                        style="border-radius: 20px; font-size: 0.85rem; padding: 8px 25px; width: 100%; border-color: rgba(255,255,255,0.2);">View
-                        Profile</a>
+
+                <div class="fac-v3-content">
+                    <h3 class="fac-v3-name">{{ member.name }}</h3>
+                    <p class="fac-v3-role" style="color: {{ color }};">{{ member.designation }}</p>
+                    <p class="fac-v3-spec">{{ member.specialization if member.specialization else '' }}</p>
+                    <a href="{{ url_for('faculty_detail', id=member.id) }}" class="fac-v3-btn">View Profile</a>
                 </div>
             </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!-- 2. Faculty Grid (3 Columns) -->
+        <div class="fac-v3-grid">
+            {% for member in grouped_faculty[dept_name] %}
+            {% if member.role != 'HOD' %}
+            <div class="fac-v3-card animate-on-scroll fade-up">
+                <div class="fac-v3-img-box">
+                    {% if member.image %}
+                    <img src="{{ url_for('static', filename='images/faculty/' + member.image) }}"
+                        onerror="this.src='{{ url_for('static', filename='images/sbitm_logo.png') }}'"
+                        alt="{{ member.name }}" style="border-color: {{ color }};">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="{{ member.name }}"
+                        style="border-color: {{ color }}; opacity: 0.8;">
+                    {% endif %}
+                </div>
+
+                <div class="fac-v3-content">
+                    <h3 class="fac-v3-name">{{ member.name }}</h3>
+                    <p class="fac-v3-role" style="color: {{ color }};">{{ member.designation }}</p>
+                    <p class="fac-v3-spec">{{ member.specialization if member.specialization else '.' }}</p>
+                    <!-- Spacer dot if empty -->
+                    <a href="{{ url_for('faculty_detail', id=member.id) }}" class="fac-v3-btn">View Profile</a>
+                </div>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
-    </div>
-    {% endif %}
-    {% endfor %}
 
-    <!-- Quote Section -->
-    <div class="glass-card text-center animate-on-scroll zoom-in"
-        style="padding: 60px; border-color: var(--accent); position: relative; overflow: hidden;">
-        <div
-            style="position: absolute; top: -20px; left: 20px; font-size: 10rem; opacity: 0.05; font-family: sans-serif; color: var(--accent);">
-            "</div>
-        <h2 style="position: relative; z-index: 1;">Architects of the Future</h2>
-        <p style="max-width: 800px; margin: 20px auto; font-size: 1.1rem;">
-            Our faculty members are not just teachers; they are mentors, researchers, and guides who shape the raw
-            potential of students into refined engineering excellence.
-        </p>
+        <!-- Spacer between departments -->
+        <div style="height: 80px;"></div>
+
+        {% endif %}
+        {% endfor %}
     </div>
+
 </div>
 {% endblock %}
