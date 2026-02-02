@@ -155,21 +155,148 @@
     </div>
 </section>
 
-<!-- Departments Preview -->
+<!-- Refined Professional Section -->
+<section class="refined-section" style="background: var(--bg-darker);">
+    <div class="container">
+        <h2 class="refined-title animate-on-scroll zoom-in">The Making of a Refined Professional</h2>
+
+        <div class="refined-grid">
+            <!-- Card 1: Holistic Education -->
+            <div class="refined-card animate-on-scroll fade-up">
+                <div class="refined-card-inner">
+                    <div class="refined-card-front">
+                        <img src="{{ url_for('static', filename='images/college_building.jpg') }}"
+                            class="refined-card-img" alt="Academic Excellence">
+                        <div class="refined-overlay"></div>
+                        <div class="refined-content">
+                            <h3>Academic Excellence</h3>
+                        </div>
+                    </div>
+                    <div class="refined-card-back">
+                        <ul class="refined-list">
+                            <li>Practical Learning Focus</li>
+                            <li>Student-Centric Curriculum</li>
+                            <li>Interactive Pedagogy</li>
+                            <li>Ethical Foundation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Comprehensive Development -->
+            <div class="refined-card animate-on-scroll fade-up" style="transition-delay: 0.1s;">
+                <div class="refined-card-inner">
+                    <div class="refined-card-front">
+                        <img src="{{ url_for('static', filename='images/college_building.jpg') }}"
+                            class="refined-card-img" alt="360 Training">
+                        <div class="refined-overlay">
+                        </div>
+                        <div class="refined-content">
+                            <span class="refined-stat-desc" style="display:block; margin-bottom:5px;">360°</span>
+                            <h3>Training</h3>
+                        </div>
+                    </div>
+                    <div class="refined-card-back">
+                        <ul class="refined-list">
+                            <li>Career-Focused Coaching</li>
+                            <li>Corporate-Ready Syllabus</li>
+                            <li>Digital Learning Resources</li>
+                            <li>National Level Mock Tests</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Personal Growth -->
+            <div class="refined-card animate-on-scroll fade-up" style="transition-delay: 0.2s;">
+                <div class="refined-card-inner">
+                    <div class="refined-card-front">
+                        <img src="{{ url_for('static', filename='images/college_building.jpg') }}"
+                            class="refined-card-img" alt="Student Grooming">
+                        <div class="refined-overlay"></div>
+                        <div class="refined-content">
+                            <h3>Student Grooming</h3>
+                        </div>
+                    </div>
+                    <div class="refined-card-back">
+                        <ul class="refined-list">
+                            <li>Industry Expert Sessions</li>
+                            <li>Real-World Exposure</li>
+                            <li>Active Student Communities</li>
+                            <li>Global Networks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Career Success -->
+            <div class="refined-card animate-on-scroll fade-up" style="transition-delay: 0.3s;">
+                <div class="refined-card-inner">
+                    <div class="refined-card-front">
+                        <img src="{{ url_for('static', filename='images/college_building.jpg') }}"
+                            class="refined-card-img" alt="Magnificent Placements">
+                        <div class="refined-overlay"></div>
+                        <div class="refined-content">
+                            <h3>Magnificent Placements</h3>
+                        </div>
+                    </div>
+                    <div class="refined-card-back">
+                        <!-- Stats moved to back -->
+                        <div style="width: 100%;">
+                            <div class="refined-stat-item">
+                                <span class="refined-stat-val">20 LPA</span>
+                                <span class="refined-stat-desc">Highest Package</span>
+                            </div>
+                            <div class="refined-stat-item">
+                                <span class="refined-stat-val">96%</span>
+                                <span class="refined-stat-desc">Campus Placements</span>
+                            </div>
+                            <div class="refined-stat-item">
+                                <span class="refined-stat-val">1150+</span>
+                                <span class="refined-stat-desc">Job Offers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Institute Highlights -->
 <section class="section-padding">
     <div class="container">
-        <div class="text-center">
-            <h2 class="section-title">Our Departments</h2>
+
+
+        <div class="text-center" style="margin-bottom: 60px;">
+            <h2 class="section-title">Why Choose SBITM?</h2>
+            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+                We are more than just an engineering college. We are a community of innovators, leaders, and dreamers.
+            </p>
         </div>
-        <div class="grid-strict-3">
-            {% for dept in ['CSE', 'AI & DS', 'Civil', 'Electrical', 'Mechanical'] %}
-            <div class="glass-card text-center">
-                <h3 style="margin-bottom: 10px; color: var(--primary);">{{ dept }}</h3>
-                <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-dim);">60 Seats Available</p>
-                <a href="{{ url_for('departments') }}"
-                    style="color: var(--accent); text-decoration: none; font-weight: 600;">View Details &rarr;</a>
+
+        <!-- 4 Column Stats Grid -->
+        <div class="grid-strict-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="stat-card animate-on-scroll fade-up" style="transition-delay: 0.1s;">
+                <i class="fas fa-university feature-icon" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Years of Legacy</span>
             </div>
-            {% endfor %}
+            <div class="stat-card animate-on-scroll fade-up" style="transition-delay: 0.2s;">
+                <i class="fas fa-globe-asia feature-icon" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                <span class="stat-number">5000+</span>
+                <span class="stat-label">Alumni Network</span>
+            </div>
+            <div class="stat-card animate-on-scroll fade-up" style="transition-delay: 0.3s;">
+                <i class="fas fa-tree feature-icon" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Acres Green Campus</span>
+            </div>
+            <div class="stat-card animate-on-scroll fade-up" style="transition-delay: 0.4s;">
+                <i class="fas fa-handshake feature-icon" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Placement Support</span>
+            </div>
         </div>
     </div>
 </section>
