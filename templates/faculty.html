@@ -1,97 +1,109 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container section-padding">
-
-    <!-- Header -->
-    <div class="text-center animate-on-scroll zoom-in" style="margin-bottom: 60px;">
+<!-- Page Header -->
+<section class="section-padding bg-light text-center">
+    <div class="container animate-on-scroll">
         <h1 class="section-title">Faculty Members</h1>
-        <p style="color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-            Our dedicated team of professors and lecturers committed to academic excellence.
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">
+            Meet our distinguished faculty members who champion academic excellence and research at SBITM.
         </p>
     </div>
+</section>
 
-    {% set dept_order = [
-    ('Computer Science & Engineering', 'var(--primary)'),
-    ('AI & Data Science', 'var(--accent)'),
-    ('Mechanical Engineering', '#ef4444'),
-    ('Civil Engineering', '#22c55e'),
-    ('Electrical Engineering', '#a855f7'),
-    ('Polytechnic (Diploma)', '#f97316')
-    ] %}
+<!-- Department Navigation -->
+<div class="container"
+    style="margin-bottom: 40px; position: sticky; top: 90px; z-index: 900; background: rgba(255,255,255,0.9); backdrop-filter: blur(5px); padding: 15px 0;">
+    <div
+        style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; justify-content: center; flex-wrap: wrap;">
+        {% for dept_name in grouped_faculty.keys() %}
+        <a href="#{{ dept_name|replace(' ', '-')|lower }}" class="btn btn-outline"
+            style="padding: 8px 16px; font-size: 0.85rem; white-space: nowrap;">
+            {{ dept_name }}
+        </a>
+        {% endfor %}
+    </div>
+</div>
 
-    <div class="fac-v3-container">
-        {% for dept_name, color in dept_order %}
-        {% if grouped_faculty[dept_name] %}
+<div class="container">
+    {% for dept_name, members in grouped_faculty.items() %}
 
-        <!-- Department Section -->
-        <div class="fac-v3-dept-section" style="border-left-color: {{ color }};">
-            <h2 class="fac-v3-dept-title">{{ dept_name }}</h2>
+    <!-- Department Divider -->
+    <section id="{{ dept_name|replace(' ', '-')|lower }}" style="scroll-margin-top: 180px; margin-bottom: 100px;">
+        <div class="section-title text-left animate-on-scroll">
+            <h2>{{ dept_name }}</h2>
+            <div style="height: 4px; width: 60px; background: var(--accent); margin-top: 5px; border-radius: 2px;">
+            </div>
         </div>
 
-        <!-- 1. HOD Section (Top & Centered) -->
-        {% for member in grouped_faculty[dept_name] %}
+        <!-- 1. HOD Feature Section -->
+        {% for member in members %}
         {% if member.role == 'HOD' %}
-        <div class="fac-v3-hod-wrapper animate-on-scroll zoom-in">
-            <div class="fac-v3-card hod-card">
-
-
-                <div class="fac-v3-img-box">
+        <div class="hod-card-wrapper animate-on-scroll">
+            <div class="hod-card">
+                <div class="hod-img-box">
                     {% if member.image %}
                     <img src="{{ url_for('static', filename='images/faculty/' + member.image) }}"
-                        onerror="this.src='{{ url_for('static', filename='images/sbitm_logo.png') }}'"
-                        alt="{{ member.name }}" style="border-color: {{ color }};">
+                        onerror="this.src='{{ url_for('static', filename='images/admission_head.jpg') }}'"
+                        alt="{{ member.name }}">
                     {% else %}
-                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="{{ member.name }}"
-                        style="border-color: {{ color }}; opacity: 0.8;">
+                    <img src="{{ url_for('static', filename='images/admission_head.jpg') }}" alt="Default">
                     {% endif %}
                 </div>
-
-                <div class="fac-v3-content">
-                    <h3 class="fac-v3-name">{{ member.name }}</h3>
-                    <p class="fac-v3-role" style="color: {{ color }};">{{ member.designation }}</p>
-                    <p class="fac-v3-spec">{{ member.specialization if member.specialization else '' }}</p>
-                    <a href="{{ url_for('faculty_detail', id=member.id) }}" class="fac-v3-btn">View Profile</a>
+                <div class="hod-content">
+                    <span class="role">Head of Department</span>
+                    <h3>{{ member.name }}</h3>
+                    <p class="text-muted" style="margin-bottom: 15px;">{{ member.designation }}</p>
+                    <p style="margin-bottom: 20px;">Leading the department with a vision for innovation and academic
+                        rigor. Expert in {{ member.specialization if member.specialization else 'Educational Leadership'
+                        }}.</p>
+                    <a href="{{ url_for('faculty_detail', id=member.id) }}" class="btn btn-primary">View Full
+                        Profile</a>
                 </div>
             </div>
         </div>
         {% endif %}
         {% endfor %}
 
-        <!-- 2. Faculty Grid (3 Columns) -->
-        <div class="fac-v3-grid">
-            {% for member in grouped_faculty[dept_name] %}
+        <!-- 2. Faculty Grid -->
+        <div class="faculty-grid animate-on-scroll">
+            {% for member in members %}
             {% if member.role != 'HOD' %}
-            <div class="fac-v3-card animate-on-scroll fade-up">
-                <div class="fac-v3-img-box">
+            <div class="faculty-card">
+                <div class="faculty-img">
                     {% if member.image %}
                     <img src="{{ url_for('static', filename='images/faculty/' + member.image) }}"
-                        onerror="this.src='{{ url_for('static', filename='images/sbitm_logo.png') }}'"
-                        alt="{{ member.name }}" style="border-color: {{ color }};">
+                        onerror="this.src='{{ url_for('static', filename='images/admission_head.jpg') }}'"
+                        alt="{{ member.name }}">
                     {% else %}
-                    <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="{{ member.name }}"
-                        style="border-color: {{ color }}; opacity: 0.8;">
+                    <img src="{{ url_for('static', filename='images/admission_head.jpg') }}" alt="Default">
                     {% endif %}
-                </div>
 
-                <div class="fac-v3-content">
-                    <h3 class="fac-v3-name">{{ member.name }}</h3>
-                    <p class="fac-v3-role" style="color: {{ color }};">{{ member.designation }}</p>
-                    <p class="fac-v3-spec">{{ member.specialization if member.specialization else '.' }}</p>
-                    <!-- Spacer dot if empty -->
-                    <a href="{{ url_for('faculty_detail', id=member.id) }}" class="fac-v3-btn">View Profile</a>
+                    <!-- Hover Overlay -->
+                    <div class="faculty-overlay">
+                        <a href="{{ url_for('faculty_detail', id=member.id) }}" class="btn btn-accent btn-sm">View
+                            Profile</a>
+                    </div>
+                </div>
+                <div class="faculty-info">
+                    <h4>{{ member.name }}</h4>
+                    <span class="designation">{{ member.designation }}</span>
+                    <!-- Horizontal line and specialization -->
+                    <div class="specialization">
+                        {{ member.specialization if member.specialization else 'Engineering & Tech' }}
+                    </div>
                 </div>
             </div>
             {% endif %}
             {% endfor %}
         </div>
+    </section>
 
-        <!-- Spacer between departments -->
-        <div style="height: 80px;"></div>
-
-        {% endif %}
-        {% endfor %}
+    {% else %}
+    <div class="text-center section-padding">
+        <p>No faculty members found. Please check database connection.</p>
     </div>
-
+    {% endfor %}
 </div>
+
 {% endblock %}

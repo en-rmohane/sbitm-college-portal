@@ -1,360 +1,315 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content animate-on-scroll zoom-in">
-        <h1 style="font-size: 4rem; letter-spacing: -1px; margin-bottom: 25px;">
-            Forge Your Destiny at <br> <span style="color: var(--accent);">SBITM</span>
-        </h1>
-        <p style="font-size: 1.4rem; color: #e2e8f0; font-weight: 300;">
-            Where <span style="color: var(--primary); font-weight: 600;">Innovation</span> meets <span
-                style="color: var(--accent); font-weight: 600;">Excellence</span>.
-            We don't just teach Engineering; we craft the Legends of Tomorrow.
-        </p>
-        <div style="margin-top: 40px;">
-            <a href="{{ url_for('admission') }}" class="btn btn-primary"
-                style="padding: 15px 40px; font-size: 1.1rem; border-radius: 30px;">
-                Start Your Journey
-            </a>
-            <a href="{{ url_for('about') }}" class="btn btn-outline"
-                style="margin-left: 20px; padding: 15px 40px; font-size: 1.1rem; border-radius: 30px;">
-                Discover More
-            </a>
+<!-- Notice Bar -->
+<div class="notice-bar">
+    <div class="notice-container">
+        <div class="notice-label">
+            <i class="fas fa-bullhorn" style="margin-right: 10px;"></i> NOTICE / ANNOUNCEMENTS
         </div>
-    </div>
-</section>
-
-<!-- Features / Highlights -->
-<section class="container" style="padding-bottom: 80px;">
-    <div class="grid-strict-3">
-        <div class="glass-card animate-on-scroll card-pop">
-            <i class="fas fa-microchip feature-icon"></i>
-            <h3>Modern Labs</h3>
-            <p>State-of-the-art computer labs and mechanical workshops properly equipped for practical learning.</p>
-        </div>
-        <div class="glass-card animate-on-scroll card-pop" style="transition-delay: 0.1s;">
-            <i class="fas fa-user-graduate feature-icon"></i>
-            <h3>Expert Faculty</h3>
-            <p>Learn from experienced professors and industry experts dedicated to your academic success.</p>
-        </div>
-        <div class="glass-card animate-on-scroll card-pop" style="transition-delay: 0.2s;">
-            <i class="fas fa-briefcase feature-icon"></i>
-            <h3>Top Placements</h3>
-            <p>Consistent placement record with top MNCs. We groom you for the corporate world.</p>
-        </div>
-    </div>
-</section>
-
-<!-- About Brief -->
-<section class="section-padding" style="background: rgba(255,255,255,0.02);">
-    <div class="container">
-        <div class="glass-card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
-            <div style="flex: 1; min-width: 300px;" class="animate-on-scroll fade-left">
-                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Welcome to SBITM</h2>
-                <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-dim);">
-                    SBITM (Shri Balaji Institute of Technology and Management) is a premier engineering institution
-                    dedicated to nurturing technical talent. With a focus on holistic development, we offer cutting-edge
-                    courses in Engineering and Management.
-                </p>
-                <ul style="list-style: none; margin-bottom: 30px;">
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"
-                            style="margin-right: 10px;"></i> AICTE Approved</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"
-                            style="margin-right: 10px;"></i> RGPV Affiliated</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle text-primary"
-                            style="margin-right: 10px;"></i> Modern Campus Infrastructure</li>
-                </ul>
-                <a href="{{ url_for('about') }}" class="btn btn-primary">Read More</a>
-            </div>
-            <div style="flex: 1; min-width: 300px;" class="animate-on-scroll fade-right">
-                <img src="{{ url_for('static', filename='images/college_building.jpg') }}" alt="SBITM Campus"
-                    style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Recent Activity / Campus Happenings -->
-<!-- Recent Activity / Campus Happenings -->
-<section class="section-padding">
-    <div class="container">
-        <h2 class="section-title text-center animate-on-scroll zoom-in">Campus Happenings</h2>
-        <div class="grid-strict-3" style="margin-top: 20px;">
-            {% for item in news %}
-            <div class="glass-card animate-on-scroll card-pop"
-                style="padding: 20px; transition-delay: {{ loop.index0 * 0.1 }}s;">
-                <div
-                    style="height: 200px; background: #333; border-radius: 10px; margin-bottom: 15px; overflow: hidden;">
-                    {% if item.image.startswith('http') %}
-                    <img src="{{ item.image }}" alt="{{ item.title }}"
-                        style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
-                    {% else %}
-                    <img src="{{ url_for('static', filename='images/news/' + item.image) }}" alt="{{ item.title }}"
-                        style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
-                    {% endif %}
+        <div class="notice-scroller">
+            <div class="notice-content">
+                <div class="notice-item">
+                    <i class="fas fa-circle text-accent" style="font-size: 8px;"></i>
+                    <span><strong>Admission Open 2025-26:</strong> B.Tech & MBA Applications are live. Apply before Aug
+                        15th.</span>
                 </div>
-                <span style="color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">{{
-                    item.date }}</span>
-                <h3 style="margin: 10px 0; color: var(--text-light);">{{ item.title }}</h3>
-                <p style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem;">
-                    {{ item.description }}
-                </p>
-                <a href="{{ url_for('gallery') }}" class="btn btn-outline"
-                    style="font-size: 0.8rem; padding: 8px 20px;">View Photos</a>
-            </div>
-            {% else %}
-            <p class="text-center" style="color: var(--text-dim); grid-column: 1/-1;">No recent activity to show.</p>
-            {% endfor %}
-        </div>
-        <div class="text-center" style="margin-top: 40px;">
-            <a href="{{ url_for('gallery') }}" class="btn btn-primary">View All Activities</a>
-        </div>
-    </div>
-</section>
-
-<!-- Student Testimonials -->
-<section class="section-padding" style="background: rgba(255,255,255,0.02);">
-    <div class="container animate-up delay-200">
-        <h2 class="section-title text-center">Student Voices</h2>
-        <!-- Marquee Wrapper -->
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <!-- Dynamic Stories Loop (Repeated twice for seamless scroll) -->
-                {% for _ in range(2) %}
-                {% for story in stories %}
-                <div class="marquee-item">
-                    <div class="glass-card" style="width: 350px; padding: 20px;">
-                        <div
-                            style="height: 200px; background: #333; border-radius: 10px; margin-bottom: 15px; overflow: hidden; position: relative;">
-                            <img src="{{ story.image }}" alt="{{ story.name }}"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                            <div
-                                style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 10px; color: white;">
-                                <span
-                                    style="font-size: 0.8rem; background: var(--primary); padding: 2px 8px; border-radius: 4px;">{{
-                                    story.company }}</span>
-                            </div>
-                        </div>
-                        <div style="padding: 0 5px;">
-                            <h3 style="margin: 0 0 5px 0; color: var(--text-light); font-size: 1.2rem;">{{ story.name }}
-                            </h3>
-                            <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 10px;">{{ story.package }}
-                            </p>
-                            <p
-                                style="color: var(--text-dim); margin-bottom: 10px; font-size: 0.95rem; font-style: italic; line-height: 1.5;">
-                                "{{ story.quote }}"
-                            </p>
-                        </div>
-                    </div>
+                <div class="notice-item">
+                    <i class="fas fa-circle text-accent" style="font-size: 8px;"></i>
+                    <span><strong>Exam Schedule:</strong> Mid-Sem exams for 3rd & 5th Semester start from Oct
+                        10th.</span>
                 </div>
-                {% endfor %}
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Refined Professional Section -->
-<section class="refined-section" style="background: var(--bg-darker);">
-    <div class="container">
-        <h2 class="refined-title animate-on-scroll zoom-in">The Making of a Refined Professional</h2>
-
-        <div class="refined-grid">
-            <!-- Card 1: Holistic Education -->
-            <div class="refined-card animate-on-scroll fade-up">
-                <div class="refined-card-inner">
-                    <div class="refined-card-front">
-                        <img src="{{ url_for('static', filename='images/college_building.jpg') }}"
-                            class="refined-card-img" alt="Academic Excellence">
-                        <div class="refined-overlay"></div>
-                        <div class="refined-content">
-                            <h3>Academic Excellence</h3>
-                        </div>
-                    </div>
-                    <div class="refined-card-back">
-                        <ul class="refined-list">
-                            <li>Practical Learning Focus</li>
-                            <li>Student-Centric Curriculum</li>
-                            <li>Interactive Pedagogy</li>
-                            <li>Ethical Foundation</li>
-                        </ul>
-                    </div>
+                <div class="notice-item">
+                    <i class="fas fa-circle text-accent" style="font-size: 8px;"></i>
+                    <span><strong>Placement Update:</strong> Campus Drive by TCS scheduled for Sep 25th. Register at TPO
+                        cell.</span>
                 </div>
-            </div>
-
-            <!-- Card 2: Comprehensive Development -->
-            <div class="refined-card animate-on-scroll fade-up" style="transition-delay: 0.1s;">
-                <div class="refined-card-inner">
-                    <div class="refined-card-front">
-                        <img src="{{ url_for('static', filename='images/college_building.jpg') }}"
-                            class="refined-card-img" alt="360 Training">
-                        <div class="refined-overlay">
-                        </div>
-                        <div class="refined-content">
-                            <span class="refined-stat-desc" style="display:block; margin-bottom:5px;">360°</span>
-                            <h3>Training</h3>
-                        </div>
-                    </div>
-                    <div class="refined-card-back">
-                        <ul class="refined-list">
-                            <li>Career-Focused Coaching</li>
-                            <li>Corporate-Ready Syllabus</li>
-                            <li>Digital Learning Resources</li>
-                            <li>National Level Mock Tests</li>
-                        </ul>
-                    </div>
+                <div class="notice-item">
+                    <i class="fas fa-circle text-accent" style="font-size: 8px;"></i>
+                    <span><strong>Event:</strong> Annual TechFest "Techno-SBITM" registration closes soon!</span>
                 </div>
-            </div>
-
-            <!-- Card 3: Personal Growth -->
-            <div class="refined-card animate-on-scroll fade-up" style="transition-delay: 0.2s;">
-                <div class="refined-card-inner">
-                    <div class="refined-card-front">
-                        <img src="{{ url_for('static', filename='images/college_building.jpg') }}"
-                            class="refined-card-img" alt="Student Grooming">
-                        <div class="refined-overlay"></div>
-                        <div class="refined-content">
-                            <h3>Student Grooming</h3>
-                        </div>
-                    </div>
-                    <div class="refined-card-back">
-                        <ul class="refined-list">
-                            <li>Industry Expert Sessions</li>
-                            <li>Real-World Exposure</li>
-                            <li>Active Student Communities</li>
-                            <li>Global Networks</li>
-                        </ul>
-                    </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="notice-item">
+                    <i class="fas fa-circle text-accent" style="font-size: 8px;"></i>
+                    <span><strong>Admission Open 2025-26:</strong> B.Tech & MBA Applications are live. Apply before Aug
+                        15th.</span>
                 </div>
-            </div>
-
-            <!-- Card 4: Career Success -->
-            <div class="refined-card animate-on-scroll fade-up" style="transition-delay: 0.3s;">
-                <div class="refined-card-inner">
-                    <div class="refined-card-front">
-                        <img src="{{ url_for('static', filename='images/college_building.jpg') }}"
-                            class="refined-card-img" alt="Magnificent Placements">
-                        <div class="refined-overlay"></div>
-                        <div class="refined-content">
-                            <h3>Magnificent Placements</h3>
-                        </div>
-                    </div>
-                    <div class="refined-card-back">
-                        <!-- Stats moved to back -->
-                        <div style="width: 100%;">
-                            <div class="refined-stat-item">
-                                <span class="refined-stat-val">20 LPA</span>
-                                <span class="refined-stat-desc">Highest Package</span>
-                            </div>
-                            <div class="refined-stat-item">
-                                <span class="refined-stat-val">96%</span>
-                                <span class="refined-stat-desc">Campus Placements</span>
-                            </div>
-                            <div class="refined-stat-item">
-                                <span class="refined-stat-val">1150+</span>
-                                <span class="refined-stat-desc">Job Offers</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="notice-item">
+                    <i class="fas fa-circle text-accent" style="font-size: 8px;"></i>
+                    <span><strong>Exam Schedule:</strong> Mid-Sem exams for 3rd & 5th Semester start from Oct
+                        10th.</span>
+                </div>
+                <div class="notice-item">
+                    <i class="fas fa-circle text-accent" style="font-size: 8px;"></i>
+                    <span><strong>Placement Update:</strong> Campus Drive by TCS scheduled for Sep 25th. Register at TPO
+                        cell.</span>
+                </div>
+                <div class="notice-item">
+                    <i class="fas fa-circle text-accent" style="font-size: 8px;"></i>
+                    <span><strong>Event:</strong> Annual TechFest "Techno-SBITM" registration closes soon!</span>
                 </div>
             </div>
         </div>
     </div>
-</section>
-
-<!-- Institute Highlights -->
-<section class="section-padding">
-    <div class="container">
-
-
-        <div class="text-center" style="margin-bottom: 60px;">
-            <h2 class="section-title">Why Choose SBITM?</h2>
-            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
-                We are more than just an engineering college. We are a community of innovators, leaders, and dreamers.
-            </p>
-        </div>
-
-        <!-- 4 Column Stats Grid -->
-        <div class="grid-strict-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-            <div class="stat-card animate-on-scroll fade-up" style="transition-delay: 0.1s;">
-                <i class="fas fa-university feature-icon" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-                <span class="stat-number">15+</span>
-                <span class="stat-label">Years of Legacy</span>
-            </div>
-            <div class="stat-card animate-on-scroll fade-up" style="transition-delay: 0.2s;">
-                <i class="fas fa-globe-asia feature-icon" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-                <span class="stat-number">5000+</span>
-                <span class="stat-label">Alumni Network</span>
-            </div>
-            <div class="stat-card animate-on-scroll fade-up" style="transition-delay: 0.3s;">
-                <i class="fas fa-tree feature-icon" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-                <span class="stat-number">15+</span>
-                <span class="stat-label">Acres Green Campus</span>
-            </div>
-            <div class="stat-card animate-on-scroll fade-up" style="transition-delay: 0.4s;">
-                <i class="fas fa-handshake feature-icon" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Placement Support</span>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Admission Inquiry Popup -->
-<!-- Floating Admission Bot -->
-<div id="admissionBot"
-    style="position: fixed; bottom: 30px; right: 30px; z-index: 10000; display: flex; flex-direction: column; align-items: end;">
-
-    <!-- Hidden Card (Toggles on Click) -->
-    <div id="botCard" class="glass-card animate-up"
-        style="display: none; width: 280px; padding: 20px; margin-bottom: 15px; text-align: center; border: 1px solid var(--primary); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-        <div
-            style="width: 70px; height: 70px; margin: 0 auto 15px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary); box-shadow: 0 0 15px var(--primary);">
-            <img src="{{ url_for('static', filename='images/admission_head.jpg') }}"
-                onerror="this.src='https://ui-avatars.com/api/?name=Admission+Head&background=0284c7&color=fff'"
-                alt="Admission Head" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <h4 style="margin-bottom: 5px; color: var(--text-light); font-size: 1.1rem;">Admission Open 2025</h4>
-        <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 15px;">
-            Hi there! Have questions? Chat with me directly.
-        </p>
-        <div style="display: flex; gap: 10px;">
-            <a href="tel:+919993999999" class="btn btn-primary" style="flex: 1; font-size: 0.85rem; padding: 8px;"><i
-                    class="fas fa-phone-alt"></i> Call</a>
-            <a href="{{ url_for('admission') }}" class="btn btn-outline"
-                style="flex: 1; font-size: 0.85rem; padding: 8px;">Apply</a>
-        </div>
-    </div>
-
-    <!-- Floating Icon Trigger -->
-    <button onclick="toggleBot()" class="btn-primary"
-        style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 5px 20px rgba(14, 165, 233, 0.6); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border: none; cursor: pointer; transition: transform 0.3s ease;">
-        <i class="fas fa-headset"></i>
-    </button>
-
 </div>
 
-<script>
-    function toggleBot() {
-        const card = document.getElementById('botCard');
-        if (card.style.display === 'none' || card.style.display === '') {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    }
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content animate-on-scroll">
+        <h1>
+            Excellence in <br> <span>Education & Innovation</span>
+        </h1>
+        <p>
+            Shri Balaji Institute of Technology & Management (SBITM) is dedicated to nurturing future leaders through
+            rigorous academics and holistic development.
+        </p>
+        <div style="margin-top: 30px;">
+            <a href="{{ url_for('admission') }}" class="btn btn-accent" style="margin-right: 15px;">Admissions 2025</a>
+            <a href="{{ url_for('about') }}" class="btn btn-outline" style="color: white; border-color: white;">Virtual
+                Tour</a>
+        </div>
+    </div>
+</section>
 
-    // Auto-open after 5 seconds (once per session)
-    window.addEventListener('load', () => {
-        if (!sessionStorage.getItem('botSeen')) {
-            setTimeout(() => {
-                const card = document.getElementById('botCard');
-                if (card) {
-                    card.style.display = 'block';
-                    sessionStorage.setItem('botSeen', 'true');
-                }
-            }, 5000);
-        }
-    });
-</script>
+<!-- About & Vision -->
+<section class="section-padding">
+    <div class="container">
+        <div class="grid-2">
+            <div class="animate-on-scroll">
+                <div class="section-title" style="text-align: left;">
+                    <h2>Welcome to SBITM</h2>
+                </div>
+                <p style="font-size: 1.1rem; margin-bottom: 20px; color: var(--text-muted);">
+                    Established in 2009, SBITM has emerged as a premier engineering institution in Central India.
+                    We are approved by AICTE, New Delhi and affiliated to RGPV, Bhopal.
+                </p>
+                <p style="margin-bottom: 30px; color: var(--text-main);">
+                    Our mission is to provide world-class technical education, foster research and innovation, and
+                    develop ethical leaders who contribute to society.
+                </p>
+
+                <ul style="margin-bottom: 30px;">
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i>
+                        <strong>AICTE Approved</strong> &nbsp; Institution
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i>
+                        <strong>Grade 'A'</strong> &nbsp; Accredited Infrastructure
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center;">
+                        <i class="fas fa-check-circle text-primary" style="margin-right: 12px;"></i>
+                        <strong>15+ Years</strong> &nbsp; of Academic Excellence
+                    </li>
+                </ul>
+
+                <a href="{{ url_for('about') }}" class="btn btn-outline">Read More</a>
+            </div>
+            <div class="animate-on-scroll">
+                <img src="{{ url_for('static', filename='images/college_building.jpg') }}" alt="SBITM Campus"
+                    style="border-radius: var(--radius-md); box-shadow: var(--shadow-lg); height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Leadership / Message -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="grid-2" style="align-items: center;">
+            <div class="animate-on-scroll">
+                <div style="position: relative; text-align: center;">
+                    <!-- Placeholder for Chairman Image -->
+                    <div
+                        style="width: 280px; height: 350px; background: #ddd; margin: 0 auto; border-radius: var(--radius-md); overflow: hidden;">
+                        <!-- Ideally this would be a real image -->
+                        <img src="https://ui-avatars.com/api/?name=Chairman+Sir&size=400&background=003366&color=fff"
+                            alt="Chairman" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div
+                        style="background: white; padding: 15px; border-radius: 4px; box-shadow: var(--shadow-md); display: inline-block; position: relative; margin-top: -30px; width: 80%;">
+                        <h4 style="margin: 0; color: var(--primary);">Shri. Balaji Chairman</h4>
+                        <span style="font-size: 0.9rem; color: var(--text-muted);">Founder & Chairman</span>
+                    </div>
+                </div>
+            </div>
+            <div class="animate-on-scroll">
+                <h2 style="color: var(--primary); font-size: 2rem; margin-bottom: 20px;">From the Chairman's Desk</h2>
+                <i class="fas fa-quote-left text-accent"
+                    style="font-size: 2rem; margin-bottom: 20px; display: block;"></i>
+                <p style="font-size: 1.1rem; line-height: 1.8; font-style: italic; color: #555; margin-bottom: 20px;">
+                    "Education is not just about gathering knowledge, but about shaping character. At SBITM, we strive
+                    to create an environment where students can explore their potential, challenge the status quo, and
+                    emerge as responsible global citizens."
+                </p>
+                <p style="font-weight: 600; color: var(--primary);">— Building the Nation through Education</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academics / Departments -->
+<section class="section-padding">
+    <div class="container animate-on-scroll">
+        <div class="section-title">
+            <h2>Academic Departments</h2>
+            <p>Offering cutting-edge undergraduate and postgraduate programs</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="clean-card">
+                <i class="fas fa-laptop-code icon"></i>
+                <h3>Computer Science</h3>
+                <p>Focusing on Algorithms, AI, Web Development, and Software Engineering.</p>
+                <a href="{{ url_for('departments') }}"
+                    style="color: var(--primary); font-weight: 600; margin-top: 15px; display: block;">Explore Course
+                    &rarr;</a>
+            </div>
+            <div class="clean-card">
+                <i class="fas fa-brain icon"></i>
+                <h3>AI & Data Science</h3>
+                <p>Advanced curriculum covering Machine Learning, Big Data, and Neural Networks.</p>
+                <a href="{{ url_for('departments') }}"
+                    style="color: var(--primary); font-weight: 600; margin-top: 15px; display: block;">Explore Course
+                    &rarr;</a>
+            </div>
+            <div class="clean-card">
+                <i class="fas fa-building icon"></i>
+                <h3>Civil Engineering</h3>
+                <p>Structural engineering, sustainable infrastructure, and smart city planning.</p>
+                <a href="{{ url_for('departments') }}"
+                    style="color: var(--primary); font-weight: 600; margin-top: 15px; display: block;">Explore Course
+                    &rarr;</a>
+            </div>
+            <div class="clean-card">
+                <i class="fas fa-cogs icon"></i>
+                <h3>Mechanical Engg</h3>
+                <p>Robotics, Thermodynamics, and Manufacturing technology.</p>
+                <a href="{{ url_for('departments') }}"
+                    style="color: var(--primary); font-weight: 600; margin-top: 15px; display: block;">Explore Course
+                    &rarr;</a>
+            </div>
+            <div class="clean-card">
+                <i class="fas fa-bolt icon"></i>
+                <h3>Electrical Engg</h3>
+                <p>Power systems, renewable energy, and circuit design.</p>
+                <a href="{{ url_for('departments') }}"
+                    style="color: var(--primary); font-weight: 600; margin-top: 15px; display: block;">Explore Course
+                    &rarr;</a>
+            </div>
+            <div class="clean-card">
+                <i class="fas fa-chart-line icon"></i>
+                <h3>Management (MBA)</h3>
+                <p>Marketing, Finance, HR, and Business Analytics for future leaders.</p>
+                <a href="{{ url_for('departments') }}"
+                    style="color: var(--primary); font-weight: 600; margin-top: 15px; display: block;">Explore Course
+                    &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Placements & Stats -->
+<section class="section-padding bg-primary" style="background-color: var(--primary); color: white;">
+    <div class="container">
+        <div class="grid-4 text-center">
+            <div class="animate-on-scroll">
+                <span style="font-size: 3.5rem; font-weight: 700; color: var(--accent); display: block;">100%</span>
+                <span style="font-size: 1.1rem; opacity: 0.9;">Placement Assistance</span>
+            </div>
+            <div class="animate-on-scroll">
+                <span style="font-size: 3.5rem; font-weight: 700; color: var(--accent); display: block;">50+</span>
+                <span style="font-size: 1.1rem; opacity: 0.9;">MNC Recruiters</span>
+            </div>
+            <div class="animate-on-scroll">
+                <span style="font-size: 3.5rem; font-weight: 700; color: var(--accent); display: block;">12 LPA</span>
+                <span style="font-size: 1.1rem; opacity: 0.9;">Highest Package</span>
+            </div>
+            <div class="animate-on-scroll">
+                <span style="font-size: 3.5rem; font-weight: 700; color: var(--accent); display: block;">5000+</span>
+                <span style="font-size: 1.1rem; opacity: 0.9;">Alumni Network</span>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 50px;">
+            <h3 style="color: white; margin-bottom: 20px;">Our Top Recruiters</h3>
+            <div style="background: white; padding: 20px; border-radius: var(--radius-md);">
+                <!-- Simple simulated marquee for now (static text or logos) -->
+                <p style="color: var(--text-main); font-weight: 600;">
+                    TCS &nbsp;&bull;&nbsp; Wipro &nbsp;&bull;&nbsp; Infosys &nbsp;&bull;&nbsp; Capgemini
+                    &nbsp;&bull;&nbsp; HCL &nbsp;&bull;&nbsp; Accenture &nbsp;&bull;&nbsp; IBM &nbsp;&bull;&nbsp; Tech
+                    Mahindra
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Campus Life / Events -->
+<section class="section-padding">
+    <div class="container">
+        <div class="section-title">
+            <h2>Campus Life</h2>
+            <p>Beyond academics - Sports, Culture, and Community</p>
+        </div>
+
+        <div class="grid-3">
+            <!-- Manually populated for demo or loop through dynamic vars -->
+            {% if news %}
+            {% for item in news[:3] %}
+            <div class="clean-card">
+                <div class="news-img-container">
+                    {% if item.image.startswith('http') %}
+                    <img src="{{ item.image }}" alt="{{ item.title }}">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='images/news/' + item.image) }}" alt="{{ item.title }}">
+                    {% endif %}
+                </div>
+                <span class="news-date">{{ item.date }}</span>
+                <h4 style="font-size: 1.2rem;">{{ item.title }}</h4>
+                <p style="font-size: 0.9rem;">{{ item.description }}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="clean-card">
+                <div class="news-img-container"><img
+                        src="{{ url_for('static', filename='images/college_building.jpg') }}"></div>
+                <h4 style="margin-top: 15px;">Annual Tech Fest 2025</h4>
+                <p>Celebration of innovation and technology.</p>
+            </div>
+            <div class="clean-card">
+                <div class="news-img-container"><img
+                        src="{{ url_for('static', filename='images/college_building.jpg') }}"></div>
+                <h4 style="margin-top: 15px;">Sports Meet</h4>
+                <p>Inter-college sports championship.</p>
+            </div>
+            <div class="clean-card">
+                <div class="news-img-container"><img
+                        src="{{ url_for('static', filename='images/college_building.jpg') }}"></div>
+                <h4 style="margin-top: 15px;">Cultural Night</h4>
+                <p>Showcasing the talent of SBITM students.</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="{{ url_for('gallery') }}" class="btn btn-primary">View Gallery</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section style="padding: 60px 0; background: #f1f5f9; text-align: center;">
+    <div class="container animate-on-scroll">
+        <h2 style="margin-bottom: 20px;">Ready to shape your future?</h2>
+        <p style="margin-bottom: 30px; font-size: 1.2rem; color: var(--text-muted);">
+            Join SBITM and become part of a legacy of excellence.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="{{ url_for('admission') }}" class="btn btn-primary">Apply Now</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-outline" style="background: white;">Contact Us</a>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

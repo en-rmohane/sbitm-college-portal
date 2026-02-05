@@ -5,7 +5,7 @@
     <div class="text-center animate-on-scroll zoom-in">
         <h1 class="section-title">Academic Departments</h1>
         <p
-            style="margin-bottom: 60px; color: var(--text-dim); max-width: 700px; margin-left: auto; margin-right: auto;">
+            style="margin-bottom: 60px; color: var(--text-muted); max-width: 700px; margin-left: auto; margin-right: auto;">
             Our departments are responsible for the academic activities which include Teaching, Research, and Industrial
             Consultancy.
         </p>
@@ -14,149 +14,151 @@
     <!-- Semester Update Banner -->
     <div class="animate-on-scroll fade-down" style="margin-bottom: 40px;">
         <div
-            style="background: linear-gradient(90deg, rgba(14, 165, 233, 0.2), rgba(245, 158, 11, 0.1)); border: 1px solid var(--primary); padding: 15px 20px; border-radius: 12px; display: flex; align-items: center; gap: 15px;">
-            <i class="fas fa-info-circle text-primary" style="font-size: 1.5rem;"></i>
+            style="background: var(--bg-off-white); border: 1px solid var(--primary-light); padding: 20px; border-radius: var(--radius-md); display: flex; align-items: flex-start; gap: 20px; box-shadow: var(--shadow-sm);">
+            <i class="fas fa-info-circle text-primary" style="font-size: 1.5rem; margin-top: 2px;"></i>
             <div>
-                <h4 style="margin: 0; color: var(--text-light);">New Semester Update</h4>
-                <p style="margin: 0; font-size: 0.9rem; color: var(--text-dim);">Registration for the upcoming semester
-                    is now open. Students are requested to complete their enrollment by Aug 15th.</p>
+                <h4 style="margin: 0 0 5px; color: var(--primary);">New Semester Update</h4>
+                <p style="margin: 0; font-size: 0.95rem; color: var(--text-muted);">
+                    Registration for the upcoming semester is now open. Students are requested to complete their
+                    enrollment by Aug 15th.
+                </p>
             </div>
         </div>
     </div>
 
     <!-- Quick Nav -->
-    <div class="glass-card animate-on-scroll fade-up"
-        style="transition-delay: 0.1s; padding: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 80px; position: sticky; top: 90px; z-index: 100; backdrop-filter: blur(20px);">
-        {% for dept in departments %}
-        <a href="#{{ dept.id }}" class="btn btn-outline" style="border-radius: 20px; padding: 8px 25px;">{{
-            dept.id|upper if dept.id|length <= 4 else dept.name|truncate(10, True, '' ) }}</a>
-                {% endfor %}
+    <div class="animate-on-scroll fade-up"
+        style="margin-bottom: 60px; position: sticky; top: 90px; z-index: 100; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 1px solid var(--border-color);">
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            {% for dept in departments %}
+            <a href="#{{ dept.id }}" class="btn btn-outline"
+                style="border-radius: 20px; padding: 8px 16px; font-size: 0.85rem; white-space: nowrap;">
+                {{ dept.id|upper if dept.id|length <= 4 else dept.name|truncate(15, True, '' ) }} </a>
+                    {% endfor %}
+        </div>
     </div>
 
     {% for dept in departments %}
     <section id="{{ dept.id }}" style="margin-bottom: 100px; scroll-margin-top: 180px;"
         class="animate-on-scroll fade-up">
-        <div class="glass-card" style="padding: 40px; border-left: 5px solid {{ dept.theme_color }};">
+
+        <!-- Dept Header -->
+        <div style="margin-bottom: 30px; border-left: 5px solid {{ dept.theme_color }}; padding-left: 20px;">
             <div
-                style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: start; margin-bottom: 30px; gap: 20px;">
+                style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
                 <div>
                     <h2
-                        style="color: var(--text-light); font-size: 2.5rem; display: flex; align-items: center; gap: 15px;">
+                        style="color: var(--primary); font-size: 2rem; margin-bottom: 5px; display: flex; align-items: center; gap: 15px;">
                         <i class="{{ dept.icon }}" style="color: {{ dept.theme_color }};"></i> {{ dept.name }}
                     </h2>
-                    <p style="color: var(--text-dim); margin-top: 10px; font-size: 1.1rem;">{{ dept.tagline }}</p>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">{{ dept.tagline }}</p>
                 </div>
-                <div style="text-align: right;">
+                <div>
                     <span
-                        style="display: inline-block; padding: 8px 20px; background: rgba(255, 255, 255, 0.05); color: {{ dept.theme_color }}; border-radius: 30px; font-weight: 600; border: 1px solid {{ dept.theme_color }};">Intake:
-                        {{ dept.intake }} Seats</span>
+                        style="display: inline-block; padding: 6px 16px; background: var(--bg-off-white); color: {{ dept.theme_color }}; border-radius: 20px; font-weight: 600; border: 1px solid {{ dept.theme_color }}; font-size: 0.9rem;">
+                        Intake: {{ dept.intake }} Seats
+                    </span>
                 </div>
             </div>
+        </div>
 
-            <div class="grid-responsive" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="clean-card" style="padding: 40px; border-top: 4px solid {{ dept.theme_color }};">
+            <div class="grid-2" style="gap: 40px; align-items: start;">
+
+                <!-- Left: Info -->
                 <div>
-                    <h3
-                        style="color: var(--text-light); margin-bottom: 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">
-                        About the Department</h3>
-                    <p style="color: var(--text-dim); margin-bottom: 20px; line-height: 1.8;">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">About the Department</h3>
+                    <p style="color: var(--text-main); margin-bottom: 30px; line-height: 1.8;">
                         {{ dept.description }}
                     </p>
 
                     {% if dept.vision or dept.mission %}
-                    <div style="margin-bottom: 30px;">
-                        <div
-                            style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 10px; border: 1px solid var(--glass-border);">
-                            <h4 style="color: {{ dept.theme_color }}; margin-bottom: 15px;"><i
-                                    class="fas fa-bullseye"></i> Vision & Mission</h4>
+                    <div
+                        style="background: var(--bg-off-white); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 30px;">
+                        <h4 style="color: {{ dept.theme_color }}; margin-bottom: 15px;"><i class="fas fa-bullseye"></i>
+                            Vision & Mission</h4>
 
-                            <!-- Static for now, can be rolling if multiple items exist -->
-                            {% if dept.vision %}
-                            <div style="margin-bottom: 15px;">
-                                <strong
-                                    style="color: var(--text-light); display: block; margin-bottom: 5px;">Vision</strong>
-                                <p style="font-size: 0.9rem; color: var(--text-dim); font-style: italic;">"{{
-                                    dept.vision }}"</p>
-                            </div>
-                            {% endif %}
-                            {% if dept.mission %}
-                            <div>
-                                <strong
-                                    style="color: var(--text-light); display: block; margin-bottom: 5px;">Mission</strong>
-                                <p style="font-size: 0.9rem; color: var(--text-dim);">{{ dept.mission }}</p>
-                            </div>
-                            {% endif %}
-
-                            <!-- Future Vision Rolling Placeholder -->
-                            <div class="rolling-text-container" style="margin-top: 20px; height: 30px;">
-                                <div class="rolling-text-content">
-                                    <p style="color: {{ dept.theme_color }}; font-weight: 500;">Innovating for 2026...
-                                    </p>
-                                    <p style="color: {{ dept.theme_color }}; font-weight: 500;">Building Future
-                                        Leaders...</p>
-                                </div>
-                            </div>
+                        {% if dept.vision %}
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: var(--primary); display: block; margin-bottom: 5px;">Vision</strong>
+                            <p style="font-size: 0.95rem; color: var(--text-muted); font-style: italic;">"{{ dept.vision
+                                }}"</p>
                         </div>
+                        {% endif %}
+
+                        {% if dept.mission %}
+                        <div>
+                            <strong style="color: var(--primary); display: block; margin-bottom: 5px;">Mission</strong>
+                            <p style="font-size: 0.95rem; color: var(--text-muted);">{{ dept.mission }}</p>
+                        </div>
+                        {% endif %}
                     </div>
                     {% endif %}
 
                     {% if dept.labs %}
-                    <h3 style="color: var(--text-light); margin-bottom: 20px;">Labs & Workshops</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Labs & Workshops</h3>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px;">
                         {% for lab in dept.labs %}
-                        <div class="glass-card"
-                            style="padding: 15px; text-align: center; position: relative; overflow: hidden;">
+                        <div
+                            style="background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; text-align: center; transition: var(--transition);">
                             {% if lab.image %}
-                            <img src="{{ url_for('static', filename='images/labs/' + lab.image) }}" alt="{{ lab.name }}"
-                                style="width: 100%; height: 100px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; opacity: 0.8;">
-                            {% endif %}
-
-                            {% if lab.icon and not lab.image %}
+                            <div style="height: 80px; overflow: hidden; border-radius: 4px; margin-bottom: 10px;">
+                                <img src="{{ url_for('static', filename='images/labs/' + lab.image) }}"
+                                    alt="{{ lab.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            {% elif lab.icon %}
                             <i class="{{ lab.icon }}"
                                 style="font-size: 2rem; color: {{ lab.color }}; margin-bottom: 10px;"></i>
                             {% endif %}
-                            <h5 style="margin: 0; position: relative; z-index: 1;">{{ lab.name }}</h5>
-                            {% if lab.subtext %}
-                            <span style="font-size: 0.8rem; color: var(--text-dim); position: relative; z-index: 1;">{{
-                                lab.subtext }}</span>
-                            {% endif %}
+
+                            <h5 style="font-size: 0.9rem; margin-bottom: 0;">{{ lab.name }}</h5>
                         </div>
                         {% endfor %}
                     </div>
                     {% endif %}
                 </div>
 
-                <!-- HOD Profile -->
-                <div class="glass-card" style="background: rgba(0,0,0,0.3); text-align: center; padding: 30px;">
+                <!-- Right: HOD Profile -->
+                <div>
                     <div
-                        style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid {{ dept.theme_color }};">
-                        {% if dept.hod.image %}
-                        <img src="{{ dept.hod.image if dept.hod.image.startswith('http') else url_for('static', filename='images/faculty/' + dept.hod.image) }}"
-                            onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/sbitm_logo.png') }}'"
-                            alt="HOD" style="width: 100%; height: 100%; object-fit: cover;">
+                        style="background: var(--bg-off-white); padding: 30px; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-color);">
+                        <div
+                            style="width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                            {% if dept.hod.image %}
+                            <img src="{{ dept.hod.image if dept.hod.image.startswith('http') else url_for('static', filename='images/faculty/' + dept.hod.image) }}"
+                                onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/sbitm_logo.png') }}'"
+                                alt="HOD" style="width: 100%; height: 100%; object-fit: cover;">
+                            {% else %}
+                            <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="HOD"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                            {% endif %}
+                        </div>
+
+                        <h3 style="color: var(--primary); margin-bottom: 5px;">{{ dept.hod.name }}</h3>
+                        <p
+                            style="color: {{ dept.theme_color }}; font-weight: 600; font-size: 0.95rem; margin-bottom: 15px;">
+                            {{ dept.hod.role }}</p>
+
+                        {% if dept.hod.quote %}
+                        <p
+                            style="color: var(--text-muted); font-size: 0.9rem; font-style: italic; margin-bottom: 20px;">
+                            "{{ dept.hod.quote }}"
+                        </p>
+                        {% endif %}
+
+                        {% if dept.hod.faculty_id %}
+                        <a href="{{ url_for('faculty_detail', id=dept.hod.faculty_id) }}"
+                            class="btn btn-sm btn-outline">View Profile</a>
                         {% else %}
-                        <img src="{{ url_for('static', filename='images/sbitm_logo.png') }}" alt="HOD"
-                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <span class="btn btn-sm btn-outline" style="opacity: 0.5; cursor: default;">Profile
+                            Unavailable</span>
                         {% endif %}
                     </div>
-                    <h3 style="color: var(--text-light); margin-bottom: 5px;">{{ dept.hod.name }}</h3>
-                    <p style="color: {{ dept.theme_color }}; font-size: 0.9rem; margin-bottom: 15px;">{{ dept.hod.role
-                        }}</p>
-                    {% if dept.hod.quote %}
-                    <p style="color: var(--text-dim); font-size: 0.9rem; font-style: italic; margin-bottom: 20px;">
-                        "{{ dept.hod.quote }}"
-                    </p>
-                    {% endif %}
-                    {% if dept.hod.faculty_id %}
-                    <a href="{{ url_for('faculty_detail', id=dept.hod.faculty_id) }}"
-                        class="btn btn-sm btn-outline">View Faculty Profile</a>
-                    {% else %}
-                    <a href="#" class="btn btn-sm btn-outline disabled">Profile Unavailable</a>
-                    {% endif %}
                 </div>
             </div>
         </div>
     </section>
     {% endfor %}
-
 </div>
 {% endblock %}

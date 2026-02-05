@@ -4,39 +4,42 @@
 <div class="container section-padding">
     <div class="text-center" style="margin-bottom: 60px;">
         <h1 class="section-title">About SBITM</h1>
-        <p style="color: var(--text-dim); max-width: 800px; margin: 0 auto;">
+        <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto;">
             Established with a vision to bring world-class technical education to Betul.
         </p>
     </div>
 
     <!-- Vision & Mission -->
-    <div class="grid-strict-2" style="margin-bottom: 60px;">
-        <div class="glass-card animate-on-scroll fade-right" style="padding: 30px;">
-            <h3 style="color: var(--primary); margin-bottom: 15px;">Our Vision</h3>
-            <p style="color: var(--text-dim); line-height: 1.7;">
+    <div class="grid-2" style="margin-bottom: 60px;">
+        <div class="clean-card animate-on-scroll fade-right"
+            style="padding: 30px; border-left: 5px solid var(--primary);">
+            <h3 style="color: var(--primary); margin-bottom: 15px;"><i class="fas fa-eye"></i> Our Vision</h3>
+            <p style="color: var(--text-main); line-height: 1.7;">
                 To be a premier institute of technical education, fostering innovation, leadership, and ethical values
                 in students to serve the society and nation.
             </p>
         </div>
-        <div class="glass-card animate-on-scroll fade-left" style="padding: 30px;">
-            <h3 style="color: var(--accent); margin-bottom: 15px;">Our Mission</h3>
-            <ul style="color: var(--text-dim); padding-left: 20px; line-height: 1.7;">
-                <li>Provide value-based technical education.</li>
-                <li>Create an ecosystem for research and innovation.</li>
-                <li>Foster industry linkages for better employability.</li>
+        <div class="clean-card animate-on-scroll fade-left"
+            style="padding: 30px; border-left: 5px solid var(--accent);">
+            <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-bullseye"></i> Our Mission</h3>
+            <ul style="color: var(--text-main); padding-left: 20px; line-height: 1.7;">
+                <li style="margin-bottom: 8px;">Provide value-based technical education.</li>
+                <li style="margin-bottom: 8px;">Create an ecosystem for research and innovation.</li>
+                <li style="margin-bottom: 8px;">Foster industry linkages for better employability.</li>
             </ul>
         </div>
     </div>
 
     <!-- Overview -->
-    <div class="glass-card animate-on-scroll zoom-in" style="padding: 40px; margin-bottom: 60px;">
-        <h2 style="color: var(--text-light); margin-bottom: 20px;">Our Legacy</h2>
-        <p style="color: var(--text-dim); line-height: 1.8; margin-bottom: 20px;">
+    <div class="clean-card animate-on-scroll zoom-in"
+        style="padding: 40px; margin-bottom: 60px; background: var(--bg-light);">
+        <h2 style="color: var(--primary); margin-bottom: 20px;">Our Legacy</h2>
+        <p style="color: var(--text-main); line-height: 1.8; margin-bottom: 20px;">
             Shri Balaji Institute of Technology and Management (SBITM), Betul, established in 2009, has emerged as a
             beacon of excellence in Central India. Founded under the Shri Balaji Shiksha Samiti, the institute sits on a
             sprawling 20-acre lush green campus.
         </p>
-        <p style="color: var(--text-dim); line-height: 1.8;">
+        <p style="color: var(--text-main); line-height: 1.8;">
             We offer AICTE approved undergraduate programs in Computer Science, Civil, Mechanical, and Electrical
             Engineering, affiliated to RGPV, Bhopal.
         </p>
@@ -45,12 +48,12 @@
     <!-- Leadership - Standard Grid -->
     <div>
         <h2 class="section-title text-center" style="margin-bottom: 40px;">Leadership Team</h2>
-        <div class="grid-strict-2">
+        <div class="grid-2">
             {% for leader in leadership %}
-            <div class="glass-card animate-on-scroll fade-up"
+            <div class="clean-card animate-on-scroll fade-up"
                 style="padding: 30px; display: flex; align-items: start; gap: 20px;">
                 <div
-                    style="width: 100px; height: 100px; flex-shrink: 0; overflow: hidden; border-radius: 50%; border: 2px solid var(--glass-border);">
+                    style="width: 100px; height: 100px; flex-shrink: 0; overflow: hidden; border-radius: 50%; border: 3px solid var(--bg-off-white);">
                     {% if leader.image %}
                     <img src="{{ url_for('static', filename='images/faculty/' + leader.image) }}"
                         style="width: 100%; height: 100%; object-fit: cover;" alt="{{ leader.name }}">
@@ -60,9 +63,10 @@
                     {% endif %}
                 </div>
                 <div>
-                    <h4 style="color: var(--text-light); margin-bottom: 5px;">{{ leader.name }}</h4>
-                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 10px;">{{ leader.role }}</p>
-                    <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; font-style: italic;">
+                    <h4 style="color: var(--primary); margin-bottom: 5px;">{{ leader.name }}</h4>
+                    <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 10px; font-weight: 600;">{{
+                        leader.role }}</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-style: italic;">
                         "{{ leader.message }}"
                     </p>
                 </div>

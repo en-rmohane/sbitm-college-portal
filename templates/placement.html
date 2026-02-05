@@ -1,275 +1,322 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container section-padding">
-    <div class="text-center">
-        <h1 class="section-title">Training & Placement</h1>
-        <p style="margin-bottom: 60px; color: var(--text-dim);">Launch your career with top global companies.</p>
+<!-- 1. Hero Section -->
+<section class="hero"
+    style="min-height: 50vh; background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.75)), url('{{ url_for('static', filename='images/placement_hero.jpg') }}');">
+    <div class="hero-content animate-on-scroll text-center">
+        <h1 style="font-size: 3rem; margin-bottom: 20px;">Training & Placement Cell</h1>
+        <p style="font-size: 1.2rem; color: #e2e8f0; max-width: 800px; margin: 0 auto;">
+            Bridging the gap between academia and industry. Our mission is to empower students with the skills and
+            opportunities to launch successful careers in global organizations.
+        </p>
     </div>
+</section>
 
-    <!-- TPO Message (Moved to Top) -->
-    <div class="container section-padding" style="padding-bottom: 40px;">
-        <div class="glass-card animate-on-scroll fade-right"
-            style="display: flex; gap: 40px; align-items: center; padding: 50px; flex-wrap: wrap;">
-            <div
-                style="width: 200px; height: 200px; background: #333; border-radius: 20px; flex-shrink: 0; box-shadow: 0 0 30px rgba(14, 165, 233, 0.3); overflow: hidden; border: 3px solid var(--primary);">
-                <!-- TPO Image -->
-                <img src="{{ url_for('static', filename='images/placement/tpo_head.jpg') }}"
-                    alt="Prof. Bhavesh Kumar Khasdev" style="width: 100%; height: 100%; object-fit: cover;">
+<!-- 2. Placement Statistics -->
+<section class="section-padding" style="margin-top: -60px; padding-top: 0;">
+    <div class="container relative z-10">
+        <div class="grid-4">
+            <div class="clean-card text-center animate-on-scroll"
+                style="padding: 40px 20px; border-top: 4px solid var(--primary);">
+                <div class="stat-counter" data-target="{{ data.stats.percentage|replace('%','') }}"
+                    style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">0</div>
+                <p style="font-weight: 600; font-size: 1.1rem; color: var(--primary);">%</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; margin-top: 5px;">
+                    Placement Rate</p>
             </div>
-            <div style="flex: 1;">
-                <h2 style="margin-bottom: 20px; font-size: 2.5rem; color: var(--text-light);">From the TPO's Desk</h2>
+
+            <div class="clean-card text-center animate-on-scroll"
+                style="padding: 40px 20px; border-top: 4px solid var(--accent);">
+                <div class="stat-counter" data-target="{{ data.stats.highest_package|replace(' LPA','') }}"
+                    style="font-size: 2.5rem; font-weight: 700; color: var(--accent);">0</div>
+                <p style="font-weight: 600; font-size: 1.1rem; color: var(--accent);">LPA</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; margin-top: 5px;">
+                    Highest Package</p>
+            </div>
+
+            <div class="clean-card text-center animate-on-scroll"
+                style="padding: 40px 20px; border-top: 4px solid #10b981;">
+                <div class="stat-counter" data-target="500"
+                    style="font-size: 2.5rem; font-weight: 700; color: #10b981;">0</div>
+                <p style="font-weight: 600; font-size: 1.1rem; color: #10b981;">+</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; margin-top: 5px;">
+                    Students Placed</p>
+            </div>
+
+            <div class="clean-card text-center animate-on-scroll"
+                style="padding: 40px 20px; border-top: 4px solid #f59e0b;">
+                <div class="stat-counter" data-target="{{ data.stats.recruiters_count }}"
+                    style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;">0</div>
+                <p style="font-weight: 600; font-size: 1.1rem; color: #f59e0b;">+</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; margin-top: 5px;">
+                    Recruiters</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. Placement Process -->
+<section class="section-padding bg-light">
+    <div class="container animate-on-scroll">
+        <div class="text-center" style="margin-bottom: 60px;">
+            <h2 class="section-title">Placement Process</h2>
+            <p style="color: var(--text-muted);">A systematic roadmap to your dream career.</p>
+        </div>
+
+        <div class="grid-4" style="gap: 20px;">
+            <!-- Step 1 -->
+            <div class="clean-card text-center" style="position: relative;">
                 <div
-                    style="background: linear-gradient(90deg, rgba(14, 165, 233, 0.1), transparent); border-left: 4px solid var(--primary); padding: 20px; border-radius: 0 10px 10px 0; margin-bottom: 20px;">
-                    <h3 style="color: var(--primary); margin: 0; font-size: 1.5rem;">"Top Notch Placement Support"</h3>
+                    style="width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 20px;">
+                    1</div>
+                <h4 style="margin-bottom: 10px;">Registration</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Student registration & profile verification.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="clean-card text-center">
+                <div
+                    style="width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 20px;">
+                    2</div>
+                <h4 style="margin-bottom: 10px;">Training</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Aptitude, Technical & Soft Skills training.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="clean-card text-center">
+                <div
+                    style="width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 20px;">
+                    3</div>
+                <h4 style="margin-bottom: 10px;">Selection</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Written tests, GD & Personal Interviews.</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="clean-card text-center" style="border-bottom: 4px solid var(--accent);">
+                <div
+                    style="width: 40px; height: 40px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 20px;">
+                    4</div>
+                <h4 style="margin-bottom: 10px;">Onboarding</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Offer letter distribution & joining.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Top Recruiters (Marquee) -->
+<section class="section-padding">
+    <div class="container animate-on-scroll">
+        <h2 class="section-title text-center">Top Recruiters</h2>
+
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <!-- Double loop for seamless scrolling -->
+                {% for _ in range(2) %}
+                {% for company in data.recruiters %}
+                <div class="marquee-item">
+                    <div class="clean-card"
+                        style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100px; padding: 10px;">
+                        <!-- Placeholder for Logo -->
+                        <span style="font-size: 1.2rem; font-weight: 700; color: #475569; text-transform: uppercase;">{{
+                            company }}</span>
+                    </div>
                 </div>
-                <p
-                    style="color: var(--text-dim); font-style: italic; font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-                    "At SBITM, we believe in not just providing jobs, but building careers. Our rigorous pre-placement
-                    training ensures that our students are industry-ready and confident to face any challenge. We are
-                    committed to placing every eligible student in their dream company."
-                </p>
+                {% endfor %}
+                <!-- Filler Logos -->
+                <div class="marquee-item">
+                    <div class="clean-card"
+                        style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-weight: 700; color: #64748b;">TCS</span></div>
+                </div>
+                <div class="marquee-item">
+                    <div class="clean-card"
+                        style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-weight: 700; color: #64748b;">Wipro</span></div>
+                </div>
+                <div class="marquee-item">
+                    <div class="clean-card"
+                        style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-weight: 700; color: #64748b;">Infosys</span></div>
+                </div>
+                <div class="marquee-item">
+                    <div class="clean-card"
+                        style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-weight: 700; color: #64748b;">IBM</span></div>
+                </div>
+                <div class="marquee-item">
+                    <div class="clean-card"
+                        style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-weight: 700; color: #64748b;">Google</span></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Training & Activities -->
+<section class="section-padding bg-light">
+    <div class="container animate-on-scroll">
+        <div class="text-center" style="margin-bottom: 60px;">
+            <h2 class="section-title">Training & Activities</h2>
+            <p style="color: var(--text-muted);">Comprehensive development programs for holistic growth.</p>
+        </div>
+
+        <div class="grid-2">
+            <div class="clean-card" style="display: flex; gap: 20px; align-items: flex-start;">
+                <div
+                    style="background: var(--bg-off-white); padding: 15px; border-radius: 8px; color: var(--primary); font-size: 1.5rem;">
+                    <i class="fas fa-comments"></i>
+                </div>
                 <div>
-                    <strong style="display: block; font-size: 1.2rem; color: var(--text-light);">Prof. Bhavesh Kumar
-                        Khasdev</strong>
-                    <span style="font-size: 0.95rem; color: var(--text-dim);">Head, Training & Placement Cell</span>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Soft Skills Training</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Dedicated sessions on communication,
+                        personality development, and leadership skills to enhance employability.</p>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Stats -->
-    <div class="container" style="margin-bottom: 80px;">
-        <div class="grid-strict-3">
-            <div class="glass-card text-center animate-on-scroll card-pop">
-                <h2 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">{{ data.stats.percentage }}
-                </h2>
-                <p style="font-weight: 600; color: var(--text-light);">Placement Percentage</p>
-                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 5px;">Consistent track record in last 5
-                    years.</p>
-            </div>
-            <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.1s;">
-                <h2 style="font-size: 3rem; color: var(--accent); margin-bottom: 10px;">{{ data.stats.highest_package }}
-                </h2>
-                <p style="font-weight: 600; color: var(--text-light);">Highest Package</p>
-                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 5px;">Offered by Multinational Corp.
-                </p>
-            </div>
-            <div class="glass-card text-center animate-on-scroll card-pop" style="transition-delay: 0.2s;">
-                <h2 style="font-size: 3rem; color: #10b981; margin-bottom: 10px;">{{ data.stats.recruiters_count }}</h2>
-                <p style="font-weight: 600; color: var(--text-light);">Recruiters Visited</p>
-                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 5px;">Top Tech & Core Companies.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Corporate Relations -->
-    <div class="container animate-on-scroll fade-left" style="margin-bottom: 80px;">
-        <div class="glass-card" style="padding: 40px; text-align: center;">
-            <h2 style="margin-bottom: 20px; color: var(--text-light);">Industrial Collaboration</h2>
-            <p style="color: var(--text-dim); line-height: 1.8; max-width: 900px; margin: 0 auto;">
-                SBITM maintains strong ties with the industry to keep abreast of the latest technological advancements.
-                We have signed MoUs with leading organizations for internships, live projects, and expert lectures.
-                Regular visits to industries give our students practical exposure to real-world work environments.
-            </p>
-        </div>
-    </div>
-
-    <!-- Recruitment Process -->
-    <section class="section-padding" style="margin-bottom: 80px;">
-        <div class="container animate-on-scroll zoom-in">
-            <h2 class="section-title text-center">Recruitment Process</h2>
-            <p class="text-center" style="color: var(--text-dim); margin-bottom: 60px;">
-                A systematic approach to connect talent with opportunity.
-            </p>
-            <div class="glass-card process-grid" style="padding: 40px;">
-                <div class="text-center">
-                    <div
-                        style="width: 80px; height: 80px; background: rgba(59, 130, 246, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                        <i class="fas fa-file-alt" style="font-size: 2rem; color: var(--primary);"></i>
-                    </div>
-                    <h4 style="margin-bottom: 10px;">Registration</h4>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Student registration & resume building</p>
-                </div>
-
-                <div class="process-arrow text-center code-icon">
-                    <i class="fas fa-arrow-right" style="font-size: 1.5rem; color: var(--text-dim);"></i>
-                </div>
-
-                <div class="text-center">
-                    <div
-                        style="width: 80px; height: 80px; background: rgba(16, 185, 129, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                        <i class="fas fa-laptop-code" style="font-size: 2rem; color: #10b981;"></i>
-                    </div>
-                    <h4 style="margin-bottom: 10px;">Aptitude Test</h4>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Online assessment & technical rounds</p>
-                </div>
-
-                <div class="process-arrow text-center code-icon">
-                    <i class="fas fa-arrow-right" style="font-size: 1.5rem; color: var(--text-dim);"></i>
-                </div>
-
-                <div class="text-center">
-                    <div
-                        style="width: 80px; height: 80px; background: rgba(245, 158, 11, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                        <i class="fas fa-user-tie" style="font-size: 2rem; color: #f59e0b;"></i>
-                    </div>
-                    <h4 style="margin-bottom: 10px;">Interview</h4>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Technical & HR interview rounds</p>
-                </div>
-
-                <div class="process-arrow text-center code-icon">
-                    <i class="fas fa-arrow-right" style="font-size: 1.5rem; color: var(--text-dim);"></i>
-                </div>
-
-                <div class="text-center">
-                    <div
-                        style="width: 80px; height: 80px; background: rgba(139, 92, 246, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                        <i class="fas fa-check-double" style="font-size: 2rem; color: #8b5cf6;"></i>
-                    </div>
-                    <h4 style="margin-bottom: 10px;">Selection</h4>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Final offer letter rollout</p>
-                </div>
-            </div>
-        </div>
-        <style>
-            .process-grid {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-            }
-
-            @media (max-width: 768px) {
-                .process-grid {
-                    flex-direction: column;
-                }
-
-                .process-arrow {
-                    display: none;
-                }
-            }
-        </style>
-    </section>
-
-    <!-- Top Recruiters (Marquee with Placeholder Logos logic) -->
-    <section class="section-padding" style="background: rgba(255,255,255,0.02); overflow: hidden;">
-
-        <div class="container animate-up delay-200">
-            <h2 class="section-title text-center">Our Top Recruiters</h2>
-            <p class="text-center" style="color: var(--text-dim); margin-bottom: 40px;">
-                Proud to be associated with industry leaders.
-            </p>
-
-            <div class="marquee-wrapper">
-                <div class="marquee-track">
-                    {% for _ in range(2) %}
-                    {% for company in data.recruiters %}
-                    <div class="marquee-item">
-                        <!-- Simulate Logo Card -->
-                        <div
-                            style="background: white; padding: 15px 30px; border-radius: 10px; min-width: 150px; text-align: center; display: flex; align-items: center; justify-content: center; height: 80px;">
-                            <span style="color: #333; font-weight: 800; font-size: 1.2rem;">{{ company }}</span>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Methodology -->
-    <section class="section-padding">
-        <div class="container animate-up delay-300">
-            <h2 class="section-title text-center">Training Methodology</h2>
-            <div style="text-align: center; margin-bottom: 40px;">
-                <p style="color: var(--text-dim); max-width: 800px; margin: 0 auto;">
-                    We monitor the student's progress right from the first year. Specialized training modules are
-                    integrated
-                    into the curriculum to ensure holistic development. Our "Campus to Corporate" program is designed to
-                    bridge the gap between academic learning and industry requirements.
-                </p>
-
-                <!-- Training Arrow Flow -->
+            <div class="clean-card" style="display: flex; gap: 20px; align-items: flex-start;">
                 <div
-                    style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; align-items: center;">
-                    <div class="glass-card" style="padding: 15px 30px; border: 1px solid var(--primary);">
-                        <h4 style="color: var(--primary); margin: 0;">Training</h4>
-                    </div>
-                    <i class="fas fa-arrow-right text-dim"></i>
-                    <div class="glass-card" style="padding: 15px 30px; border: 1px solid var(--accent);">
-                        <h4 style="color: var(--accent); margin: 0;">Practice</h4>
-                    </div>
-                    <i class="fas fa-arrow-right text-dim"></i>
-                    <div class="glass-card" style="padding: 15px 30px; border: 1px solid #10b981;">
-                        <h4 style="color: #10b981; margin: 0;">Placement</h4>
-                    </div>
+                    style="background: var(--bg-off-white); padding: 15px; border-radius: 8px; color: var(--accent); font-size: 1.5rem;">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Technical Workshops</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Hands-on workshops on latest technologies
+                        like AI, ML, IoT, and Cloud Computing conducted by industry experts.</p>
                 </div>
             </div>
 
-            <div class="feature-grid" style="margin-top: 60px;">
-                <div class="glass-card animate-on-scroll card-pop">
-                    <h3 class="text-primary">Pre-Placement Talks</h3>
-                    <p style="color: var(--text-dim); margin-top: 10px;">
-                        Regular sessions by industry experts to guide students on career paths and industry
-                        expectations.
-                    </p>
+            <div class="clean-card" style="display: flex; gap: 20px; align-items: flex-start;">
+                <div
+                    style="background: var(--bg-off-white); padding: 15px; border-radius: 8px; color: #10b981; font-size: 1.5rem;">
+                    <i class="fas fa-user-friends"></i>
                 </div>
-                <div class="glass-card animate-on-scroll card-pop" style="transition-delay: 0.1s;">
-                    <h3 class="text-accent">Aptitude Training</h3>
-                    <p style="color: var(--text-dim); margin-top: 10px;">
-                        Specialized classes for quantitative aptitude, logical reasoning, and verbal ability.
-                    </p>
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Mock Interviews</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Simulated interview environments with
+                        feedback to boost confidence and refine answering strategies.</p>
                 </div>
-                <div class="glass-card animate-on-scroll card-pop" style="transition-delay: 0.2s;">
-                    <h3 class="text-primary">Mock Interviews</h3>
-                    <p style="color: var(--text-dim); margin-top: 10px;">
-                        Simulated interview environments to boost confidence and refine communication skills.
-                    </p>
+            </div>
+
+            <div class="clean-card" style="display: flex; gap: 20px; align-items: flex-start;">
+                <div
+                    style="background: var(--bg-off-white); padding: 15px; border-radius: 8px; color: #f59e0b; font-size: 1.5rem;">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Industry Interaction</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Regular industrial visits and expert guest
+                        lectures to provide real-world corporate exposure.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Success Stories -->
-    <section class="section-padding" style="background: rgba(255,255,255,0.02); margin-bottom: 80px;">
-        <div class="container animate-up delay-300">
-            <h2 class="section-title text-center">Alumni Success Stories</h2>
-            <p class="text-center" style="color: var(--text-dim); margin-bottom: 40px;">Inspirations for the next
-                generation.</p>
+<!-- 6. Student Testimonials -->
+<section class="section-padding">
+    <div class="container animate-on-scroll">
+        <h2 class="section-title text-center">Student Success Stories</h2>
+        <div class="grid-3">
+            {% for story in data.stories[:3] %}
+            <div class="clean-card text-center" style="border-top: 3px solid var(--border-color);">
+                <div
+                    style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 3px solid var(--bg-off-white);">
+                    {% if story.image.startswith('http') %}
+                    <img src="{{ story.image }}" alt="{{ story.name }}"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='images/placements/' + story.image) }}"
+                        alt="{{ story.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                    {% endif %}
+                </div>
+                <h4 style="margin-bottom: 5px;">{{ story.name }}</h4>
+                <p style="color: var(--accent); font-weight: 700; font-size: 0.9rem; margin-bottom: 15px;">{{
+                    story.package }}</p>
+                <p style="font-style: italic; font-size: 0.9rem; color: var(--text-muted);">"{{ story.quote }}"</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
-            <div class="marquee-wrapper">
-                <div class="marquee-track">
-                    {% for _ in range(2) %}
-                    {% for story in data.stories %}
-                    <div class="marquee-item">
-                        <div class="glass-card text-center" style="padding: 40px; width: 350px;">
-                            <div
-                                style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--accent);">
-                                {% if story.image.startswith('http') %}
-                                <img src="{{ story.image }}" alt="{{ story.name }}"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                                {% else %}
-                                <img src="{{ url_for('static', filename='images/placements/' + story.image) }}"
-                                    alt="{{ story.name }}" style="width: 100%; height: 100%; object-fit: cover;">
-                                {% endif %}
-                            </div>
-                            <h3 style="color: var(--text-light); margin-bottom: 5px;">{{ story.name }}</h3>
-                            <p style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">{{ story.package }}
-                            </p>
-                            <p style="color: var(--text-dim); font-style: italic;">
-                                "{{ story.quote }}"
-                            </p>
-                        </div>
+<!-- 7. TPO Section -->
+<section class="section-padding bg-light">
+    <div class="container animate-on-scroll">
+        <h2 class="section-title text-center">Placement Officer</h2>
+        <div class="clean-card" style="max-width: 800px; margin: 0 auto;">
+            <div class="grid-2" style="align-items: center; gap: 40px;">
+                <div style="text-align: center;">
+                    <div
+                        style="width: 200px; height: 200px; border-radius: 10px; overflow: hidden; margin: 0 auto; box-shadow: var(--shadow-md);">
+                        <img src="{{ url_for('static', filename='images/placement/tpo_head.jpg') }}" alt="TPO Head"
+                            style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    {% endfor %}
-                    {% endfor %}
+                </div>
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 5px;">Prof. Bhavesh Kumar Khasdev</h3>
+                    <p style="color: var(--accent); font-weight: 600; margin-bottom: 20px;">Head - Training & Placement
+                    </p>
+
+                    <ul style="list-style: none; color: var(--text-main);">
+                        <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                            <i class="fas fa-phone-alt text-primary" style="width: 25px;"></i> +91 98765 43210
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                            <i class="fas fa-envelope text-primary" style="width: 25px;"></i> tpo@sbitm.edu.in
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                            <i class="fas fa-map-marker-alt text-primary" style="width: 25px;"></i> Placement Cell,
+                            Admin Block
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 25px;">
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-sm">Contact TPO Cell</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Simple Counter Animation
+    const counters = document.querySelectorAll('.stat-counter');
+    const speed = 200; // The lower the slower
+
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
+
+    // Trigger animation when stats section is in view
+    let animated = false;
+    window.addEventListener('scroll', () => {
+        const statsSection = document.querySelector('.grid-4');
+        if (statsSection && !animated) {
+            const sectionPos = statsSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight;
+            if (sectionPos < screenPos) {
+                animateCounters();
+                animated = true;
+            }
+        }
+    });
+</script>
 {% endblock %}
