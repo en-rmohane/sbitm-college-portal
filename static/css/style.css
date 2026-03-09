@@ -465,8 +465,10 @@ img {
 
 .faculty-img img {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 15px);
     object-fit: cover;
+    object-position: top;
+    margin-top: 15px;
     transition: transform 0.5s ease;
 }
 
