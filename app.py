@@ -23,6 +23,44 @@ def safe_makedirs(path):
         else:
             raise
 
+# Helper to save uploaded files safely (handles Vercel read-only filesystem)
+def save_file_safely(file, folder):
+    filename = secure_filename(file.filename)
+    if not filename:
+        return ""
+        
+    # Standard path
+    target_path = os.path.join(folder, filename)
+    
+    try:
+        # Try saving to standard location first
+        file.save(target_path)
+        return filename
+    except OSError as e:
+        if e.errno == 30: # Read-only file system
+            # Redirect to /tmp on Vercel
+            tmp_folder = os.path.join('/tmp', folder)
+            os.makedirs(tmp_folder, exist_ok=True)
+            tmp_path = os.path.join(tmp_folder, filename)
+            file.save(tmp_path)
+            print(f"Redirected upload to {tmp_path}")
+            return filename
+        else:
+            raise
+
+# Custom route to serve static files from /tmp on Vercel
+@app.route('/static/images/<path:filename>')
+def serve_tmp_images(filename):
+    from flask import send_from_directory
+    # Try standard static first
+    static_folder = os.path.join(app.root_path, 'static', 'images')
+    if os.path.exists(os.path.join(static_folder, filename)):
+        return send_from_directory(static_folder, filename)
+    
+    # Fallback to /tmp
+    tmp_folder = os.path.join('/tmp', 'static', 'images')
+    return send_from_directory(tmp_folder, filename)
+
 # Ensure upload directory exists
 safe_makedirs(app.config['UPLOAD_FOLDER'])
 
@@ -102,9 +140,7 @@ def manage_faculty():
         if 'image' in request.files:
             file = request.files['image']
             if file and file.filename != '':
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                image_filename = filename
+                image_filename = save_file_safely(file, app.config['UPLOAD_FOLDER'])
 
         new_faculty = {
             "id": str(uuid.uuid4()),
@@ -155,9 +191,7 @@ def edit_faculty(id):
         if 'image' in request.files:
             file = request.files['image']
             if file and file.filename != '':
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                faculty_member['image'] = filename
+                faculty_member['image'] = save_file_safely(file, app.config['UPLOAD_FOLDER'])
 
         utils.save_json('faculty.json', faculty_list)
         flash('Faculty details updated!', 'success')
@@ -189,9 +223,7 @@ def manage_news():
         if 'image' in request.files:
             file = request.files['image']
             if file and file.filename != '':
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['NEWS_FOLDER'], filename))
-                image_filename = filename
+                image_filename = save_file_safely(file, app.config['NEWS_FOLDER'])
         
         new_item = {
             "id": str(uuid.uuid4()),
@@ -231,9 +263,7 @@ def manage_gallery():
         if 'image' in request.files:
             file = request.files['image']
             if file and file.filename != '':
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['GALLERY_FOLDER'], filename))
-                image_filename = filename
+                image_filename = save_file_safely(file, app.config['GALLERY_FOLDER'])
         
         if image_filename:
             new_item = {
@@ -291,9 +321,7 @@ def manage_placements():
             if 'image' in request.files:
                 file = request.files['image']
                 if file and file.filename != '':
-                    filename = secure_filename(file.filename)
-                    file.save(os.path.join(app.config['PLACEMENTS_FOLDER'], filename))
-                    image_filename = filename
+                    image_filename = save_file_safely(file, app.config['PLACEMENTS_FOLDER'])
 
             new_story = {
                 "id": str(uuid.uuid4()),
@@ -342,11 +370,8 @@ def manage_leadership():
         if 'image' in request.files:
             file = request.files['image']
             if file and file.filename != '':
-                filename = secure_filename(file.filename)
-                # Store in faculty folder for simplicity or create specific leadership folder
-                # Using faculty folder as they are staff/faculty essentially
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) 
-                image_filename = filename
+                # Use faculty folder as they are staff/faculty essentially
+                image_filename = save_file_safely(file, app.config['UPLOAD_FOLDER'])
 
         new_leader = {
             "id": str(uuid.uuid4()),
@@ -406,9 +431,7 @@ def manage_departments():
         if 'hod_image' in request.files:
             file = request.files['hod_image']
             if file and file.filename != '':
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                hod_image_filename = filename
+                hod_image_filename = save_file_safely(file, app.config['UPLOAD_FOLDER'])
 
         # Construct new department object
         new_dept = {
@@ -469,9 +492,7 @@ def manage_facilities():
         if 'image' in request.files:
             file = request.files['image']
             if file and file.filename != '':
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['FACILITIES_FOLDER'], filename))
-                image_filename = filename
+                image_filename = save_file_safely(file, app.config['FACILITIES_FOLDER'])
         
         new_facility = {
             "id": str(uuid.uuid4()),
@@ -610,13 +631,8 @@ def upload_faculty():
             
         if file:
             # Use custom name if provided, else original filename
-            if custom_name:
-                filename = secure_filename(custom_name)
-            else:
-                filename = secure_filename(file.filename)
-                
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash(f'Image uploaded successfully as {filename}!', 'success')
+            image_filename = save_file_safely(file, app.config['UPLOAD_FOLDER'])
+            flash(f'Image uploaded successfully!', 'success')
             return redirect(url_for('upload_faculty'))
             
     return render_template('upload_faculty.html')
