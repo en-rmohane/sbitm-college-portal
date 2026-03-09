@@ -1,50 +1,163 @@
 {% extends "admin/layout_admin.html" %}
 
+{% block admin_title %}Dashboard Overview{% endblock %}
+{% block title %}Dashboard Overview{% endblock %}
+{% block heading %}Welcome back, Admin!{% endblock %}
+{% block subheading %}Here's a quick overview of your institution's portal status.{% endblock %}
+
 {% block content %}
-<div class="admin-header">
-    <h1 style="color: var(--text-light);">Dashboard</h1>
+<!-- stats Row -->
+<div
+    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-bottom: 32px;">
+    <div class="premium-card" style="padding: 24px; border-left: 4px solid var(--primary);">
+        <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+                <p style="color: var(--text-muted); font-size: 0.875rem; font-weight: 600; margin-bottom: 8px;">Total
+                    Faculty</p>
+                <h3 style="font-size: 1.5rem; font-weight: 800;">Manage Active</h3>
+            </div>
+            <div
+                style="background: var(--primary-light); color: var(--primary); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="premium-card" style="padding: 24px; border-left: 4px solid var(--success);">
+        <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+                <p style="color: var(--text-muted); font-size: 0.875rem; font-weight: 600; margin-bottom: 8px;">
+                    Placements</p>
+                <h3 style="font-size: 1.5rem; font-weight: 800;">Elite Records</h3>
+            </div>
+            <div
+                style="background: #ecfdf5; color: var(--success); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="premium-card" style="padding: 24px; border-left: 4px solid var(--accent);">
+        <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+                <p style="color: var(--text-muted); font-size: 0.875rem; font-weight: 600; margin-bottom: 8px;">Latest
+                    News</p>
+                <h3 style="font-size: 1.5rem; font-weight: 800;">Live Updates</h3>
+            </div>
+            <div
+                style="background: #f5f3ff; color: var(--accent); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                <i class="fas fa-newspaper"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="premium-card" style="padding: 24px; border-left: 4px solid var(--warning);">
+        <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+                <p style="color: var(--text-muted); font-size: 0.875rem; font-weight: 600; margin-bottom: 8px;">System
+                    Health</p>
+                <h3 style="font-size: 1.5rem; font-weight: 800;">Optimal</h3>
+            </div>
+            <div
+                style="background: #fffbeb; color: var(--warning); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="grid-strict-3">
-    <div class="glass-card" style="padding: 30px;">
-        <h3 style="color: var(--primary); margin-bottom: 10px;">Faculty</h3>
-        <p style="color: var(--text-dim); margin-bottom: 20px;">Manage department staff and HODs.</p>
-        <a href="{{ url_for('manage_faculty') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage Faculty
-            &rarr;</a>
+<!-- Main Management Grid -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px;">
+    <!-- Faculty -->
+    <div class="premium-card">
+        <div style="height: 4px; background: var(--primary);"></div>
+        <div style="padding: 32px;">
+            <div
+                style="background: var(--primary-light); color: var(--primary); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 24px;">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px;">Faculty Management</h4>
+            <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;">Manage your teaching staff,
+                departments, and leadership team information effortlessly.</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="{{ url_for('manage_faculty') }}" class="btn-primary-action">Faculty</a>
+                <a href="{{ url_for('manage_departments') }}" class="btn-primary-action"
+                    style="background: var(--secondary);">Depts</a>
+                <a href="{{ url_for('manage_academics') }}" class="btn-outline-action">Academics</a>
+            </div>
+        </div>
     </div>
 
-    <div class="glass-card" style="padding: 30px;">
-        <h3 style="color: var(--accent); margin-bottom: 10px;">News & Events</h3>
-        <p style="color: var(--text-dim); margin-bottom: 20px;">Update homepage announcements.</p>
-        <a href="{{ url_for('manage_news') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage News &rarr;</a>
+    <!-- Campus Content -->
+    <div class="premium-card">
+        <div style="height: 4px; background: var(--accent);"></div>
+        <div style="padding: 32px;">
+            <div
+                style="background: #f5f3ff; color: var(--accent); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 24px;">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px;">Content & Updates</h4>
+            <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;">Keep the community informed with
+                the latest news, events, and placement success stories.</p>
+            <div style="display: flex; gap: 12px;">
+                <a href="{{ url_for('manage_news') }}" class="btn-primary-action"
+                    style="background: var(--accent);">News Hub</a>
+                <a href="{{ url_for('manage_placements') }}" class="btn-outline-action">Placements</a>
+            </div>
+        </div>
     </div>
 
-    <div class="glass-card" style="padding: 30px;">
-        <h3 style="color: #10b981; margin-bottom: 10px;">Placements</h3>
-        <p style="color: var(--text-dim); margin-bottom: 20px;">Update stats and success stories.</p>
-        <a href="{{ url_for('manage_placements') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage
-            Placements &rarr;</a>
-    </div>
-
-    <div class="glass-card" style="padding: 30px;">
-        <h3 style="color: #a855f7; margin-bottom: 10px;">Gallery</h3>
-        <p style="color: var(--text-dim); margin-bottom: 20px;">Upload and manage institute photos.</p>
-        <a href="{{ url_for('manage_gallery') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage Gallery
-            &rarr;</a>
-    </div>
-
-    <div class="glass-card" style="padding: 30px;">
-        <h3 style="color: #ef4444; margin-bottom: 10px;">Facilities</h3>
-        <p style="color: var(--text-dim); margin-bottom: 20px;">Manage campus facilities info.</p>
-        <a href="{{ url_for('manage_facilities') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage
-            Facilities &rarr;</a>
-    </div>
-
-    <div class="glass-card" style="padding: 30px;">
-        <h3 style="color: #f59e0b; margin-bottom: 10px;">Leadership</h3>
-        <p style="color: var(--text-dim); margin-bottom: 20px;">Manage Principal, Chairman profiles.</p>
-        <a href="{{ url_for('manage_leadership') }}" class="btn btn-outline" style="font-size: 0.9rem;">Manage
-            Leadership &rarr;</a>
+    <!-- Infrastructure -->
+    <div class="premium-card">
+        <div style="height: 4px; background: var(--success);"></div>
+        <div style="padding: 32px;">
+            <div
+                style="background: #ecfdf5; color: var(--success); width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 24px;">
+                <i class="fas fa-hotel"></i>
+            </div>
+            <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px;">Campus Assets</h4>
+            <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;">Maintain detailed information
+                about facilities, labs, and the image gallery.</p>
+            <div style="display: flex; gap: 12px;">
+                <a href="{{ url_for('manage_facilities') }}" class="btn-primary-action"
+                    style="background: var(--success);">Facilities</a>
+                <a href="{{ url_for('manage_gallery') }}" class="btn-outline-action">Gallery</a>
+            </div>
+        </div>
     </div>
 </div>
+
+<style>
+    .btn-primary-action {
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .btn-primary-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-outline-action {
+        border: 1.5px solid var(--border);
+        color: var(--text-main);
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .btn-outline-action:hover {
+        background: var(--bg-body);
+        border-color: var(--text-muted);
+    }
+</style>
 {% endblock %}

@@ -1,64 +1,223 @@
 {% extends "admin/layout_admin.html" %}
 
-{% block content %}
-<div class="admin-header">
-    <h1 style="color: var(--text-light);">Manage News</h1>
-</div>
+{% block title %}News Management{% endblock %}
+{% block admin_title %}News Hub{% endblock %}
+{% block heading %}Campus News & Updates{% endblock %}
+{% block subheading %}Broadcast the latest happenings and academic events to the community.{% endblock %}
 
-<div class="glass-card" style="padding: 30px; margin-bottom: 40px;">
-    <h3 style="margin-bottom: 20px; color: var(--accent);">Add News Event</h3>
-    <form method="POST" enctype="multipart/form-data">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div>
-                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Title</label>
-                <input type="text" name="title" class="form-control" required
-                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+{% block content %}
+<div class="premium-card" style="margin-bottom: 32px;">
+    <div style="padding: 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px;">
+        <div
+            style="background: var(--accent-light); color: var(--accent); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-bullhorn"></i>
+        </div>
+        <h3 style="font-size: 1.1rem; font-weight: 700;">Broadcast New Update</h3>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" style="padding: 32px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            <div class="form-group" style="grid-column: span 2;">
+                <label class="premium-label">Announcement Title</label>
+                <input type="text" name="title" class="premium-input" placeholder="e.g. Annual Cultural Fest 2024"
+                    required>
             </div>
-            <div>
-                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Date</label>
-                <input type="text" name="date" placeholder="e.g. DEC 28, 2024" class="form-control" required
-                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+
+            <div class="form-group">
+                <label class="premium-label">Event Date</label>
+                <input type="text" name="date" placeholder="e.g. DEC 28, 2024" class="premium-input" required>
             </div>
-            <div style="grid-column: span 2;">
-                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Description</label>
-                <textarea name="description" rows="3" class="form-control" required
-                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;"></textarea>
+
+            <div class="form-group">
+                <label class="premium-label">Featured Image</label>
+                <input type="file" name="image" class="premium-input" style="padding: 10px;">
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Recommended: 800x500px</p>
             </div>
-            <div style="grid-column: span 2;">
-                <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Upload Image</label>
-                <input type="file" name="image" class="form-control"
-                    style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 6px;">
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+                <label class="premium-label">Detailed Description</label>
+                <textarea name="description" rows="4"
+                    placeholder="Provide all the necessary details about the event or news..." class="premium-input"
+                    style="resize: vertical;" required></textarea>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary"
-            style="margin-top: 20px; background: var(--accent); border-color: var(--accent);">Add News</button>
+
+        <div style="margin-top: 32px; display: flex; justify-content: flex-end;">
+            <button type="submit" class="premium-btn"
+                style="background: var(--accent); box-shadow: 0 4px 6px rgba(139, 92, 246, 0.2);">
+                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Publish News
+            </button>
+        </div>
     </form>
 </div>
 
-<div class="glass-card" style="padding: 30px;">
-    <h3 style="margin-bottom: 20px; color: var(--text-light);">Latest News</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in news %}
-            <tr>
-                <td>{{ item.title }}</td>
-                <td>{{ item.date }}</td>
-                <td>{{ item.description }}</td>
-                <td>
-                    <a href="{{ url_for('delete_news', id=item.id) }}" class="action-btn btn-delete"
-                        onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="premium-card">
+    <div
+        style="padding: 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+        <h3 style="font-size: 1.1rem; font-weight: 700;">Published Updates</h3>
+        <span
+            style="background: var(--accent-light); color: var(--accent); padding: 4px 12px; border-radius: 100px; font-size: 0.8rem; font-weight: 700;">
+            {{ news|length }} Total
+        </span>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="premium-table">
+            <thead>
+                <tr>
+                    <th style="width: 100px;">Preview</th>
+                    <th>Announcement Details</th>
+                    <th>Content Snippet</th>
+                    <th style="text-align: right;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in news %}
+                <tr>
+                    <td>
+                        <div class="news-thumb">
+                            {% if item.image and item.image.startswith('http') %}
+                            <img src="{{ item.image }}" alt="news">
+                            {% else %}
+                            <img src="{{ url_for('static', filename='images/news/' + item.image) }}" alt="news">
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 700; color: var(--secondary); font-size: 0.95rem; margin-bottom: 4px;">
+                            {{ item.title }}</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--accent); font-weight: 600;">
+                            <i class="far fa-calendar-alt"></i> {{ item.date }}
+                        </div>
+                    </td>
+                    <td>
+                        <p
+                            style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; max-width: 400px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin: 0;">
+                            {{ item.description }}
+                        </p>
+                    </td>
+                    <td style="text-align: right;">
+                        <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                            <a href="{{ url_for('delete_news', id=item.id) }}" class="icon-btn delete-btn"
+                                title="Delete Announcement"
+                                onclick="return confirm('Are you sure you want to delete this news item?')">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<style>
+    /* Reuse global premium styles but with accent adjustments */
+    .news-thumb {
+        width: 80px;
+        height: 50px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--bg-body);
+        border: 1px solid var(--border);
+    }
+
+    .news-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Local overrides if needed, but mostly uses layout_admin's vars */
+    .premium-label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 8px;
+    }
+
+    .premium-input {
+        width: 100%;
+        padding: 12px 16px;
+        background: var(--bg-body);
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        color: var(--text-main);
+        font-family: inherit;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+    }
+
+    .premium-input:focus {
+        outline: none;
+        border-color: var(--accent);
+        background: white;
+        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+    }
+
+    .premium-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .premium-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .premium-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .premium-table th {
+        text-align: left;
+        padding: 16px 24px;
+        background: #f8fafc;
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1.5px solid var(--border);
+    }
+
+    .premium-table td {
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: middle;
+    }
+
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+    }
+
+    .delete-btn {
+        background: #fee2e2;
+        color: var(--danger);
+    }
+
+    .delete-btn:hover {
+        background: var(--danger);
+        color: white;
+    }
+</style>
 {% endblock %}

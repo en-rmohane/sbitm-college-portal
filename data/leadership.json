@@ -1,11 +1,11 @@
 [
     {
-        "id": "chairman_1",
-        "role": "Chairman",
-        "name": "Chairman Name",
-        "designation": "Shri Balaji Shiksha Samiti",
-        "message": "Education is not just about acquiring degrees; it is about building character and enlightening the mind. At SBITM, we have always strived to provide an environment where students can explore their potential and develop skills that are relevant to the changing world. Our commitment is to produce not just engineers and managers, but responsible citizens who can contribute to the nation's growth.",
-        "image": ""
+        "id": "director_1",
+        "role": "Director",
+        "name": "Director",
+        "designation": "SBITM Betul",
+        "message": "At SBITM, we are committed to providing a transformative educational experience. Our focus is on nurturing innovation, character, and professional excellence to prepare students for the global challenges of tomorrow.",
+        "image": "director.png"
     },
     {
         "id": "principal_1",

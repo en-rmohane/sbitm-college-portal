@@ -116,7 +116,8 @@ def manage_faculty():
         return redirect(url_for('manage_faculty'))
         
     faculty_list = utils.load_json('faculty.json')
-    return render_template('admin/manage_faculty.html', faculty=faculty_list)
+    departments_list = utils.load_json('departments.json')
+    return render_template('admin/manage_faculty.html', faculty=faculty_list, departments=departments_list)
 
 @app.route('/admin/faculty/edit/<id>', methods=['GET', 'POST'])
 @login_required
@@ -151,7 +152,8 @@ def edit_faculty(id):
         flash('Faculty details updated!', 'success')
         return redirect(url_for('manage_faculty'))
         
-    return render_template('admin/edit_faculty.html', faculty=faculty_member)
+    departments_list = utils.load_json('departments.json')
+    return render_template('admin/edit_faculty.html', faculty=faculty_member, departments=departments_list)
 
 @app.route('/admin/faculty/delete/<id>')
 @login_required
@@ -480,11 +482,65 @@ def manage_facilities():
 @app.route('/admin/facilities/delete/<id>')
 @login_required
 def delete_facility(id):
-    facilities_list = utils.load_json('facilities.json')
-    facilities_list = [f for f in facilities_list if f['id'] != id]
-    utils.save_json('facilities.json', facilities_list)
-    flash('Facility deleted.', 'info')
+    facilities = utils.load_json('facilities.json')
+    facilities = [f for f in facilities if f['id'] != id]
+    utils.save_json('facilities.json', facilities)
+    flash('Facility removed.', 'success')
     return redirect(url_for('manage_facilities'))
+
+# --- Academics Management ---
+@app.route('/admin/academics', methods=['GET', 'POST'])
+@login_required
+def manage_academics():
+    academics_data = utils.load_json('academics.json')
+    
+    if request.method == 'POST':
+        form_type = request.form.get('form_type')
+        
+        if form_type == 'event':
+            new_event = {
+                "id": str(uuid.uuid4()),
+                "activity": request.form.get('activity'),
+                "date": request.form.get('date'),
+                "category": request.form.get('category'),
+                "badge_class": request.form.get('badge_class')
+            }
+            academics_data['calendar'].append(new_event)
+            flash('Academic event added!', 'success')
+            
+        elif form_type == 'notice':
+            new_notice = {
+                "id": str(uuid.uuid4()),
+                "title": request.form.get('title'),
+                "date": request.form.get('date'),
+                "content": request.form.get('content'),
+                "border_color": request.form.get('border_color') or None
+            }
+            academics_data['notices'].insert(0, new_notice)
+            flash('Notice board updated!', 'success')
+            
+        utils.save_json('academics.json', academics_data)
+        return redirect(url_for('manage_academics'))
+        
+    return render_template('admin/manage_academics.html', academics=academics_data)
+
+@app.route('/admin/academics/event/delete/<id>')
+@login_required
+def delete_academic_event(id):
+    academics_data = utils.load_json('academics.json')
+    academics_data['calendar'] = [e for e in academics_data['calendar'] if e['id'] != id]
+    utils.save_json('academics.json', academics_data)
+    flash('Event removed from calendar.', 'success')
+    return redirect(url_for('manage_academics'))
+
+@app.route('/admin/academics/notice/delete/<id>')
+@login_required
+def delete_academic_notice(id):
+    academics_data = utils.load_json('academics.json')
+    academics_data['notices'] = [n for n in academics_data['notices'] if n['id'] != id]
+    utils.save_json('academics.json', academics_data)
+    flash('Notice removed from feed.', 'success')
+    return redirect(url_for('manage_academics'))
 
 @app.route('/contact')
 def contact():
@@ -492,7 +548,8 @@ def contact():
 
 @app.route('/academics')
 def academics():
-    return render_template('academics.html')
+    academics_data = utils.load_json('academics.json')
+    return render_template('academics.html', academics=academics_data)
 
 @app.route('/faculty')
 def faculty():
