@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1ad6ec22-1e0a-4b46-a562-7dce8ec23f94",
+        "title": "Inter-College Cricket Tournament",
+        "category": "sports",
+        "description": "SBITM wins the inter-college cricket trophy.",
+        "date": "60312-02-20",
+        "image": ""
+    },
+    {
+        "id": "b8803d1a-6f57-436a-a472-45cf33315c4b",
+        "title": "Annual Cultural Fest - Tarang",
+        "category": "cultural",
+        "description": "A night of music, dance and drama.",
+        "date": "60310-02-20",
+        "image": ""
+    }
+]

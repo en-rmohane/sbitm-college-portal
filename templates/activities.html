@@ -1,0 +1,208 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="premium-hero" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 100px 0 60px;">
+    <div class="container" style="text-align: center; color: white;">
+        <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.02em;">Student <span style="color: var(--primary);">Activities</span></h1>
+        <p style="font-size: 1.25rem; color: #94a3b8; max-width: 700px; margin: 0 auto;">Discover the vibrant life at SBITM. From sports tournaments to cultural extravaganzas, we nurture talent beyond the classroom.</p>
+    </div>
+</section>
+
+<!-- Filter Section -->
+<section style="padding: 40px 0; background: #f8fafc;">
+    <div class="container">
+        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;">
+            <button class="filter-btn active" data-filter="all">All Activities</button>
+            <button class="filter-btn" data-filter="sports">Sports</button>
+            <button class="filter-btn" data-filter="cultural">Cultural</button>
+        </div>
+
+        <div class="activities-grid" id="activitiesGrid">
+            {% for activity in activities %}
+            <div class="activity-card" data-category="{{ activity.category|lower }}">
+                <div class="activity-image">
+                    {% if activity.image %}
+                    <img src="{{ url_for('serve_tmp_images', filename='activities/' + activity.image) }}" alt="{{ activity.title }}">
+                    {% else %}
+                    <div class="placeholder-img">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    {% endif %}
+                    <div class="activity-badge">{{ activity.category|upper }}</div>
+                </div>
+                <div class="activity-info">
+                    <div class="activity-date"><i class="far fa-calendar-alt"></i> {{ activity.date }}</div>
+                    <h3>{{ activity.title }}</h3>
+                    <p>{{ activity.description }}</p>
+                </div>
+            </div>
+            {% else %}
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px; color: var(--text-muted);">
+                <i class="fas fa-info-circle" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.3;"></i>
+                <p>No activities have been posted yet. Check back soon!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+    .filter-btn {
+        padding: 12px 32px;
+        border-radius: 100px;
+        border: 1.5px solid var(--border);
+        background: white;
+        color: var(--secondary);
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .filter-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        transform: translateY(-2px);
+    }
+
+    .filter-btn.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: white;
+        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    }
+
+    .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 32px;
+    }
+
+    .activity-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .activity-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .activity-image {
+        position: relative;
+        height: 240px;
+        overflow: hidden;
+    }
+
+    .activity-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .activity-card:hover .activity-image img {
+        transform: scale(1.1);
+    }
+
+    .activity-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--primary);
+        padding: 6px 16px;
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .activity-info {
+        padding: 28px;
+    }
+
+    .activity-date {
+        font-size: 0.85rem;
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .activity-info h3 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--secondary);
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+
+    .activity-info p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .placeholder-img {
+        width: 100%;
+        height: 100%;
+        background: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #cbd5e1;
+        font-size: 3rem;
+    }
+
+    @media (max-width: 768px) {
+        .activities-grid {
+            grid-template-columns: 1fr;
+        }
+        .premium-hero h1 {
+            font-size: 2.5rem;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.activity-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 10);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}

@@ -84,6 +84,9 @@ safe_makedirs(app.config['PLACEMENTS_FOLDER'])
 app.config['FACILITIES_FOLDER'] = 'static/images/facilities'
 safe_makedirs(app.config['FACILITIES_FOLDER'])
 
+app.config['ACTIVITIES_FOLDER'] = 'static/images/activities'
+safe_makedirs(app.config['ACTIVITIES_FOLDER'])
+
 # Login Required Decorator
 def login_required(f):
     @wraps(f)
@@ -611,6 +614,87 @@ def delete_academic_notice(id):
     utils.save_json('academics.json', academics_data)
     flash('Notice removed from feed.', 'success')
     return redirect(url_for('manage_academics'))
+
+@app.route('/activities')
+def activities():
+    activities_list = utils.load_json('activities.json')
+    # Sort by date descending
+    activities_list.sort(key=lambda x: x.get('date', ''), reverse=True)
+    return render_template('activities.html', activities=activities_list)
+
+@app.route('/admin/activities', methods=['GET', 'POST'])
+@login_required
+def manage_activities():
+    if request.method == 'POST':
+        title = request.form.get('title')
+        category = request.form.get('category')
+        description = request.form.get('description')
+        date = request.form.get('date')
+        image_file = request.files.get('image')
+        
+        if not title or not category:
+            flash('Title and Category are required.', 'danger')
+            return redirect(url_for('manage_activities'))
+            
+        activities_list = utils.load_json('activities.json')
+        
+        filename = ""
+        if image_file and image_file.filename != '':
+            filename = save_file_safely(image_file, app.config['ACTIVITIES_FOLDER'])
+            
+        new_activity = {
+            "id": str(uuid.uuid4()),
+            "title": title,
+            "category": category,
+            "description": description,
+            "date": date,
+            "image": filename
+        }
+        
+        activities_list.append(new_activity)
+        utils.save_json('activities.json', activities_list)
+        flash('Activity added successfully!', 'success')
+        return redirect(url_for('manage_activities'))
+        
+    activities_list = utils.load_json('activities.json')
+    activities_list.sort(key=lambda x: x.get('date', ''), reverse=True)
+    return render_template('admin/manage_activities.html', activities=activities_list)
+
+@app.route('/admin/activities/delete/<id>')
+@login_required
+def delete_activity(id):
+    activities_list = utils.load_json('activities.json')
+    activities_list = [a for a in activities_list if a['id'] != id]
+    utils.save_json('activities.json', activities_list)
+    flash('Activity deleted successfully!', 'success')
+    return redirect(url_for('manage_activities'))
+
+@app.route('/admin/activities/edit/<id>', methods=['GET', 'POST'])
+@login_required
+def edit_activity(id):
+    activities_list = utils.load_json('activities.json')
+    activity = next((a for a in activities_list if a['id'] == id), None)
+    
+    if not activity:
+        flash('Activity not found.', 'danger')
+        return redirect(url_for('manage_activities'))
+        
+    if request.method == 'POST':
+        activity['title'] = request.form.get('title')
+        activity['category'] = request.form.get('category')
+        activity['description'] = request.form.get('description')
+        activity['date'] = request.form.get('date')
+        
+        image_file = request.files.get('image')
+        if image_file and image_file.filename != '':
+            filename = save_file_safely(image_file, app.config['ACTIVITIES_FOLDER'])
+            activity['image'] = filename
+            
+        utils.save_json('activities.json', activities_list)
+        flash('Activity updated successfully!', 'success')
+        return redirect(url_for('manage_activities'))
+        
+    return render_template('admin/edit_activity.html', activity=activity)
 
 @app.route('/contact')
 def contact():
