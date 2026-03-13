@@ -133,7 +133,12 @@ def admin_logout():
 @app.route('/admin/dashboard')
 @login_required
 def admin_dashboard():
-    return render_template('admin/dashboard.html')
+    stats = {
+        'faculty': len(utils.load_json('faculty.json')),
+        'news': len(utils.load_json('news.json')),
+        'activities': len(utils.load_json('activities.json'))
+    }
+    return render_template('admin/dashboard.html', stats=stats)
 
 # --- Faculty Management ---
 @app.route('/admin/faculty', methods=['GET', 'POST'])
@@ -744,6 +749,11 @@ def news():
     news_items = utils.load_json('news.json')
     # Sort news by date if possible (assuming date format is consistent)
     return render_template('news.html', news=news_items)
+
+@app.route('/activities')
+def activities():
+    activities_list = utils.load_json('activities.json')
+    return render_template('activities.html', activities=activities_list)
 
 @app.route('/admin/activities', methods=['GET', 'POST'])
 @login_required
