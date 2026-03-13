@@ -750,11 +750,6 @@ def news():
     # Sort news by date if possible (assuming date format is consistent)
     return render_template('news.html', news=news_items)
 
-@app.route('/activities')
-def activities():
-    activities_list = utils.load_json('activities.json')
-    return render_template('activities.html', activities=activities_list)
-
 @app.route('/admin/activities', methods=['GET', 'POST'])
 @login_required
 def manage_activities():
