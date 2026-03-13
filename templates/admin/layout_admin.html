@@ -472,6 +472,11 @@
                 <i class="fas fa-images"></i>
                 <span>Media Gallery</span>
             </a>
+            <a href="{{ url_for('manage_activities') }}"
+                class="nav-item {% if request.endpoint == 'manage_activities' %}active{% endif %}">
+                <i class="fas fa-skating"></i>
+                <span>Student Activities</span>
+            </a>
             <a href="{{ url_for('manage_facilities') }}" class="nav-item">
                 <i class="fas fa-building"></i>
                 <span>Facilities</span>

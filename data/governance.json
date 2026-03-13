@@ -25,14 +25,5 @@
         "description": "Responsible for the development of technical education in the state of Madhya Pradesh.",
         "logo": "dte_logo.png",
         "website": "https://dte.mponline.gov.in/"
-    },
-    {
-        "id": "4",
-        "name": "BU Bhopal",
-        "full_name": "Barkatullah University, Bhopal",
-        "type": "Affiliating University (Management)",
-        "description": "A leading university in Madhya Pradesh for Management and other higher education courses.",
-        "logo": "bu_logo.png",
-        "website": "http://www.bubhopal.ac.in/"
     }
 ]
